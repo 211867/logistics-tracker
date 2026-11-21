@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-11-21T08:39:58.252793+00:00",
+  "updated_at": "2026-11-21T09:37:37.000722+00:00",
   "macro": {
     "diesel_price_usd": 5.937,
     "freight_tsi": 134.4
   },
   "hubs": [
     {
-      "recorded_at": "2026-11-21T08:39:58.252793+00:00",
+      "recorded_at": "2026-11-21T09:37:37.000722+00:00",
       "hub_code": "PORT_NOLA",
       "hub_name": "Port of New Orleans",
       "hub_type": "seaport",
@@ -14,7 +14,7 @@
       "status": "Active / Low Density",
       "primary_metric": 0,
       "secondary_metric": 0,
-      "weather_summary": "63\u00b0F, Mostly Clear, Wind 5 mph",
+      "weather_summary": "62\u00b0F, Partly Cloudy, Wind 5 mph",
       "diesel_price_usd": 5.937,
       "freight_index": 134.4,
       "raw_payload": {
@@ -23,24 +23,24 @@
       }
     },
     {
-      "recorded_at": "2026-11-21T08:39:58.252793+00:00",
+      "recorded_at": "2026-11-21T09:37:37.000722+00:00",
       "hub_code": "PORT_MIA",
       "hub_name": "Port of Miami",
       "hub_type": "seaport",
       "region": "Southeast",
-      "status": "Active / Low Density",
-      "primary_metric": 1,
-      "secondary_metric": 1,
+      "status": "Moderate Traffic",
+      "primary_metric": 5,
+      "secondary_metric": 4,
       "weather_summary": "Telemetry Nominal",
       "diesel_price_usd": 5.937,
       "freight_index": 134.4,
       "raw_payload": {
-        "active_vessels": 1,
-        "stationary_or_berthed": 1
+        "active_vessels": 5,
+        "stationary_or_berthed": 4
       }
     },
     {
-      "recorded_at": "2026-11-21T08:39:58.252793+00:00",
+      "recorded_at": "2026-11-21T09:37:37.000722+00:00",
       "hub_code": "MSY",
       "hub_name": "Louis Armstrong New Orleans Intl",
       "hub_type": "airport",
@@ -48,7 +48,7 @@
       "status": "Normal Operations",
       "primary_metric": 0,
       "secondary_metric": 0,
-      "weather_summary": "64\u00b0F, Mostly Clear, Wind 5 mph",
+      "weather_summary": "63\u00b0F, Mostly Clear, Wind 5 mph",
       "diesel_price_usd": 5.937,
       "freight_index": 134.4,
       "raw_payload": {
@@ -57,7 +57,7 @@
       }
     },
     {
-      "recorded_at": "2026-11-21T08:39:58.252793+00:00",
+      "recorded_at": "2026-11-21T09:37:37.000722+00:00",
       "hub_code": "SDF",
       "hub_name": "Louisville Muhammad Ali Intl (UPS Worldport)",
       "hub_type": "airport",
@@ -65,7 +65,7 @@
       "status": "Normal Operations",
       "primary_metric": 0,
       "secondary_metric": 0,
-      "weather_summary": "45\u00b0F, Clear, Wind 2 mph",
+      "weather_summary": "44\u00b0F, Clear, Wind 3 mph",
       "diesel_price_usd": 5.937,
       "freight_index": 134.4,
       "raw_payload": {
