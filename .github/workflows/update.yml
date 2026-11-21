@@ -1,0 +1,40 @@
+name: Update 30-Minute Hub Telemetry
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fetch-and-log:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run 30-minute telemetry fetcher
+        env:
+          AISSTREAM_API_KEY: ${{ secrets.AISSTREAM_API_KEY }}
+          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+        run: python fetch_data.py
+
+      - name: Commit updated live.json
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "Telemetry Bot"
+          git add live.json
+          git diff --quiet && git diff --staged --quiet || git commit -m "Update live.json snapshot"
+          git push
