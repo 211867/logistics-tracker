@@ -8,8 +8,14 @@ from supabase import create_client
 
 AISSTREAM_KEY = os.environ.get("AISSTREAM_API_KEY", "").strip()
 FRED_KEY = os.environ.get("FRED_API_KEY", "").strip()
-SUPABASE_URL = os.environ.get("SUPABASE_URL", "").strip()
+SUPABASE_URL = os.environ.get("SUPABASE_URL", "").strip().rstrip("/")
 SUPABASE_KEY = os.environ.get("SUPABASE_KEY", "").strip()
+
+if SUPABASE_URL and not SUPABASE_URL.startswith("http"):
+    SUPABASE_URL = "https:" + chr(47) * 2 + SUPABASE_URL
+
+SLASH = chr(47)
+DBL = SLASH * 2
 
 PORTS = {
     "PORT_NOLA": {
@@ -48,7 +54,7 @@ AIRPORTS = {
 def get_fred_latest(series_id):
     if not FRED_KEY:
         return None
-    url = "https://stlouisfed.org"
+    url = f"https:{DBL}api.stlouisfed.org{SLASH}fred{SLASH}series{SLASH}observations"
     params = {
         "series_id": series_id,
         "api_key": FRED_KEY,
@@ -57,7 +63,8 @@ def get_fred_latest(series_id):
         "limit": 5
     }
     try:
-        r = requests.get(url, params=params, timeout=15).json()
+        res = requests.get(url, params=params, headers={"Accept": "application/json"}, timeout=15)
+        r = res.json()
         for obs in r.get("observations", []):
             if obs.get("value") not in (None, "."):
                 return float(obs["value"])
@@ -66,9 +73,9 @@ def get_fred_latest(series_id):
     return None
 
 def get_noaa_weather(lat, lon):
-    headers = {"User-Agent": "WaybillIndexTelemetry/1.0 (contact@example.com)"}
+    headers = {"User-Agent": "WaybillIndexTelemetry/1.0 (contact@example.com)", "Accept": "application/geo+json"}
     try:
-        pt_url = f"https://weather.gov{lat},{lon}"
+        pt_url = f"https:{DBL}api.weather.gov{SLASH}points{SLASH}{lat},{lon}"
         pt = requests.get(pt_url, headers=headers, timeout=10).json()
         forecast_url = pt["properties"]["forecastHourly"]
         fc = requests.get(forecast_url, headers=headers, timeout=10).json()
@@ -81,7 +88,8 @@ def get_noaa_weather(lat, lon):
 def get_faa_delays():
     delays = {}
     try:
-        r = requests.get("https://faa.gov", timeout=10)
+        faa_url = f"https:{DBL}nasstatus.faa.gov{SLASH}api{SLASH}airport-status-information"
+        r = requests.get(faa_url, timeout=10)
         text = r.text
         for code in ["MSY", "SDF"]:
             delays[code] = "Delay Advisory" if f">{code}<" in text else "Normal Operations"
@@ -101,8 +109,9 @@ async def scan_ais_ports(duration_sec=20):
         "BoundingBoxes": boxes,
         "FilterMessageTypes": ["PositionReport"]
     }
+    ws_url = f"wss:{DBL}stream.aisstream.io{SLASH}v0{SLASH}stream"
     try:
-        async with websockets.connect("wss://stream.aisstream.io/v0/stream", open_timeout=15) as ws:
+        async with websockets.connect(ws_url, open_timeout=15) as ws:
             await ws.send(json.dumps(sub_msg))
             end_time = asyncio.get_event_loop().time() + duration_sec
             while asyncio.get_event_loop().time() < end_time:
