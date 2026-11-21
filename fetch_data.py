@@ -93,16 +93,22 @@ def get_live_flights(lat, lon, radius_nm=15):
         r = requests.get(url, timeout=10).json()
         for ac in r.get("ac", []):
             callsign = (ac.get("flight") or "").strip()
-            if callsign:
+            alt = ac.get("alt_baro")
+            if not callsign or alt is None:
+                continue
+            # Keep aircraft on the ground or below 10,000 ft (arrivals/departures only)
+            is_terminal = (alt == "ground") or (isinstance(alt, (int, float)) and alt <= 10000)
+            if is_terminal:
                 flights.append({
                     "callsign": callsign,
                     "type": ac.get("t", "N/A"),
-                    "alt_ft": ac.get("alt_baro", 0),
-                    "speed_kt": ac.get("gs", 0)
+                    "alt_ft": 0 if alt == "ground" else int(alt),
+                    "speed_kt": round(float(ac.get("gs") or 0), 1),
+                    "phase": "Ground/Taxi" if alt == "ground" else ("Approach/Departure" if alt <= 4000 else "Terminal Airspace")
                 })
     except Exception as e:
         print(f"ADS-B flight error ({lat},{lon}): {e}")
-    return flights[:10]
+    return flights
 
 async def scan_ais_ports(duration_sec=20):
     results = {code: {"vessels": {}, "anchored": set()} for code in PORTS}
