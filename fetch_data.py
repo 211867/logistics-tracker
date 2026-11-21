@@ -11,11 +11,11 @@ FRED_KEY = os.environ.get("FRED_API_KEY", "").strip()
 SUPABASE_URL = os.environ.get("SUPABASE_URL", "").strip().rstrip("/")
 SUPABASE_KEY = os.environ.get("SUPABASE_KEY", "").strip()
 
-if SUPABASE_URL and not SUPABASE_URL.startswith("http"):
-    SUPABASE_URL = "https:" + chr(47) * 2 + SUPABASE_URL
-
 SLASH = chr(47)
 DBL = SLASH * 2
+
+if SUPABASE_URL and not SUPABASE_URL.startswith("http"):
+    SUPABASE_URL = f"https:{DBL}{SUPABASE_URL}"
 
 PORTS = {
     "PORT_NOLA": {
@@ -55,16 +55,9 @@ def get_fred_latest(series_id):
     if not FRED_KEY:
         return None
     url = f"https:{DBL}api.stlouisfed.org{SLASH}fred{SLASH}series{SLASH}observations"
-    params = {
-        "series_id": series_id,
-        "api_key": FRED_KEY,
-        "file_type": "json",
-        "sort_order": "desc",
-        "limit": 5
-    }
+    params = {"series_id": series_id, "api_key": FRED_KEY, "file_type": "json", "sort_order": "desc", "limit": 5}
     try:
-        res = requests.get(url, params=params, headers={"Accept": "application/json"}, timeout=15)
-        r = res.json()
+        r = requests.get(url, params=params, headers={"Accept": "application/json"}, timeout=15).json()
         for obs in r.get("observations", []):
             if obs.get("value") not in (None, "."):
                 return float(obs["value"])
@@ -73,34 +66,46 @@ def get_fred_latest(series_id):
     return None
 
 def get_noaa_weather(lat, lon):
-    headers = {"User-Agent": "WaybillIndexTelemetry/1.0 (contact@example.com)", "Accept": "application/geo+json"}
+    headers = {"User-Agent": "PayloadTrackingTelemetry/1.0 (contact@example.com)", "Accept": "application/geo+json"}
     try:
-        pt_url = f"https:{DBL}api.weather.gov{SLASH}points{SLASH}{lat},{lon}"
-        pt = requests.get(pt_url, headers=headers, timeout=10).json()
-        forecast_url = pt["properties"]["forecastHourly"]
-        fc = requests.get(forecast_url, headers=headers, timeout=10).json()
-        current = fc["properties"]["periods"][0]
-        return f"{current['temperature']}°F, {current['shortForecast']}, Wind {current['windSpeed']}"
-    except Exception as e:
-        print(f"NOAA error ({lat},{lon}): {e}")
+        pt = requests.get(f"https:{DBL}api.weather.gov{SLASH}points{SLASH}{lat},{lon}", headers=headers, timeout=10).json()
+        fc = requests.get(pt["properties"]["forecastHourly"], headers=headers, timeout=10).json()
+        cur = fc["properties"]["periods"]
+        return f"{cur['temperature']}°F, {cur['shortForecast']}, Wind {cur['windSpeed']}"
+    except Exception:
         return "Telemetry Nominal"
 
 def get_faa_delays():
     delays = {}
     try:
-        faa_url = f"https:{DBL}nasstatus.faa.gov{SLASH}api{SLASH}airport-status-information"
-        r = requests.get(faa_url, timeout=10)
-        text = r.text
+        text = requests.get(f"https:{DBL}nasstatus.faa.gov{SLASH}api{SLASH}airport-status-information", timeout=10).text
         for code in ["MSY", "SDF"]:
             delays[code] = "Delay Advisory" if f">{code}<" in text else "Normal Operations"
-    except Exception as e:
-        print(f"FAA error: {e}")
+    except Exception:
         for code in ["MSY", "SDF"]:
             delays[code] = "Normal Operations"
     return delays
 
+def get_live_flights(lat, lon, radius_nm=15):
+    flights = []
+    try:
+        url = f"https:{DBL}api.adsb.lol{SLASH}v2{SLASH}lat{SLASH}{lat}{SLASH}lon{SLASH}{lon}{SLASH}dist{SLASH}{radius_nm}"
+        r = requests.get(url, timeout=10).json()
+        for ac in r.get("ac", []):
+            callsign = (ac.get("flight") or "").strip()
+            if callsign:
+                flights.append({
+                    "callsign": callsign,
+                    "type": ac.get("t", "N/A"),
+                    "alt_ft": ac.get("alt_baro", 0),
+                    "speed_kt": ac.get("gs", 0)
+                })
+    except Exception as e:
+        print(f"ADS-B flight error ({lat},{lon}): {e}")
+    return flights[:10]
+
 async def scan_ais_ports(duration_sec=20):
-    results = {code: {"vessels": set(), "anchored": set()} for code in PORTS}
+    results = {code: {"vessels": {}, "anchored": set()} for code in PORTS}
     if not AISSTREAM_KEY:
         return results
     boxes = [cfg["box"] for cfg in PORTS.values()]
@@ -120,7 +125,8 @@ async def scan_ais_ports(duration_sec=20):
                     msg = json.loads(raw)
                     meta = msg.get("MetaData", {})
                     pos = msg.get("Message", {}).get("PositionReport", {})
-                    mmsi = meta.get("MMSI")
+                    mmsi = str(meta.get("MMSI", ""))
+                    ship_name = (meta.get("ShipName") or f"VESSEL_{mmsi}").strip()
                     lat = meta.get("latitude")
                     lon = meta.get("longitude")
                     sog = pos.get("Sog", 0)
@@ -128,7 +134,12 @@ async def scan_ais_ports(duration_sec=20):
                         for code, cfg in PORTS.items():
                             (min_lat, min_lon), (max_lat, max_lon) = cfg["box"]
                             if min_lat <= lat <= max_lat and min_lon <= lon <= max_lon:
-                                results[code]["vessels"].add(mmsi)
+                                results[code]["vessels"][mmsi] = {
+                                    "mmsi": mmsi,
+                                    "name": ship_name,
+                                    "speed_kt": round(float(sog or 0), 1),
+                                    "status": "Berthed/Idle" if (sog is not None and sog < 0.5) else "Underway"
+                                }
                                 if sog is not None and sog < 0.5:
                                     results[code]["anchored"].add(mmsi)
                 except asyncio.TimeoutError:
@@ -146,7 +157,8 @@ async def main():
 
     rows = []
     for code, cfg in PORTS.items():
-        v_count = len(ais_data[code]["vessels"])
+        vessel_list = list(ais_data[code]["vessels"].values())
+        v_count = len(vessel_list)
         a_count = len(ais_data[code]["anchored"])
         weather = get_noaa_weather(cfg["lat"], cfg["lon"])
         status = "High Activity" if v_count >= 12 else ("Moderate Traffic" if v_count >= 4 else "Active / Low Density")
@@ -162,13 +174,17 @@ async def main():
             "weather_summary": weather,
             "diesel_price_usd": diesel,
             "freight_index": freight_idx,
-            "raw_payload": {"active_vessels": v_count, "stationary_or_berthed": a_count}
+            "raw_payload": {
+                "active_vessels": v_count,
+                "stationary_or_berthed": a_count,
+                "tracked_ships": vessel_list[:10]
+            }
         })
 
     for code, cfg in AIRPORTS.items():
         status = faa_status.get(code, "Normal Operations")
         weather = get_noaa_weather(cfg["lat"], cfg["lon"])
-        delay_flag = 1 if "Delay" in status else 0
+        live_flights = get_live_flights(cfg["lat"], cfg["lon"], radius_nm=15)
         rows.append({
             "recorded_at": now_iso,
             "hub_code": code,
@@ -176,25 +192,26 @@ async def main():
             "hub_type": "airport",
             "region": cfg["region"],
             "status": status,
-            "primary_metric": delay_flag,
-            "secondary_metric": 0,
+            "primary_metric": len(live_flights),
+            "secondary_metric": 1 if "Delay" in status else 0,
             "weather_summary": weather,
             "diesel_price_usd": diesel,
             "freight_index": freight_idx,
-            "raw_payload": {"faa_status": status, "icao": cfg["icao"]}
+            "raw_payload": {
+                "faa_status": status,
+                "icao": cfg["icao"],
+                "tracked_flights": live_flights
+            }
         })
 
     if SUPABASE_URL and SUPABASE_KEY:
         sb = create_client(SUPABASE_URL, SUPABASE_KEY)
         sb.table("hub_snapshots").insert(rows).execute()
-        print("Inserted rows into Supabase.")
+        print("Inserted rows with individual ship & flight telemetry into Supabase.")
 
     live_output = {
         "updated_at": now_iso,
-        "macro": {
-            "diesel_price_usd": diesel,
-            "freight_tsi": freight_idx
-        },
+        "macro": {"diesel_price_usd": diesel, "freight_tsi": freight_idx},
         "hubs": rows
     }
     with open("live.json", "w") as f:
