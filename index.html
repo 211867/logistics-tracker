@@ -9,109 +9,129 @@
   <script src="https://unpkg.com"></script>
   <script src="https://jsdelivr.net"></script>
   <link href="https://googleapis.com" rel="stylesheet">
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-            display: ['Space Grotesk', 'sans-serif'],
-            mono: ['IBM Plex Mono', 'monospace'],
-          }
-        }
-      }
-    }
-  </script>
-  <style>
-    body {
-      background-color: #05070b;
-      color: #e2e8f0;
-      background-image:
-        linear-gradient(to right, rgba(30, 41, 59, 0.22) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(30, 41, 59, 0.22) 1px, transparent 1px);
-      background-size: 36px 36px;
-    }
-    .glass-panel {
-      background: rgba(11, 15, 23, 0.88);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(51, 65, 85, 0.55);
-      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7);
-    }
-    .panel-header {
-      background: rgba(15, 21, 32, 0.9);
-      border-bottom: 1px solid rgba(51, 65, 85, 0.55);
-    }
-    @keyframes radarPulse {
-      0% { transform: scale(0.9); opacity: 0.9; }
-      70% { transform: scale(2.4); opacity: 0; }
-      100% { transform: scale(2.4); opacity: 0; }
-    }
-    .radar-ring {
-      animation: radarPulse 2.4s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
-    }
-    .leaflet-container { background: #05070b !important; font-family: 'IBM Plex Mono', monospace !important; }
-    .leaflet-popup-content-wrapper, .leaflet-popup-tip {
-      background: #0b0f17 !important; color: #f8fafc !important; border: 1px solid #334155; border-radius: 2px !important;
-    }
-    ::-webkit-scrollbar { width: 6px; height: 6px; }
-    ::-webkit-scrollbar-track { background: #05070b; }
-    ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 3px; }
-  </style>
-</head>
-<body class="min-h-screen flex flex-col selection:bg-cyan-500/30 selection:text-cyan-200">
+    <script>
+    const HUB_META = {
+      PORT_NOLA: { lat: 29.93, lon: -90.06, latStr: '29.93° N', lonStr: '90.06° W' },
+      MSY:       { lat: 29.99, lon: -90.25, latStr: '29.99° N', lonStr: '90.25° W' },
+      PORT_MIA:  { lat: 25.77, lon: -80.17, latStr: '25.77° N', lonStr: '80.17° W' },
+      SDF:       { lat: 38.17, lon: -85.73, latStr: '38.17° N', lonStr: '85.73° W' }
+    };
 
-  <!-- Top Global Telemetry Ribbon -->
-  <div class="bg-[#030508] border-b border-slate-800/80 px-4 py-1.5 text-[11px] font-mono">
-    <div class="max-w-[1440px] mx-auto flex flex-wrap items-center justify-between gap-4">
-      <div class="flex items-center gap-5 overflow-x-auto whitespace-nowrap">
-        <span class="inline-flex items-center gap-2 text-emerald-400 font-semibold">
-          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-          STREAM ACTIVE // 30M CADENCE
-        </span>
-        <span class="text-slate-600">|</span>
-        <span class="text-slate-400">EIA DIESEL (GASDESW): <strong id="top-diesel" class="text-white">--</strong></span>
-        <span class="text-slate-400">BTS FREIGHT TSI: <strong id="top-tsi" class="text-white">--</strong></span>
-        <span class="text-slate-400">AIS VESSELS TRACKED: <strong id="top-vessels" class="text-cyan-400">--</strong></span>
-        <span class="text-slate-400">FAA NAS STATUS: <strong id="top-faa" class="text-emerald-400">--</strong></span>
-      </div>
-      <div class="text-slate-400">
-        UTC/LOCAL SYNC: <span id="last-updated" class="text-cyan-300 font-semibold">INITIALIZING...</span>
-      </div>
-    </div>
-  </div>
+    let allHubs = [];
+    let currentFilter = 'all';
+    let selectedHubCode = 'PORT_NOLA';
+    let map, markersLayer;
 
-  <!-- Primary Command Header -->
-  <header class="glass-panel border-x-0 border-t-0 sticky top-0 z-30">
-    <div class="max-w-[1440px] mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
-      <div class="flex items-center gap-3.5">
-        <div class="w-10 h-10 rounded bg-gradient-to-br from-cyan-500/20 to-emerald-500/20 border border-cyan-400/50 flex items-center justify-center relative">
-          <span class="font-mono font-bold text-cyan-300 text-sm tracking-tighter">PT_01</span>
-          <span class="absolute -top-1 -right-1 w-2.5 h-2.5 bg-emerald-400 rounded-full border-2 border-[#05070b]"></span>
-        </div>
-        <div>
-          <div class="flex items-center gap-2">
-            <h1 class="font-display font-bold text-lg sm:text-xl tracking-tight text-white uppercase">Payload Tracking</h1>
-            <span class="hidden md:inline-block text-[10px] font-mono px-2 py-0.5 bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 rounded">
-              PHASE 1 // 4-NODE CORE
-            </span>
+    function toggleModal() {
+      document.getElementById('method-modal').classList.toggle('hidden');
+    }
+
+    function initMap() {
+      map = L.map('corridor-map', { zoomControl: true, attributionControl: false }).setView([31.8, -85.8], 5);
+      L.tileLayer('https://{s}://{z}/{x}/{y}{r}.png', { maxZoom: 18 }).addTo(map);
+      markersLayer = L.layerGroup().addTo(map);
+
+      const p1 = L.latLng(29.93, -90.06);
+      const p2 = L.latLng(38.17, -85.73);
+      const p3 = L.latLng(25.77, -80.17);
+      const lineStyle = { color: '#22d3ee', weight: 1.5, opacity: 0.35, dashArray: '6, 8' };
+
+      L.polyline([p1, p2], lineStyle).addTo(map);
+      L.polyline([p2, p3], lineStyle).addTo(map);
+      L.polyline([p1, p3], lineStyle).addTo(map);
+    }
+
+    function renderMap(hubs) {
+      if (!markersLayer) return;
+      markersLayer.clearLayers();
+      hubs.forEach(hub => {
+        const meta = HUB_META[hub.hub_code];
+        if (!meta) return;
+        const isPort = hub.hub_type === 'seaport';
+        const color = isPort ? '#22d3ee' : '#10b981';
+
+        const pulseIcon = L.divIcon({
+          className: 'custom-radar-pin',
+          html: `
+            <div style="position:relative; width:24px; height:24px; display:flex; align-items:center; justify-content:center;">
+              <div class="radar-ring" style="position:absolute; width:22px; height:22px; border-radius:50%; background:${color}; opacity:0.5;"></div>
+              <div style="width:11px; height:11px; border-radius:50%; background:${color}; border:2px solid #fff; box-shadow:0 0 10px ${color};"></div>
+            </div>
+          `,
+          iconSize: L.point(24, 24),
+          iconAnchor: L.point(12, 12)
+        });
+
+        const marker = L.marker(L.latLng(meta.lat, meta.lon), { icon: pulseIcon });
+        marker.on('click', () => selectHub(hub.hub_code));
+        marker.bindTooltip(`${hub.hub_code} // ${hub.status.toUpperCase()}`, { direction: 'top' });
+        marker.addTo(markersLayer);
+      });
+    }
+
+    function selectHub(code) {
+      selectedHubCode = code;
+      const hub = allHubs.find(h => h.hub_code === code) || allHubs.at(0);
+      if (!hub) return;
+
+      document.getElementById('inspector-code').textContent = hub.hub_code;
+      const meta = HUB_META[hub.hub_code] || { latStr: '--', lonStr: '--' };
+      const isPort = hub.hub_type === 'seaport';
+      const isAlert = hub.status.includes('Delay') || hub.status.includes('High');
+
+      const metricsHtml = isPort
+        ? `
+          <div class="grid grid-cols-2 gap-3">
+            <div class="bg-[#05070b] border border-slate-800 p-3 rounded">
+              <div class="text-[10px] font-mono text-slate-400">ACTIVE VESSELS</div>
+              <div class="text-2xl font-bold font-mono text-cyan-400 mt-1">${hub.primary_metric ?? 0}</div>
+            </div>
+            <div class="bg-[#05070b] border border-slate-800 p-3 rounded">
+              <div class="text-[10px] font-mono text-slate-400">BERTHED / IDLE</div>
+              <div class="text-2xl font-bold font-mono text-white mt-1">${hub.secondary_metric ?? 0}</div>
+            </div>
           </div>
-          <p class="text-[11px] font-mono text-slate-400">U.S. MARITIME AIS, FAA AIRSPACE &amp; MACROECONOMIC TELEMETRY</p>
-        </div>
-      </div>
+        `
+        : `
+          <div class="bg-[#05070b] border border-slate-800 p-3 rounded">
+            <div class="text-[10px] font-mono text-slate-400">FAA AIRSPACE &amp; RUNWAY FLOW</div>
+            <div class="text-base font-bold font-mono ${isAlert ? 'text-amber-400' : 'text-emerald-400'} mt-1">${hub.status.toUpperCase()}</div>
+          </div>
+        `;
 
-      <!-- Mode Switcher & View Tabs -->
-      <div class="flex items-center gap-2">
-        <div class="hidden sm:flex bg-[#05070b] p-1 rounded border border-slate-800 font-mono text-xs">
-          <button onclick="setFilter('all')" id="btn-all" class="filter-btn px-3 py-1 rounded bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 transition">ALL (4)</button>
-          <button onclick="setFilter('seaport')" id="btn-seaport" class="filter-btn px-3 py-1 rounded text-slate-400 hover:text-white transition">PORTS (2)</button>
-          <button onclick="setFilter('airport')" id="btn-airport" class="filter-btn px-3 py-1 rounded text-slate-400 hover:text-white transition">AIR (2)</button>
+      document.getElementById('inspector-body').innerHTML = `
+        <div>
+          <div class="flex items-center justify-between text-[11px] font-mono text-slate-400">
+            <span>${hub.region.toUpperCase()}</span>
+            <span>${meta.latStr}, ${meta.lonStr}</span>
+          </div>
+          <h3 class="font-display font-bold text-lg text-white mt-1">${hub.hub_name}</h3>
         </div>
-        <button onclick="toggleModal()" class="px-3 py-1.5 rounded bg-slate-900 hover:bg-slate-800 border border-slate-700 text-xs font-mono text-slate-200 transition">
-          METHODOLOGY
-        </button>
-      </div>
-    </div>
-  </header>
+        ${metricsHtml}
+        <div class="bg-[#05070b] border border-slate-800 p-3 rounded text-xs font-mono space-y-1.5">
+          <div class="flex justify-between">
+            <span class="text-slate-500">CONDITIONS:</span>
+            <span class="text-slate-200">${hub.weather_summary || 'NOMINAL'}</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-slate-500">CADENCE:</span>
+            <span class="text-emerald-400">AUTOMATED 30M</span>
+          </div>
+        </div>
+      `;
+      renderCards();
+    }
+
+    function setFilter(type) {
+      currentFilter = type;
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.className = 'filter-btn px-3 py-1 rounded text-slate-400 hover:text-white transition';
+      });
+      const active = document.getElementById('btn-' + type);
+      if (active) active.className = 'filter-btn px-3 py-1 rounded bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 transition';
+      renderCards();
+    }
+
     function renderCards() {
       const grid = document.getElementById('hubs-grid');
       grid.innerHTML = '';
@@ -194,18 +214,13 @@
           <div class="text-emerald-400">&gt; [${timeStr}] Snapshot verified &amp; archived</div>
           <div>&gt; AISStream: ${totalVessels} commercial vessels across ${ports.length} ports</div>
           <div>&gt; FAA NAS: ${clearAir}/${airports.length} monitored air terminals normal</div>
-          <div>&gt; FRED Macro: Diesel $${diesel ? Number(diesel).toFixed(2) : '--'} | TSI ${tsi ? Number(tsi).toFixed(1) : '--'}</div>
-        `;
-
-        renderMap(allHubs);
-        renderApexChart(ports);
-        selectHub(allHubs[0]?.hub_code || 'PORT_NOLA');
-      } catch (err) {
-        document.getElementById('last-updated').textContent = 'SYNC PENDING';
-      }
-    }
-
-    loadTelemetry();
-  </script>
-</body>
-</html>
+> FRED Macro: Diesel $${diesel ? Number(diesel).toFixed(2) : '--'} | TSI ${tsi ? Number(tsi).toFixed(1) : '--'}
+`;
+renderMap(allHubs);
+renderApexChart(ports);
+selectHub(allHubs.at(0)?.hub_code || 'PORT_NOLA');
+} catch (err) {
+document.getElementById('last-updated').textContent = 'SYNC PENDING';
+}
+}
+loadTelemetry();
