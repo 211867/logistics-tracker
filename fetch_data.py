@@ -93,18 +93,23 @@ def get_live_flights(lat, lon, radius_nm=15):
         r = requests.get(url, timeout=10).json()
         for ac in r.get("ac", []):
             callsign = (ac.get("flight") or "").strip()
-            alt = ac.get("alt_baro")
-            if not callsign or alt is None:
+            raw_alt = ac.get("alt_baro")
+            if not callsign or raw_alt is None:
                 continue
-            # Keep aircraft on the ground or below 10,000 ft (arrivals/departures only)
-            is_terminal = (alt == "ground") or (isinstance(alt, (int, float)) and alt <= 10000)
-            if is_terminal:
+            if str(raw_alt).lower() == "ground":
+                alt_num = 0
+            else:
+                try:
+                    alt_num = int(float(raw_alt))
+                except ValueError:
+                    continue
+            if alt_num <= 10000:
                 flights.append({
                     "callsign": callsign,
                     "type": ac.get("t", "N/A"),
-                    "alt_ft": 0 if alt == "ground" else int(alt),
+                    "alt_ft": alt_num,
                     "speed_kt": round(float(ac.get("gs") or 0), 1),
-                    "phase": "Ground/Taxi" if alt == "ground" else ("Approach/Departure" if alt <= 4000 else "Terminal Airspace")
+                    "phase": "Ground/Taxi" if alt_num == 0 else ("Approach/Departure" if alt_num <= 4000 else "Terminal Airspace")
                 })
     except Exception as e:
         print(f"ADS-B flight error ({lat},{lon}): {e}")
