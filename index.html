@@ -196,3 +196,211 @@
       renderHubs();
     }
 
+    <!-- Filter Controls & Section Header -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+      <div>
+        <h2 class="text-lg font-semibold text-white">Live Corridor Telemetry</h2>
+        <p class="text-xs text-slate-400">Phase 1 Rollout &bull; 4 Active Nodes (Expanding to 13 U.S. Hubs)</p>
+      </div>
+
+      <!-- Interactive Filter Pills -->
+      <div class="inline-flex p-1 rounded-xl bg-slate-900 border border-slate-800 self-start">
+        <button onclick="setFilter('all')" id="btn-all" class="filter-btn px-3.5 py-1.5 rounded-lg text-xs font-medium bg-slate-800 text-white shadow-sm transition">
+          All Hubs (4)
+        </button>
+        <button onclick="setFilter('seaport')" id="btn-seaport" class="filter-btn px-3.5 py-1.5 rounded-lg text-xs font-medium text-slate-400 hover:text-white transition">
+          Maritime Ports
+        </button>
+        <button onclick="setFilter('airport')" id="btn-airport" class="filter-btn px-3.5 py-1.5 rounded-lg text-xs font-medium text-slate-400 hover:text-white transition">
+          Aviation Hubs
+        </button>
+      </div>
+    </div>
+
+    <!-- Hub Cards Grid -->
+    <main id="hubs-grid" class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-12">
+      <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 text-slate-400 text-sm">
+        Initializing telemetry stream...
+      </div>
+    </main>
+
+    <!-- Research & Methodology Card -->
+    <section class="relative overflow-hidden bg-gradient-to-r from-slate-900 via-slate-900 to-slate-800/80 border border-slate-800 rounded-2xl p-6 sm:p-7 mb-10">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+        <div class="max-w-2xl">
+          <div class="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-emerald-400 mb-2">
+            Empirical Methodology
+          </div>
+          <h3 class="text-base sm:text-lg font-semibold text-white">Longitudinal Supply-Chain Nowcasting Archive</h3>
+          <p class="text-xs sm:text-sm text-slate-400 mt-1.5 leading-relaxed">
+            Every automated sweep logs live vessel counts, stationary berth ratios, terminal weather, and FAA delay advisories into a structured time-series archive—capturing real-time physical freight velocity weeks ahead of monthly government trade releases.
+          </p>
+        </div>
+        <div class="shrink-0 flex flex-col sm:items-end gap-2">
+          <span class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-950/80 border border-slate-700/80 text-xs font-mono text-slate-300">
+            <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+            Current Window: Free Public Tier
+          </span>
+          <span class="text-[11px] text-slate-500">Historical Time-Series API in Development</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800/80 pt-6 pb-8 text-xs text-slate-500 flex flex-col sm:flex-row justify-between gap-3">
+      <div class="leading-relaxed">
+        Maritime AIS via AISStream &bull; Aviation &amp; Weather via FAA / NOAA &bull; Macroeconomic baseline indicators sourced via FRED&reg;, Federal Reserve Bank of St. Louis.
+      </div>
+      <div class="shrink-0 text-slate-500">
+        Payload Tracking &bull; Informational Telemetry Only
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    let allHubs = [];
+    let currentFilter = 'all';
+
+    function setFilter(type) {
+      currentFilter = type;
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.className = 'filter-btn px-3.5 py-1.5 rounded-lg text-xs font-medium text-slate-400 hover:text-white transition';
+      });
+      const active = document.getElementById('btn-' + type);
+      if (active) {
+        active.className = 'filter-btn px-3.5 py-1.5 rounded-lg text-xs font-medium bg-slate-800 text-white shadow-sm transition';
+      }
+      renderHubs();
+    }
+
+    function renderHubs() {
+      const grid = document.getElementById('hubs-grid');
+      grid.innerHTML = '';
+
+      const filtered = currentFilter === 'all'
+        ? allHubs
+        : allHubs.filter(h => h.hub_type === currentFilter);
+
+      filtered.forEach(hub => {
+        const isPort = hub.hub_type === 'seaport';
+        const isAlert = hub.status.includes('Delay') || hub.status.includes('High');
+
+        const badgeStyle = isAlert
+          ? 'bg-amber-500/10 text-amber-300 border-amber-500/30'
+          : 'bg-emerald-500/10 text-emerald-300 border-emerald-500/30';
+
+        const dotColor = isAlert ? 'bg-amber-400' : 'bg-emerald-400';
+        const typeLabel = isPort ? 'MARITIME PORT' : 'AVIATION HUB';
+        const accentColor = isPort ? 'text-cyan-400' : 'text-indigo-400';
+
+        const vesselCount = hub.primary_metric ?? 0;
+        const barWidth = isPort ? Math.min(100, Math.max(12, vesselCount * 6)) : (isAlert ? 85 : 25);
+        const barColor = isAlert ? 'bg-amber-400' : (isPort ? 'bg-cyan-400' : 'bg-emerald-400');
+
+        const metricSection = isPort
+          ? `
+            <div class="my-5 bg-slate-950/80 border border-slate-800/80 rounded-xl p-4">
+              <div class="grid grid-cols-2 gap-4">
+                <div>
+                  <div class="text-[11px] uppercase tracking-wider text-slate-400">Active Vessels</div>
+                  <div class="text-2xl sm:text-3xl font-bold font-mono text-white mt-1">${vesselCount}</div>
+                </div>
+                <div class="border-l border-slate-800/80 pl-4">
+                  <div class="text-[11px] uppercase tracking-wider text-slate-400">Berthed / Idle</div>
+                  <div class="text-2xl sm:text-3xl font-bold font-mono text-slate-300 mt-1">${hub.secondary_metric ?? 0}</div>
+                </div>
+              </div>
+              <div class="mt-4">
+                <div class="flex justify-between text-[11px] text-slate-400 mb-1.5">
+                  <span>Channel Density</span>
+                  <span class="font-mono">${barWidth}%</span>
+                </div>
+                <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                  <div class="h-full ${barColor} rounded-full transition-all duration-500" style="width: ${barWidth}%"></div>
+                </div>
+              </div>
+            </div>
+          `
+          : `
+            <div class="my-5 bg-slate-950/80 border border-slate-800/80 rounded-xl p-4">
+              <div class="flex items-center justify-between">
+                <div>
+                  <div class="text-[11px] uppercase tracking-wider text-slate-400">FAA Airspace &amp; Runway</div>
+                  <div class="text-lg sm:text-xl font-bold text-white mt-1">${hub.status}</div>
+                </div>
+                <span class="font-mono text-xs px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-300">
+                  ${hub.raw_payload?.icao || hub.hub_code}
+                </span>
+              </div>
+              <div class="mt-4">
+                <div class="flex justify-between text-[11px] text-slate-400 mb-1.5">
+                  <span>Terminal Load Status</span>
+                  <span class="font-mono">${isAlert ? 'ELEVATED' : 'OPTIMAL'}</span>
+                </div>
+                <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                  <div class="h-full ${barColor} rounded-full transition-all duration-500" style="width: ${barWidth}%"></div>
+                </div>
+              </div>
+            </div>
+          `;
+
+        const card = document.createElement('div');
+        card.className = 'group bg-slate-900/75 backdrop-blur-sm border border-slate-800/90 hover:border-slate-700 rounded-2xl p-5 sm:p-6 flex flex-col justify-between transition-all duration-200 shadow-xl shadow-black/20';
+        card.innerHTML = `
+          <div>
+            <div class="flex items-start justify-between gap-3">
+              <div>
+                <div class="flex items-center gap-2 text-[11px] font-mono uppercase tracking-wider">
+                  <span class="${accentColor} font-semibold">${typeLabel}</span>
+                  <span class="text-slate-600">&bull;</span>
+                  <span class="text-slate-400">${hub.region}</span>
+                </div>
+                <h3 class="text-lg sm:text-xl font-bold text-white mt-1 group-hover:text-emerald-300 transition-colors">${hub.hub_name}</h3>
+              </div>
+              <span class="shrink-0 inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-full border ${badgeStyle}">
+                <span class="w-1.5 h-1.5 rounded-full ${dotColor}"></span>
+                ${hub.status}
+              </span>
+            </div>
+            ${metricSection}
+          </div>
+          <div class="text-xs text-slate-400 border-t border-slate-800/80 pt-3.5 flex items-center justify-between gap-2">
+            <span class="text-slate-500">Weather &amp; Wind:</span>
+            <span class="text-slate-200 font-medium text-right">${hub.weather_summary || 'Nominal'}</span>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    async function loadTelemetry() {
+      try {
+        const res = await fetch('./live.json?t=' + Date.now());
+        if (!res.ok) throw new Error('Feed unavailable');
+        const data = await res.json();
+
+        const dt = new Date(data.updated_at);
+        document.getElementById('last-updated').textContent = dt.toLocaleString('en-US', {
+          month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit'
+        });
+
+        const diesel = data.macro?.diesel_price_usd;
+        const tsi = data.macro?.freight_tsi;
+        document.getElementById('diesel-price').textContent = diesel ? `$${Number(diesel).toFixed(2)}` : 'N/A';
+        document.getElementById('freight-tsi').textContent = tsi ? Number(tsi).toFixed(1) : 'N/A';
+
+        allHubs = data.hubs || [];
+
+const ports = allHubs.filter(h => h.hub_type === 'seaport');
+const airports = allHubs.filter(h => h.hub_type === 'airport');
+const totalVessels = ports.reduce((sum, p) => sum + (p.primary_metric || 0), 0);
+const clearAirports = airports.filter(a => !a.status.includes('Delay')).length;
+document.getElementById('total-vessels').textContent = totalVessels;
+document.getElementById('airspace-health').textContent = ${clearAirports}/${airports.length};
+renderHubs();
+} catch (err) {
+document.getElementById('last-updated').textContent = 'Sync pending...';
+}
+}
+loadTelemetry();
