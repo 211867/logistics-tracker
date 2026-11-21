@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-11-21T16:33:24.418872+00:00",
+  "updated_at": "2026-11-21T17:30:29.766301+00:00",
   "macro": {
     "diesel_price_usd": 5.937,
     "freight_tsi": 134.4
   },
   "hubs": [
     {
-      "recorded_at": "2026-11-21T16:33:24.418872+00:00",
+      "recorded_at": "2026-11-21T17:30:29.766301+00:00",
       "hub_code": "PORT_NOLA",
       "hub_name": "Port of New Orleans",
       "hub_type": "seaport",
@@ -24,44 +24,31 @@
       }
     },
     {
-      "recorded_at": "2026-11-21T16:33:24.418872+00:00",
+      "recorded_at": "2026-11-21T17:30:29.766301+00:00",
       "hub_code": "PORT_MIA",
       "hub_name": "Port of Miami",
       "hub_type": "seaport",
       "region": "Southeast",
       "status": "Active / Low Density",
-      "primary_metric": 2,
-      "secondary_metric": 2,
+      "primary_metric": 0,
+      "secondary_metric": 0,
       "weather_summary": "Telemetry Nominal",
       "diesel_price_usd": 5.937,
       "freight_index": 134.4,
       "raw_payload": {
-        "active_vessels": 2,
-        "stationary_or_berthed": 2,
-        "tracked_ships": [
-          {
-            "mmsi": "368373020",
-            "name": "MSRC STEADFAST",
-            "speed_kt": 0.0,
-            "status": "Berthed/Idle"
-          },
-          {
-            "mmsi": "256787000",
-            "name": "CMA CGM AMBITION",
-            "speed_kt": 0.0,
-            "status": "Berthed/Idle"
-          }
-        ]
+        "active_vessels": 0,
+        "stationary_or_berthed": 0,
+        "tracked_ships": []
       }
     },
     {
-      "recorded_at": "2026-11-21T16:33:24.418872+00:00",
+      "recorded_at": "2026-11-21T17:30:29.766301+00:00",
       "hub_code": "MSY",
       "hub_name": "Louis Armstrong New Orleans Intl",
       "hub_type": "airport",
       "region": "Gulf Coast",
       "status": "Normal Operations",
-      "primary_metric": 3,
+      "primary_metric": 7,
       "secondary_metric": 0,
       "weather_summary": "Telemetry Nominal",
       "diesel_price_usd": 5.937,
@@ -71,37 +58,65 @@
         "icao": "KMSY",
         "tracked_flights": [
           {
-            "callsign": "SWA1539",
-            "type": "B737",
+            "callsign": "N11FJ",
+            "type": "C182",
+            "alt_ft": 900,
+            "speed_kt": 106.2,
+            "phase": "Approach/Departure"
+          },
+          {
+            "callsign": "N1HG",
+            "type": "GLF4",
+            "alt_ft": 0,
+            "speed_kt": 0.0,
+            "phase": "Ground/Taxi"
+          },
+          {
+            "callsign": "ROU1710",
+            "type": "B38M",
+            "alt_ft": 0,
+            "speed_kt": 14.8,
+            "phase": "Ground/Taxi"
+          },
+          {
+            "callsign": "CNS1217",
+            "type": "PC24",
+            "alt_ft": 0,
+            "speed_kt": 0.0,
+            "phase": "Ground/Taxi"
+          },
+          {
+            "callsign": "N548EP",
+            "type": "C172",
+            "alt_ft": -75,
+            "speed_kt": 51.0,
+            "phase": "Approach/Departure"
+          },
+          {
+            "callsign": "N3506T",
+            "type": "C172",
             "alt_ft": 300,
-            "speed_kt": 132.7,
+            "speed_kt": 69.0,
             "phase": "Approach/Departure"
           },
           {
-            "callsign": "SWA2679",
-            "type": "B738",
-            "alt_ft": 2875,
-            "speed_kt": 222.9,
-            "phase": "Approach/Departure"
-          },
-          {
-            "callsign": "ENY4241",
-            "type": "E75L",
-            "alt_ft": 6525,
-            "speed_kt": 271.6,
-            "phase": "Terminal Airspace"
+            "callsign": "PRD71",
+            "type": "H25B",
+            "alt_ft": 0,
+            "speed_kt": 0.0,
+            "phase": "Ground/Taxi"
           }
         ]
       }
     },
     {
-      "recorded_at": "2026-11-21T16:33:24.418872+00:00",
+      "recorded_at": "2026-11-21T17:30:29.766301+00:00",
       "hub_code": "SDF",
       "hub_name": "Louisville Muhammad Ali Intl (UPS Worldport)",
       "hub_type": "airport",
       "region": "Ohio Valley",
       "status": "Normal Operations",
-      "primary_metric": 9,
+      "primary_metric": 12,
       "secondary_metric": 0,
       "weather_summary": "Telemetry Nominal",
       "diesel_price_usd": 5.937,
@@ -111,66 +126,87 @@
         "icao": "KSDF",
         "tracked_flights": [
           {
-            "callsign": "UPS5901",
+            "callsign": "UPS5981",
             "type": "B763",
-            "alt_ft": 3300,
-            "speed_kt": 228.4,
+            "alt_ft": 6125,
+            "speed_kt": 243.6,
+            "phase": "Terminal Airspace"
+          },
+          {
+            "callsign": "N385L",
+            "type": "DA42",
+            "alt_ft": 2775,
+            "speed_kt": 133.7,
             "phase": "Approach/Departure"
           },
           {
-            "callsign": "UPS5765",
+            "callsign": "UPS5861",
             "type": "B763",
-            "alt_ft": 2375,
-            "speed_kt": 173.9,
+            "alt_ft": 2775,
+            "speed_kt": 180.0,
             "phase": "Approach/Departure"
           },
           {
-            "callsign": "UPS5567",
-            "type": "B763",
-            "alt_ft": 750,
-            "speed_kt": 148.5,
+            "callsign": "UPS5605",
+            "type": "A306",
+            "alt_ft": 1375,
+            "speed_kt": 136.6,
             "phase": "Approach/Departure"
           },
           {
-            "callsign": "N17HD",
-            "type": "P32R",
-            "alt_ft": 2750,
-            "speed_kt": 177.2,
+            "callsign": "N9702L",
+            "type": "C172",
+            "alt_ft": 1100,
+            "speed_kt": 89.2,
             "phase": "Approach/Departure"
           },
           {
-            "callsign": "N958CT",
-            "type": "DV20",
-            "alt_ft": 400,
-            "speed_kt": 66.4,
+            "callsign": "N186JP",
+            "type": "RV8",
+            "alt_ft": 1175,
+            "speed_kt": 105.7,
             "phase": "Approach/Departure"
           },
           {
-            "callsign": "N76KY",
-            "type": "NG5",
-            "alt_ft": 2200,
-            "speed_kt": 77.6,
+            "callsign": "N230DF",
+            "type": "C56X",
+            "alt_ft": 2250,
+            "speed_kt": 235.5,
             "phase": "Approach/Departure"
           },
           {
-            "callsign": "N980CT",
-            "type": "DV20",
-            "alt_ft": 1200,
-            "speed_kt": 96.7,
+            "callsign": "N2866W",
+            "type": "P28A",
+            "alt_ft": 425,
+            "speed_kt": 70.3,
             "phase": "Approach/Departure"
           },
           {
-            "callsign": "N82529",
-            "type": "CH7A",
-            "alt_ft": 1800,
-            "speed_kt": 63.1,
+            "callsign": "N172JM",
+            "type": "C172",
+            "alt_ft": 1275,
+            "speed_kt": 93.8,
+            "phase": "Approach/Departure"
+          },
+          {
+            "callsign": "N4885D",
+            "type": "C172",
+            "alt_ft": 800,
+            "speed_kt": 72.2,
             "phase": "Approach/Departure"
           },
           {
             "callsign": "KSF35",
             "type": "C172",
-            "alt_ft": 2600,
-            "speed_kt": 89.8,
+            "alt_ft": 2950,
+            "speed_kt": 94.0,
+            "phase": "Approach/Departure"
+          },
+          {
+            "callsign": "N2936D",
+            "type": "C170",
+            "alt_ft": 1425,
+            "speed_kt": 92.0,
             "phase": "Approach/Departure"
           }
         ]
