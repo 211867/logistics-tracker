@@ -1,0 +1,77 @@
+{
+  "updated_at": "2026-11-21T02:51:39.962692+00:00",
+  "macro": {
+    "diesel_price_usd": 5.937,
+    "freight_tsi": 134.4
+  },
+  "hubs": [
+    {
+      "recorded_at": "2026-11-21T02:51:39.962692+00:00",
+      "hub_code": "PORT_NOLA",
+      "hub_name": "Port of New Orleans",
+      "hub_type": "seaport",
+      "region": "Gulf Coast",
+      "status": "Active / Low Density",
+      "primary_metric": 0,
+      "secondary_metric": 0,
+      "weather_summary": "64\u00b0F, Mostly Cloudy, Wind 5 mph",
+      "diesel_price_usd": 5.937,
+      "freight_index": 134.4,
+      "raw_payload": {
+        "active_vessels": 0,
+        "stationary_or_berthed": 0
+      }
+    },
+    {
+      "recorded_at": "2026-11-21T02:51:39.962692+00:00",
+      "hub_code": "PORT_MIA",
+      "hub_name": "Port of Miami",
+      "hub_type": "seaport",
+      "region": "Southeast",
+      "status": "Active / Low Density",
+      "primary_metric": 3,
+      "secondary_metric": 2,
+      "weather_summary": "Telemetry Nominal",
+      "diesel_price_usd": 5.937,
+      "freight_index": 134.4,
+      "raw_payload": {
+        "active_vessels": 3,
+        "stationary_or_berthed": 2
+      }
+    },
+    {
+      "recorded_at": "2026-11-21T02:51:39.962692+00:00",
+      "hub_code": "MSY",
+      "hub_name": "Louis Armstrong New Orleans Intl",
+      "hub_type": "airport",
+      "region": "Gulf Coast",
+      "status": "Normal Operations",
+      "primary_metric": 0,
+      "secondary_metric": 0,
+      "weather_summary": "65\u00b0F, Mostly Cloudy, Wind 5 mph",
+      "diesel_price_usd": 5.937,
+      "freight_index": 134.4,
+      "raw_payload": {
+        "faa_status": "Normal Operations",
+        "icao": "KMSY"
+      }
+    },
+    {
+      "recorded_at": "2026-11-21T02:51:39.962692+00:00",
+      "hub_code": "SDF",
+      "hub_name": "Louisville Muhammad Ali Intl (UPS Worldport)",
+      "hub_type": "airport",
+      "region": "Ohio Valley",
+      "status": "Normal Operations",
+      "primary_metric": 0,
+      "secondary_metric": 0,
+      "weather_summary": "57\u00b0F, Clear, Wind 5 mph",
+      "diesel_price_usd": 5.937,
+      "freight_index": 134.4,
+      "raw_payload": {
+        "faa_status": "Normal Operations",
+        "icao": "KSDF"
+      }
+    }
+  ]
+}
