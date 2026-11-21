@@ -6,10 +6,10 @@ import requests
 import websockets
 from supabase import create_client
 
-AISSTREAM_KEY = os.environ.get("AISSTREAM_API_KEY")
-FRED_KEY = os.environ.get("FRED_API_KEY")
-SUPABASE_URL = os.environ.get("SUPABASE_URL")
-SUPABASE_KEY = os.environ.get("SUPABASE_KEY")
+AISSTREAM_KEY = os.environ.get("AISSTREAM_API_KEY", "").strip()
+FRED_KEY = os.environ.get("FRED_API_KEY", "").strip()
+SUPABASE_URL = os.environ.get("SUPABASE_URL", "").strip()
+SUPABASE_KEY = os.environ.get("SUPABASE_KEY", "").strip()
 
 PORTS = {
     "PORT_NOLA": {
@@ -48,9 +48,16 @@ AIRPORTS = {
 def get_fred_latest(series_id):
     if not FRED_KEY:
         return None
-    url = f"https://stlouisfed.org{series_id}&api_key={FRED_KEY}&file_type=json&sort_order=desc&limit=5"
+    url = "https://stlouisfed.org"
+    params = {
+        "series_id": series_id,
+        "api_key": FRED_KEY,
+        "file_type": "json",
+        "sort_order": "desc",
+        "limit": 5
+    }
     try:
-        r = requests.get(url, timeout=15).json()
+        r = requests.get(url, params=params, timeout=15).json()
         for obs in r.get("observations", []):
             if obs.get("value") not in (None, "."):
                 return float(obs["value"])
@@ -61,7 +68,8 @@ def get_fred_latest(series_id):
 def get_noaa_weather(lat, lon):
     headers = {"User-Agent": "WaybillIndexTelemetry/1.0 (contact@example.com)"}
     try:
-        pt = requests.get(f"https://weather.gov{lat},{lon}", headers=headers, timeout=10).json()
+        pt_url = f"https://weather.gov{lat},{lon}"
+        pt = requests.get(pt_url, headers=headers, timeout=10).json()
         forecast_url = pt["properties"]["forecastHourly"]
         fc = requests.get(forecast_url, headers=headers, timeout=10).json()
         current = fc["properties"]["periods"][0]
@@ -186,4 +194,3 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
- 
