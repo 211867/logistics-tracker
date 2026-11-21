@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-11-21T21:06:56.560756+00:00",
+  "updated_at": "2026-11-21T22:05:53.009605+00:00",
   "macro": {
     "diesel_price_usd": 5.937,
     "freight_tsi": 134.4
   },
   "hubs": [
     {
-      "recorded_at": "2026-11-21T21:06:56.560756+00:00",
+      "recorded_at": "2026-11-21T22:05:53.009605+00:00",
       "hub_code": "PORT_NOLA",
       "hub_name": "Port of New Orleans",
       "hub_type": "seaport",
@@ -24,7 +24,7 @@
       }
     },
     {
-      "recorded_at": "2026-11-21T21:06:56.560756+00:00",
+      "recorded_at": "2026-11-21T22:05:53.009605+00:00",
       "hub_code": "PORT_MIA",
       "hub_name": "Port of Miami",
       "hub_type": "seaport",
@@ -40,14 +40,14 @@
         "stationary_or_berthed": 2,
         "tracked_ships": [
           {
-            "mmsi": "319128000",
-            "name": "GENE MACHINE",
+            "mmsi": "319155500",
+            "name": "SIXTH SENSE",
             "speed_kt": 0.0,
             "status": "Berthed/Idle"
           },
           {
-            "mmsi": "339000122",
-            "name": "LUCIA",
+            "mmsi": "368179250",
+            "name": "SEAHAWK",
             "speed_kt": 0.0,
             "status": "Berthed/Idle"
           }
@@ -55,13 +55,13 @@
       }
     },
     {
-      "recorded_at": "2026-11-21T21:06:56.560756+00:00",
+      "recorded_at": "2026-11-21T22:05:53.009605+00:00",
       "hub_code": "MSY",
       "hub_name": "Louis Armstrong New Orleans Intl",
       "hub_type": "airport",
       "region": "Gulf Coast",
       "status": "Normal Operations",
-      "primary_metric": 7,
+      "primary_metric": 3,
       "secondary_metric": 0,
       "weather_summary": "Telemetry Nominal",
       "diesel_price_usd": 5.937,
@@ -71,65 +71,37 @@
         "icao": "KMSY",
         "tracked_flights": [
           {
-            "callsign": "N199CH",
-            "type": "RV12",
-            "alt_ft": 1025,
-            "speed_kt": 81.4,
-            "phase": "Approach/Departure"
-          },
-          {
-            "callsign": "SCX3086",
-            "type": "B738",
-            "alt_ft": 200,
-            "speed_kt": 145.3,
-            "phase": "Approach/Departure"
-          },
-          {
             "callsign": "LXJ398",
             "type": "E55P",
-            "alt_ft": 0,
-            "speed_kt": 0.0,
-            "phase": "Ground/Taxi"
+            "alt_ft": 9875,
+            "speed_kt": 270.5,
+            "phase": "Terminal Airspace"
           },
           {
-            "callsign": "N100BD",
-            "type": "GL7T",
-            "alt_ft": 0,
-            "speed_kt": 15.5,
-            "phase": "Ground/Taxi"
-          },
-          {
-            "callsign": "N527PN",
-            "type": "PRM1",
-            "alt_ft": 1550,
-            "speed_kt": 148.0,
+            "callsign": "JBU1823",
+            "type": "A320",
+            "alt_ft": 1800,
+            "speed_kt": 154.5,
             "phase": "Approach/Departure"
           },
           {
-            "callsign": "N61301",
-            "type": "C185",
-            "alt_ft": 400,
-            "speed_kt": 102.2,
-            "phase": "Approach/Departure"
-          },
-          {
-            "callsign": "N426PA",
-            "type": "P28A",
-            "alt_ft": 600,
-            "speed_kt": 88.1,
+            "callsign": "N78112",
+            "type": "C172",
+            "alt_ft": 1300,
+            "speed_kt": 98.6,
             "phase": "Approach/Departure"
           }
         ]
       }
     },
     {
-      "recorded_at": "2026-11-21T21:06:56.560756+00:00",
+      "recorded_at": "2026-11-21T22:05:53.009605+00:00",
       "hub_code": "SDF",
       "hub_name": "Louisville Muhammad Ali Intl (UPS Worldport)",
       "hub_type": "airport",
       "region": "Ohio Valley",
       "status": "Normal Operations",
-      "primary_metric": 7,
+      "primary_metric": 4,
       "secondary_metric": 0,
       "weather_summary": "Telemetry Nominal",
       "diesel_price_usd": 5.937,
@@ -139,53 +111,32 @@
         "icao": "KSDF",
         "tracked_flights": [
           {
-            "callsign": "DERBY84",
-            "type": "C30J",
-            "alt_ft": 750,
-            "speed_kt": 123.0,
-            "phase": "Approach/Departure"
-          },
-          {
-            "callsign": "N456SP",
-            "type": "C172",
-            "alt_ft": 1300,
-            "speed_kt": 109.1,
-            "phase": "Approach/Departure"
-          },
-          {
-            "callsign": "N3199T",
-            "type": "C177",
-            "alt_ft": 2100,
-            "speed_kt": 92.1,
-            "phase": "Approach/Departure"
-          },
-          {
-            "callsign": "N958CT",
-            "type": "DV20",
-            "alt_ft": 1300,
-            "speed_kt": 89.3,
-            "phase": "Approach/Departure"
-          },
-          {
-            "callsign": "N230DF",
-            "type": "C56X",
-            "alt_ft": 3375,
-            "speed_kt": 223.4,
-            "phase": "Approach/Departure"
-          },
-          {
-            "callsign": "N738JT",
-            "type": "C172",
-            "alt_ft": 1050,
-            "speed_kt": 81.1,
-            "phase": "Approach/Departure"
-          },
-          {
-            "callsign": "ENY3598",
-            "type": "E75L",
-            "alt_ft": 6025,
-            "speed_kt": 283.1,
+            "callsign": "UPS5954",
+            "type": "B763",
+            "alt_ft": 7250,
+            "speed_kt": 276.4,
             "phase": "Terminal Airspace"
+          },
+          {
+            "callsign": "UPS5770",
+            "type": "B763",
+            "alt_ft": 2575,
+            "speed_kt": 230.9,
+            "phase": "Approach/Departure"
+          },
+          {
+            "callsign": "N26BQ",
+            "type": "C172",
+            "alt_ft": 3300,
+            "speed_kt": 87.1,
+            "phase": "Approach/Departure"
+          },
+          {
+            "callsign": "N980CT",
+            "type": "DV20",
+            "alt_ft": 1500,
+            "speed_kt": 64.4,
+            "phase": "Approach/Departure"
           }
         ]
       }
