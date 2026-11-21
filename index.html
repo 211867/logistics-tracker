@@ -3,273 +3,227 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Payload Tracking | U.S. Trade, Port & Aviation Telemetry</title>
+  <title>Payload Tracking | U.S. Corridor Telemetry Terminal</title>
   <script src="https://tailwindcss.com"></script>
-  <link rel="preconnect" href="https://googleapis.com">
-  <link rel="preconnect" href="https://gstatic.com" crossorigin>
-  <link href="https://googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com" />
+  <script src="https://unpkg.com"></script>
+  <script src="https://jsdelivr.net"></script>
+  <link href="https://googleapis.com" rel="stylesheet">
   <script>
     tailwind.config = {
       theme: {
         extend: {
           fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-            mono: ['JetBrains Mono', 'monospace'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['IBM Plex Mono', 'monospace'],
           }
         }
       }
     }
   </script>
   <style>
-    body {
-      background-color: #060911;
-      background-image:
-        radial-gradient(at 0% 0%, rgba(16, 185, 129, 0.08) 0px, transparent 50%),
-        radial-gradient(at 100% 0%, rgba(56, 189, 248, 0.07) 0px, transparent 50%);
+    body { background-color: #090b0f; color: #e2e8f0; }
+    .terminal-border { border: 1px solid #1e2430; }
+    .terminal-panel { background-color: #0e1218; border: 1px solid #1e2430; }
+    .leaflet-container { background: #090b0f !important; font-family: 'IBM Plex Mono', monospace !important; }
+    .leaflet-popup-content-wrapper, .leaflet-popup-tip {
+      background: #0e1218 !important; color: #f8fafc !important; border: 1px solid #2d3748; border-radius: 4px !important;
     }
   </style>
 </head>
-<body class="text-slate-100 min-h-screen antialiased selection:bg-emerald-500/30 selection:text-emerald-200">
-  
-  <!-- Top Institutional Navigation Bar -->
-  <nav class="border-b border-slate-800/80 bg-slate-950/70 backdrop-blur-md sticky top-0 z-20">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-400 to-cyan-500 flex items-center justify-center text-slate-950 font-bold font-mono text-sm shadow-lg shadow-emerald-500/20">
-          PT
+<body class="min-h-screen antialiased">
+
+  <!-- Top Ticker Bar -->
+  <div class="bg-[#05070a] border-b border-[#1e2430] text-[11px] font-mono py-1.5 px-4 overflow-x-auto whitespace-nowrap">
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-6 text-slate-400">
+      <div class="flex items-center gap-6">
+        <span class="text-emerald-400 font-semibold flex items-center gap-1.5">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span> SYS: ONLINE
+        </span>
+        <span>US NO.2 DIESEL: <strong id="ticker-diesel" class="text-white">--</strong></span>
+        <span>FREIGHT TSI: <strong id="ticker-tsi" class="text-white">--</strong></span>
+        <span>ACTIVE VESSELS: <strong id="ticker-vessels" class="text-cyan-400">--</strong></span>
+      </div>
+      <div>LAST SYNC: <span id="last-updated" class="text-slate-200">SYNCING...</span></div>
+    </div>
+  </div>
+
+  <!-- Main Masthead -->
+  <header class="border-b border-[#1e2430] bg-[#0c0f14]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div class="flex items-center gap-3.5">
+        <div class="w-9 h-9 bg-emerald-500/10 border border-emerald-500/40 flex items-center justify-center font-mono font-bold text-emerald-400 text-sm">
+          PT//
         </div>
         <div>
-          <span class="font-bold tracking-tight text-white text-base sm:text-lg">Payload Tracking</span>
-          <span class="hidden sm:inline-block ml-2 text-xs font-mono text-slate-400 border-l border-slate-800 pl-2">U.S. CORRIDOR TELEMETRY</span>
+          <h1 class="text-lg sm:text-xl font-bold tracking-tight text-white uppercase">Payload Tracking</h1>
+          <p class="text-xs font-mono text-slate-400">U.S. MARITIME &amp; AVIATION CORRIDOR TELEMETRY</p>
         </div>
       </div>
 
-      <div class="flex items-center gap-3">
-        <div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900 border border-slate-800 text-xs">
-          <span class="relative flex h-2 w-2">
-            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-          </span>
-          <span class="text-slate-300 font-medium hidden sm:inline">Synced:</span>
-          <span id="last-updated" class="font-mono text-slate-200">Loading...</span>
+      <div class="flex items-center gap-2">
+        <button onclick="setFilter('all')" id="btn-all" class="filter-btn px-3 py-1.5 text-xs font-mono uppercase bg-emerald-500/15 text-emerald-300 border border-emerald-500/40">
+          All Nodes [04]
+        </button>
+        <button onclick="setFilter('seaport')" id="btn-seaport" class="filter-btn px-3 py-1.5 text-xs font-mono uppercase bg-[#090b0f] text-slate-400 border border-[#1e2430] hover:text-white">
+          Seaports [02]
+        </button>
+        <button onclick="setFilter('airport')" id="btn-airport" class="filter-btn px-3 py-1.5 text-xs font-mono uppercase bg-[#090b0f] text-slate-400 border border-[#1e2430] hover:text-white">
+          Airports [02]
+        </button>
+      </div>
+    </div>
+  </header>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-6 space-y-6">
+
+    <!-- Top Split: Interactive Corridor Radar Map + Live Vessel Chart -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
+      
+      <!-- Interactive Map (2/3 width) -->
+      <div class="lg:col-span-2 terminal-panel flex flex-col">
+        <div class="px-4 py-2.5 border-b border-[#1e2430] flex items-center justify-between text-xs font-mono">
+          <span class="text-slate-300 font-medium">CORRIDOR GEOSPATIAL RADAR // PHASE 1 NETWORK</span>
+          <span class="text-slate-500">CLICK NODE FOR TELEMETRY</span>
+        </div>
+        <div id="corridor-map" class="w-full h-72 sm:h-80 z-10"></div>
+      </div>
+
+      <!-- Analytics Panel (1/3 width) -->
+      <div class="terminal-panel flex flex-col justify-between">
+        <div class="px-4 py-2.5 border-b border-[#1e2430] flex items-center justify-between text-xs font-mono">
+          <span class="text-slate-300 font-medium">PORT VESSEL DENSITY</span>
+          <span class="text-cyan-400">AIS LIVE</span>
+        </div>
+        <div class="p-4 flex-1 flex flex-col justify-center">
+          <canvas id="vesselChart" height="190"></canvas>
+        </div>
+        <div class="px-4 py-2.5 border-t border-[#1e2430] bg-[#090b0f] text-[11px] font-mono text-slate-400 flex justify-between">
+          <span>AIRSPACE CLEARANCE:</span>
+          <span id="airspace-health" class="text-emerald-400 font-semibold">--</span>
         </div>
       </div>
     </div>
-  </nav>
 
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-8">
-
-    <!-- Hero Title & Executive Summary -->
-    <div class="mb-8">
-      <h1 class="text-2xl sm:text-4xl font-bold tracking-tight text-white">
-        Real-Time Freight &amp; Aviation Pulse
-      </h1>
-      <p class="text-slate-400 text-sm sm:text-base mt-2 max-w-2xl">
-        High-frequency maritime AIS vessel density, FAA airspace status, and macroeconomic freight baselines across key U.S. supply-chain corridors.
-      </p>
+    <!-- Node Telemetry Matrix -->
+    <div>
+      <div class="flex items-center justify-between mb-3 text-xs font-mono text-slate-400">
+        <span>ACTIVE HUB TELEMETRY MATRIX</span>
+        <span>WINDOW: CURRENT HOUR (FREE PUBLIC ACCESS)</span>
+      </div>
+      <main id="hubs-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="terminal-panel p-6 font-mono text-xs text-slate-400">ESTABLISHING FEED CONNECTION...</div>
+      </main>
     </div>
 
-    <!-- 4-Column Executive KPI Strip -->
-    <section class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-10">
-      <div class="bg-slate-900/70 backdrop-blur-sm border border-slate-800/90 rounded-2xl p-4 sm:p-5">
-        <div class="flex items-center justify-between">
-          <span class="text-xs font-medium text-slate-400">U.S. Retail Diesel</span>
-          <span class="text-[10px] font-mono uppercase px-1.5 py-0.5 rounded bg-slate-800 text-slate-400">EIA / FRED</span>
-        </div>
-        <div class="mt-3 flex items-baseline gap-1.5">
-          <span id="diesel-price" class="text-2xl sm:text-3xl font-bold font-mono text-white">--</span>
-          <span class="text-xs text-slate-400">/gal</span>
-        </div>
-        <div class="text-[11px] text-slate-500 mt-1">National No. 2 Benchmark</div>
-      </div>
-
-      <div class="bg-slate-900/70 backdrop-blur-sm border border-slate-800/90 rounded-2xl p-4 sm:p-5">
-        <div class="flex items-center justify-between">
-          <span class="text-xs font-medium text-slate-400">Freight TSI Index</span>
-          <span class="text-[10px] font-mono uppercase px-1.5 py-0.5 rounded bg-slate-800 text-slate-400">BTS / FRED</span>
-        </div>
-        <div class="mt-3 flex items-baseline gap-1.5">
-          <span id="freight-tsi" class="text-2xl sm:text-3xl font-bold font-mono text-white">--</span>
-        </div>
-        <div class="text-[11px] text-slate-500 mt-1">Seasonally Adjusted Volume</div>
-      </div>
-
-      <div class="bg-slate-900/70 backdrop-blur-sm border border-slate-800/90 rounded-2xl p-4 sm:p-5">
-        <div class="flex items-center justify-between">
-          <span class="text-xs font-medium text-slate-400">Tracked Port Vessels</span>
-          <span class="text-[10px] font-mono uppercase px-1.5 py-0.5 rounded bg-cyan-500/10 text-cyan-400">LIVE AIS</span>
-        </div>
-        <div class="mt-3 flex items-baseline gap-1.5">
-          <span id="total-vessels" class="text-2xl sm:text-3xl font-bold font-mono text-cyan-400">--</span>
-          <span class="text-xs text-slate-400">ships</span>
-        </div>
-        <div class="text-[11px] text-slate-500 mt-1">Active across monitored ports</div>
-      </div>
-
-      <div class="bg-slate-900/70 backdrop-blur-sm border border-slate-800/90 rounded-2xl p-4 sm:p-5">
-        <div class="flex items-center justify-between">
-          <span class="text-xs font-medium text-slate-400">Airspace Flow</span>
-          <span class="text-[10px] font-mono uppercase px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400">FAA NAS</span>
-        </div>
-        <div class="mt-3 flex items-baseline gap-1.5">
-          <span id="airspace-health" class="text-2xl sm:text-3xl font-bold font-mono text-emerald-400">--</span>
-        </div>
-        <div class="text-[11px] text-slate-500 mt-1">Monitored runways clear</div>
-      </div>
-    </section>
-
-    <!-- Filter Controls & Section Header -->
-    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+    <!-- Empirical Note -->
+    <div class="terminal-panel p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
       <div>
-        <h2 class="text-lg font-semibold text-white">Live Corridor Telemetry</h2>
-        <p class="text-xs text-slate-400">Phase 1 Rollout &bull; 4 Active Nodes (Expanding to 13 U.S. Hubs)</p>
+        <div class="text-xs font-mono text-emerald-400 uppercase mb-1">Longitudinal Empirical Archive</div>
+        <p class="text-xs text-slate-400 max-w-3xl leading-relaxed">
+          Automated 30-minute sweeps archive vessel berth ratios, terminal weather, and FAA flow advisories to measure physical supply-chain velocity ahead of lagging monthly federal trade releases.
+        </p>
       </div>
-
-      <!-- Interactive Filter Pills -->
-      <div class="inline-flex p-1 rounded-xl bg-slate-900 border border-slate-800 self-start">
-        <button onclick="setFilter('all')" id="btn-all" class="filter-btn px-3.5 py-1.5 rounded-lg text-xs font-medium bg-slate-800 text-white shadow-sm transition">
-          All Hubs (4)
-        </button>
-        <button onclick="setFilter('seaport')" id="btn-seaport" class="filter-btn px-3.5 py-1.5 rounded-lg text-xs font-medium text-slate-400 hover:text-white transition">
-          Maritime Ports
-        </button>
-        <button onclick="setFilter('airport')" id="btn-airport" class="filter-btn px-3.5 py-1.5 rounded-lg text-xs font-medium text-slate-400 hover:text-white transition">
-          Aviation Hubs
-        </button>
+      <div class="shrink-0 font-mono text-xs px-3 py-2 bg-[#090b0f] border border-[#1e2430] text-slate-300">
+        ARCHIVE: RECORDING
       </div>
     </div>
-
-    <!-- Hub Cards Grid -->
-    <main id="hubs-grid" class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-12">
-      <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 text-slate-400 text-sm">
-        Initializing telemetry stream...
-      </div>
-    </main>
-
-    <!-- Research & Methodology Card -->
-    <section class="relative overflow-hidden bg-gradient-to-r from-slate-900 via-slate-900 to-slate-800/80 border border-slate-800 rounded-2xl p-6 sm:p-7 mb-10">
-      <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
-        <div class="max-w-2xl">
-          <div class="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-emerald-400 mb-2">
-            Empirical Methodology
-          </div>
-          <h3 class="text-base sm:text-lg font-semibold text-white">Longitudinal Supply-Chain Nowcasting Archive</h3>
-          <p class="text-xs sm:text-sm text-slate-400 mt-1.5 leading-relaxed">
-            Every automated sweep logs live vessel counts, stationary berth ratios, terminal weather, and FAA delay advisories into a structured time-series archive—capturing real-time physical freight velocity weeks ahead of monthly government trade releases.
-          </p>
-        </div>
-        <div class="shrink-0 flex flex-col sm:items-end gap-2">
-          <span class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-950/80 border border-slate-700/80 text-xs font-mono text-slate-300">
-            <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
-            Current Window: Free Public Tier
-          </span>
-          <span class="text-[11px] text-slate-500">Historical Time-Series API in Development</span>
-        </div>
-      </div>
-    </section>
 
     <!-- Footer -->
-    <footer class="border-t border-slate-800/80 pt-6 pb-8 text-xs text-slate-500 flex flex-col sm:flex-row justify-between gap-3">
-      <div class="leading-relaxed">
-        Maritime AIS via AISStream &bull; Aviation &amp; Weather via FAA / NOAA &bull; Macroeconomic baseline indicators sourced via FRED&reg;, Federal Reserve Bank of St. Louis.
-      </div>
-      <div class="shrink-0 text-slate-500">
-        Payload Tracking &bull; Informational Telemetry Only
-      </div>
+    <footer class="border-t border-[#1e2430] pt-4 pb-8 text-[11px] font-mono text-slate-500 flex flex-col sm:flex-row justify-between gap-2">
+      <div>AIS: AISStream &bull; AVIATION/WX: FAA &amp; NOAA &bull; MACRO: FRED&reg;, Federal Reserve Bank of St. Louis.</div>
+      <div>PAYLOAD TRACKING // INFORMATIONAL ONLY</div>
     </footer>
-
   </div>
 
   <script>
+    const HUB_COORDS = {
+      PORT_NOLA: [29.93, -90.06],
+      MSY: [29.99, -90.25],
+      PORT_MIA: [25.77, -80.17],
+      SDF: [38.17, -85.73]
+    };
+
     let allHubs = [];
     let currentFilter = 'all';
+    let map, markersLayer, vesselChart;
 
-    function setFilter(type) {
-      currentFilter = type;
-      document.querySelectorAll('.filter-btn').forEach(btn => {
-        btn.className = 'filter-btn px-3.5 py-1.5 rounded-lg text-xs font-medium text-slate-400 hover:text-white transition';
-      });
-      const active = document.getElementById('btn-' + type);
-      if (active) {
-        active.className = 'filter-btn px-3.5 py-1.5 rounded-lg text-xs font-medium bg-slate-800 text-white shadow-sm transition';
-      }
-      renderHubs();
+    function initMap() {
+      map = L.map('corridor-map', { zoomControl: true, attributionControl: false }).setView([31.5, -86.0], 5);
+      L.tileLayer('https://{s}://{z}/{x}/{y}{r}.png', {
+        maxZoom: 18
+      }).addTo(map);
+      markersLayer = L.layerGroup().addTo(map);
     }
 
-    <!-- Filter Controls & Section Header -->
-    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
-      <div>
-        <h2 class="text-lg font-semibold text-white">Live Corridor Telemetry</h2>
-        <p class="text-xs text-slate-400">Phase 1 Rollout &bull; 4 Active Nodes (Expanding to 13 U.S. Hubs)</p>
-      </div>
-
-      <!-- Interactive Filter Pills -->
-      <div class="inline-flex p-1 rounded-xl bg-slate-900 border border-slate-800 self-start">
-        <button onclick="setFilter('all')" id="btn-all" class="filter-btn px-3.5 py-1.5 rounded-lg text-xs font-medium bg-slate-800 text-white shadow-sm transition">
-          All Hubs (4)
-        </button>
-        <button onclick="setFilter('seaport')" id="btn-seaport" class="filter-btn px-3.5 py-1.5 rounded-lg text-xs font-medium text-slate-400 hover:text-white transition">
-          Maritime Ports
-        </button>
-        <button onclick="setFilter('airport')" id="btn-airport" class="filter-btn px-3.5 py-1.5 rounded-lg text-xs font-medium text-slate-400 hover:text-white transition">
-          Aviation Hubs
-        </button>
-      </div>
-    </div>
-
-    <!-- Hub Cards Grid -->
-    <main id="hubs-grid" class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-12">
-      <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 text-slate-400 text-sm">
-        Initializing telemetry stream...
-      </div>
-    </main>
-
-    <!-- Research & Methodology Card -->
-    <section class="relative overflow-hidden bg-gradient-to-r from-slate-900 via-slate-900 to-slate-800/80 border border-slate-800 rounded-2xl p-6 sm:p-7 mb-10">
-      <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
-        <div class="max-w-2xl">
-          <div class="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-emerald-400 mb-2">
-            Empirical Methodology
+    function updateMap(hubs) {
+      if (!markersLayer) return;
+      markersLayer.clearLayers();
+      hubs.forEach(hub => {
+        const coords = HUB_COORDS[hub.hub_code];
+        if (!coords) return;
+        const isPort = hub.hub_type === 'seaport';
+        const color = isPort ? '#22d3ee' : '#10b981';
+        const marker = L.circleMarker(coords, {
+          radius: 8,
+          fillColor: color,
+          color: '#ffffff',
+          weight: 1.5,
+          opacity: 1,
+          fillOpacity: 0.85
+        });
+        const detail = isPort
+          ? `Active Vessels: <b>${hub.primary_metric ?? 0}</b><br>Berthed/Idle: <b>${hub.secondary_metric ?? 0}</b>`
+          : `Status: <b>${hub.status}</b>`;
+        marker.bindPopup(`
+          <div style="font-size:12px; line-height:1.4;">
+            <div style="color:${color}; font-weight:600;">${hub.hub_code} // ${hub.region.toUpperCase()}</div>
+            <div style="font-weight:700; margin:2px 0 4px;">${hub.hub_name}</div>
+            ${detail}<br>
+            <span style="color:#94a3b8;">${hub.weather_summary || ''}</span>
           </div>
-          <h3 class="text-base sm:text-lg font-semibold text-white">Longitudinal Supply-Chain Nowcasting Archive</h3>
-          <p class="text-xs sm:text-sm text-slate-400 mt-1.5 leading-relaxed">
-            Every automated sweep logs live vessel counts, stationary berth ratios, terminal weather, and FAA delay advisories into a structured time-series archive—capturing real-time physical freight velocity weeks ahead of monthly government trade releases.
-          </p>
-        </div>
-        <div class="shrink-0 flex flex-col sm:items-end gap-2">
-          <span class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-950/80 border border-slate-700/80 text-xs font-mono text-slate-300">
-            <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
-            Current Window: Free Public Tier
-          </span>
-          <span class="text-[11px] text-slate-500">Historical Time-Series API in Development</span>
-        </div>
-      </div>
-    </section>
+        `);
+        marker.addTo(markersLayer);
+      });
+    }
 
-    <!-- Footer -->
-    <footer class="border-t border-slate-800/80 pt-6 pb-8 text-xs text-slate-500 flex flex-col sm:flex-row justify-between gap-3">
-      <div class="leading-relaxed">
-        Maritime AIS via AISStream &bull; Aviation &amp; Weather via FAA / NOAA &bull; Macroeconomic baseline indicators sourced via FRED&reg;, Federal Reserve Bank of St. Louis.
-      </div>
-      <div class="shrink-0 text-slate-500">
-        Payload Tracking &bull; Informational Telemetry Only
-      </div>
-    </footer>
+    function updateChart(ports) {
+      const ctx = document.getElementById('vesselChart');
+      if (!ctx) return;
+      const labels = ports.map(p => p.hub_code);
+      const active = ports.map(p => p.primary_metric ?? 0);
+      const idle = ports.map(p => p.secondary_metric ?? 0);
 
-  </div>
-
-  <script>
-    let allHubs = [];
-    let currentFilter = 'all';
+      if (vesselChart) vesselChart.destroy();
+      vesselChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels,
+          datasets: [
+            { label: 'Active Vessels', data: active, backgroundColor: '#22d3ee', barThickness: 22 },
+            { label: 'Berthed / Idle', data: idle, backgroundColor: '#334155', barThickness: 22 }
+          ]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: { labels: { color: '#94a3b8', font: { family: 'IBM Plex Mono', size: 10 } } }
+          },
+          scales: {
+            x: { ticks: { color: '#cbd5e1', font: { family: 'IBM Plex Mono', size: 11 } }, grid: { color: '#1e2430' } },
+            y: { beginAtZero: true, ticks: { color: '#64748b', font: { family: 'IBM Plex Mono', size: 10 } }, grid: { color: '#1e2430' } }
+          }
+        }
+      });
+    }
 
     function setFilter(type) {
       currentFilter = type;
       document.querySelectorAll('.filter-btn').forEach(btn => {
-        btn.className = 'filter-btn px-3.5 py-1.5 rounded-lg text-xs font-medium text-slate-400 hover:text-white transition';
+        btn.className = 'filter-btn px-3 py-1.5 text-xs font-mono uppercase bg-[#090b0f] text-slate-400 border border-[#1e2430] hover:text-white';
       });
       const active = document.getElementById('btn-' + type);
       if (active) {
-        active.className = 'filter-btn px-3.5 py-1.5 rounded-lg text-xs font-medium bg-slate-800 text-white shadow-sm transition';
+        active.className = 'filter-btn px-3 py-1.5 text-xs font-mono uppercase bg-emerald-500/15 text-emerald-300 border border-emerald-500/40';
       }
       renderHubs();
     }
@@ -277,97 +231,62 @@
     function renderHubs() {
       const grid = document.getElementById('hubs-grid');
       grid.innerHTML = '';
-
-      const filtered = currentFilter === 'all'
-        ? allHubs
-        : allHubs.filter(h => h.hub_type === currentFilter);
+      const filtered = currentFilter === 'all' ? allHubs : allHubs.filter(h => h.hub_type === currentFilter);
 
       filtered.forEach(hub => {
         const isPort = hub.hub_type === 'seaport';
         const isAlert = hub.status.includes('Delay') || hub.status.includes('High');
+        const statusColor = isAlert ? 'text-amber-400 border-amber-500/40 bg-amber-500/10' : 'text-emerald-400 border-emerald-500/40 bg-emerald-500/10';
+        const tagColor = isPort ? 'text-cyan-400' : 'text-indigo-400';
 
-        const badgeStyle = isAlert
-          ? 'bg-amber-500/10 text-amber-300 border-amber-500/30'
-          : 'bg-emerald-500/10 text-emerald-300 border-emerald-500/30';
-
-        const dotColor = isAlert ? 'bg-amber-400' : 'bg-emerald-400';
-        const typeLabel = isPort ? 'MARITIME PORT' : 'AVIATION HUB';
-        const accentColor = isPort ? 'text-cyan-400' : 'text-indigo-400';
-
-        const vesselCount = hub.primary_metric ?? 0;
-        const barWidth = isPort ? Math.min(100, Math.max(12, vesselCount * 6)) : (isAlert ? 85 : 25);
-        const barColor = isAlert ? 'bg-amber-400' : (isPort ? 'bg-cyan-400' : 'bg-emerald-400');
-
-        const metricSection = isPort
+        const bodyHtml = isPort
           ? `
-            <div class="my-5 bg-slate-950/80 border border-slate-800/80 rounded-xl p-4">
-              <div class="grid grid-cols-2 gap-4">
-                <div>
-                  <div class="text-[11px] uppercase tracking-wider text-slate-400">Active Vessels</div>
-                  <div class="text-2xl sm:text-3xl font-bold font-mono text-white mt-1">${vesselCount}</div>
-                </div>
-                <div class="border-l border-slate-800/80 pl-4">
-                  <div class="text-[11px] uppercase tracking-wider text-slate-400">Berthed / Idle</div>
-                  <div class="text-2xl sm:text-3xl font-bold font-mono text-slate-300 mt-1">${hub.secondary_metric ?? 0}</div>
-                </div>
+            <div class="grid grid-cols-3 divide-x divide-[#1e2430] border-y border-[#1e2430] bg-[#090b0f] my-4">
+              <div class="p-3">
+                <div class="text-[10px] font-mono text-slate-500">ACTIVE</div>
+                <div class="text-xl font-bold font-mono text-white mt-0.5">${hub.primary_metric ?? 0}</div>
               </div>
-              <div class="mt-4">
-                <div class="flex justify-between text-[11px] text-slate-400 mb-1.5">
-                  <span>Channel Density</span>
-                  <span class="font-mono">${barWidth}%</span>
-                </div>
-                <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
-                  <div class="h-full ${barColor} rounded-full transition-all duration-500" style="width: ${barWidth}%"></div>
-                </div>
+              <div class="p-3">
+                <div class="text-[10px] font-mono text-slate-500">BERTHED</div>
+                <div class="text-xl font-bold font-mono text-slate-300 mt-0.5">${hub.secondary_metric ?? 0}</div>
+              </div>
+              <div class="p-3">
+                <div class="text-[10px] font-mono text-slate-500">MODE</div>
+                <div class="text-xs font-mono text-cyan-400 mt-1.5">MARITIME</div>
               </div>
             </div>
           `
           : `
-            <div class="my-5 bg-slate-950/80 border border-slate-800/80 rounded-xl p-4">
-              <div class="flex items-center justify-between">
-                <div>
-                  <div class="text-[11px] uppercase tracking-wider text-slate-400">FAA Airspace &amp; Runway</div>
-                  <div class="text-lg sm:text-xl font-bold text-white mt-1">${hub.status}</div>
-                </div>
-                <span class="font-mono text-xs px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-300">
-                  ${hub.raw_payload?.icao || hub.hub_code}
-                </span>
+            <div class="grid grid-cols-2 divide-x divide-[#1e2430] border-y border-[#1e2430] bg-[#090b0f] my-4">
+              <div class="p-3">
+                <div class="text-[10px] font-mono text-slate-500">FAA FLOW</div>
+                <div class="text-sm font-bold font-mono text-white mt-1">${hub.status.toUpperCase()}</div>
               </div>
-              <div class="mt-4">
-                <div class="flex justify-between text-[11px] text-slate-400 mb-1.5">
-                  <span>Terminal Load Status</span>
-                  <span class="font-mono">${isAlert ? 'ELEVATED' : 'OPTIMAL'}</span>
-                </div>
-                <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
-                  <div class="h-full ${barColor} rounded-full transition-all duration-500" style="width: ${barWidth}%"></div>
-                </div>
+              <div class="p-3">
+                <div class="text-[10px] font-mono text-slate-500">ICAO // MODE</div>
+                <div class="text-sm font-mono text-indigo-400 mt-1">${hub.raw_payload?.icao || hub.hub_code} // AIR</div>
               </div>
             </div>
           `;
 
         const card = document.createElement('div');
-        card.className = 'group bg-slate-900/75 backdrop-blur-sm border border-slate-800/90 hover:border-slate-700 rounded-2xl p-5 sm:p-6 flex flex-col justify-between transition-all duration-200 shadow-xl shadow-black/20';
+        card.className = 'terminal-panel p-4 sm:p-5 flex flex-col justify-between hover:border-slate-700 transition';
         card.innerHTML = `
           <div>
-            <div class="flex items-start justify-between gap-3">
+            <div class="flex items-start justify-between gap-2">
               <div>
-                <div class="flex items-center gap-2 text-[11px] font-mono uppercase tracking-wider">
-                  <span class="${accentColor} font-semibold">${typeLabel}</span>
-                  <span class="text-slate-600">&bull;</span>
-                  <span class="text-slate-400">${hub.region}</span>
-                </div>
-                <h3 class="text-lg sm:text-xl font-bold text-white mt-1 group-hover:text-emerald-300 transition-colors">${hub.hub_name}</h3>
+                <div class="text-[11px] font-mono ${tagColor}">${hub.hub_code} &bull; ${hub.region.toUpperCase()}</div>
+                <h3 class="text-base sm:text-lg font-bold text-white mt-0.5">${hub.hub_name}</h3>
               </div>
-              <span class="shrink-0 inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-full border ${badgeStyle}">
-                <span class="w-1.5 h-1.5 rounded-full ${dotColor}"></span>
-                ${hub.status}
+              <span class="shrink-0 text-[11px] font-mono px-2 py-0.5 border ${statusColor}">
+                ${hub.status.toUpperCase()}
               </span>
             </div>
-            ${metricSection}
+            ${bodyHtml}
           </div>
-          <div class="text-xs text-slate-400 border-t border-slate-800/80 pt-3.5 flex items-center justify-between gap-2">
-            <span class="text-slate-500">Weather &amp; Wind:</span>
-            <span class="text-slate-200 font-medium text-right">${hub.weather_summary || 'Nominal'}</span>
+          <div class="text-xs font-mono text-slate-400 flex items-center justify-between">
+            <span class="text-slate-500">WX:</span>
+            <span class="text-slate-200 text-right">${hub.weather_summary || 'NOMINAL'}</span>
           </div>
         `;
         grid.appendChild(card);
@@ -375,6 +294,14 @@
     }
 
     async function loadTelemetry() {
+      initMap();
+      try {
+        const res = await fetch('./live.json?t=' + Date.now());
+        if (!res.ok) throw new Error('Feed unavailable');
+        const data = await res.json();
+
+    async function loadTelemetry() {
+      initMap();
       try {
         const res = await fetch('./live.json?t=' + Date.now());
         if (!res.ok) throw new Error('Feed unavailable');
@@ -383,24 +310,31 @@
         const dt = new Date(data.updated_at);
         document.getElementById('last-updated').textContent = dt.toLocaleString('en-US', {
           month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit'
-        });
+        }).toUpperCase();
 
         const diesel = data.macro?.diesel_price_usd;
         const tsi = data.macro?.freight_tsi;
-        document.getElementById('diesel-price').textContent = diesel ? `$${Number(diesel).toFixed(2)}` : 'N/A';
-        document.getElementById('freight-tsi').textContent = tsi ? Number(tsi).toFixed(1) : 'N/A';
+        document.getElementById('ticker-diesel').textContent = diesel ? `$${Number(diesel).toFixed(2)}/GAL` : 'N/A';
+        document.getElementById('ticker-tsi').textContent = tsi ? Number(tsi).toFixed(1) : 'N/A';
 
         allHubs = data.hubs || [];
+        const ports = allHubs.filter(h => h.hub_type === 'seaport');
+        const airports = allHubs.filter(h => h.hub_type === 'airport');
+        const totalVessels = ports.reduce((sum, p) => sum + (p.primary_metric || 0), 0);
+        const clearAirports = airports.filter(a => !a.status.includes('Delay')).length;
 
-const ports = allHubs.filter(h => h.hub_type === 'seaport');
-const airports = allHubs.filter(h => h.hub_type === 'airport');
-const totalVessels = ports.reduce((sum, p) => sum + (p.primary_metric || 0), 0);
-const clearAirports = airports.filter(a => !a.status.includes('Delay')).length;
-document.getElementById('total-vessels').textContent = totalVessels;
-document.getElementById('airspace-health').textContent = ${clearAirports}/${airports.length};
-renderHubs();
-} catch (err) {
-document.getElementById('last-updated').textContent = 'Sync pending...';
-}
-}
-loadTelemetry();
+        document.getElementById('ticker-vessels').textContent = totalVessels;
+        document.getElementById('airspace-health').textContent = `${clearAirports}/${airports.length} CLEAR`;
+
+        updateMap(allHubs);
+        updateChart(ports);
+        renderHubs();
+      } catch (err) {
+        document.getElementById('last-updated').textContent = 'SYNC PENDING';
+      }
+    }
+
+    loadTelemetry();
+  </script>
+</body>
+</html>
