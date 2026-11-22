@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-11-21T23:04:47.498282+00:00",
+  "updated_at": "2026-11-21T23:59:43.345234+00:00",
   "macro": {
     "diesel_price_usd": 5.937,
     "freight_tsi": 134.4
   },
   "hubs": [
     {
-      "recorded_at": "2026-11-21T23:04:47.498282+00:00",
+      "recorded_at": "2026-11-21T23:59:43.345234+00:00",
       "hub_code": "PORT_NOLA",
       "hub_name": "Port of New Orleans",
       "hub_type": "seaport",
@@ -24,38 +24,44 @@
       }
     },
     {
-      "recorded_at": "2026-11-21T23:04:47.498282+00:00",
+      "recorded_at": "2026-11-21T23:59:43.345234+00:00",
       "hub_code": "PORT_MIA",
       "hub_name": "Port of Miami",
       "hub_type": "seaport",
       "region": "Southeast",
       "status": "Active / Low Density",
-      "primary_metric": 1,
-      "secondary_metric": 0,
+      "primary_metric": 2,
+      "secondary_metric": 2,
       "weather_summary": "Telemetry Nominal",
       "diesel_price_usd": 5.937,
       "freight_index": 134.4,
       "raw_payload": {
-        "active_vessels": 1,
-        "stationary_or_berthed": 0,
+        "active_vessels": 2,
+        "stationary_or_berthed": 2,
         "tracked_ships": [
           {
-            "mmsi": "368091590",
-            "name": "EAGLE II",
-            "speed_kt": 9.9,
-            "status": "Underway"
+            "mmsi": "367482470",
+            "name": "OSCEOLA",
+            "speed_kt": 0.1,
+            "status": "Berthed/Idle"
+          },
+          {
+            "mmsi": "367168190",
+            "name": "GRAND LUXE",
+            "speed_kt": 0.0,
+            "status": "Berthed/Idle"
           }
         ]
       }
     },
     {
-      "recorded_at": "2026-11-21T23:04:47.498282+00:00",
+      "recorded_at": "2026-11-21T23:59:43.345234+00:00",
       "hub_code": "MSY",
       "hub_name": "Louis Armstrong New Orleans Intl",
       "hub_type": "airport",
       "region": "Gulf Coast",
       "status": "Normal Operations",
-      "primary_metric": 3,
+      "primary_metric": 6,
       "secondary_metric": 0,
       "weather_summary": "Telemetry Nominal",
       "diesel_price_usd": 5.937,
@@ -65,31 +71,52 @@
         "icao": "KMSY",
         "tracked_flights": [
           {
-            "callsign": "ASA569",
-            "type": "B739",
-            "alt_ft": 1700,
-            "speed_kt": 220.1,
+            "callsign": "FFT1431",
+            "type": "A20N",
+            "alt_ft": 2050,
+            "speed_kt": 179.0,
             "phase": "Approach/Departure"
           },
           {
-            "callsign": "N45BV",
-            "type": "SR22",
-            "alt_ft": 2000,
-            "speed_kt": 111.0,
+            "callsign": "SWA4734",
+            "type": "B38M",
+            "alt_ft": 800,
+            "speed_kt": 151.4,
             "phase": "Approach/Departure"
           },
           {
-            "callsign": "N95FL",
-            "type": "BE95",
-            "alt_ft": 1200,
-            "speed_kt": 102.1,
+            "callsign": "ENY3906",
+            "type": "E75L",
+            "alt_ft": 0,
+            "speed_kt": 5.2,
+            "phase": "Ground/Taxi"
+          },
+          {
+            "callsign": "N4883G",
+            "type": "C172",
+            "alt_ft": 4500,
+            "speed_kt": 100.8,
+            "phase": "Terminal Airspace"
+          },
+          {
+            "callsign": "CYO440",
+            "type": "LJ60",
+            "alt_ft": 425,
+            "speed_kt": 143.0,
+            "phase": "Approach/Departure"
+          },
+          {
+            "callsign": "N66104",
+            "type": "C172",
+            "alt_ft": 2100,
+            "speed_kt": 102.8,
             "phase": "Approach/Departure"
           }
         ]
       }
     },
     {
-      "recorded_at": "2026-11-21T23:04:47.498282+00:00",
+      "recorded_at": "2026-11-21T23:59:43.345234+00:00",
       "hub_code": "SDF",
       "hub_name": "Louisville Muhammad Ali Intl (UPS Worldport)",
       "hub_type": "airport",
@@ -105,24 +132,24 @@
         "icao": "KSDF",
         "tracked_flights": [
           {
-            "callsign": "UPS2946",
-            "type": "N/A",
-            "alt_ft": 6950,
-            "speed_kt": 264.4,
+            "callsign": "SKW3923",
+            "type": "E75L",
+            "alt_ft": 5900,
+            "speed_kt": 269.2,
             "phase": "Terminal Airspace"
           },
           {
-            "callsign": "SWA2589",
-            "type": "B38M",
-            "alt_ft": 1375,
-            "speed_kt": 148.2,
+            "callsign": "ASH4055",
+            "type": "E75L",
+            "alt_ft": 2900,
+            "speed_kt": 225.4,
             "phase": "Approach/Departure"
           },
           {
-            "callsign": "UPS5808",
-            "type": "B763",
-            "alt_ft": 2550,
-            "speed_kt": 223.7,
+            "callsign": "N6013J",
+            "type": "C172",
+            "alt_ft": 675,
+            "speed_kt": 77.4,
             "phase": "Approach/Departure"
           }
         ]
