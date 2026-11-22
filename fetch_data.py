@@ -104,16 +104,33 @@ def get_live_flights(lat, lon, radius_nm=15):
                 except ValueError:
                     continue
             if alt_num <= 10000:
+                v_rate = ac.get("baro_rate") or ac.get("geom_rate") or 0
+                try:
+                    v_rate = int(float(v_rate))
+                except ValueError:
+                    v_rate = 0
+
+                if alt_num == 0:
+                    phase = "Ground/Taxi"
+                elif v_rate < -250:
+                    phase = "Approach"
+                elif v_rate > 250:
+                    phase = "Departure"
+                else:
+                    phase = "Terminal Level"
+
                 flights.append({
                     "callsign": callsign,
                     "type": ac.get("t", "N/A"),
                     "alt_ft": alt_num,
                     "speed_kt": round(float(ac.get("gs") or 0), 1),
-                    "phase": "Ground/Taxi" if alt_num == 0 else ("Approach/Departure" if alt_num <= 4000 else "Terminal Airspace")
+                    "vert_rate_fpm": v_rate,
+                    "phase": phase
                 })
     except Exception as e:
         print(f"ADS-B flight error ({lat},{lon}): {e}")
     return flights
+
 
 async def scan_ais_ports(duration_sec=20):
     results = {code: {"vessels": {}, "anchored": set()} for code in PORTS}
