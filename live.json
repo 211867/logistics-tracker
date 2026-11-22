@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-11-22T02:45:07.425473+00:00",
+  "updated_at": "2026-11-22T03:42:36.032034+00:00",
   "macro": {
     "diesel_price_usd": 5.937,
     "freight_tsi": 134.4
   },
   "hubs": [
     {
-      "recorded_at": "2026-11-22T02:45:07.425473+00:00",
+      "recorded_at": "2026-11-22T03:42:36.032034+00:00",
       "hub_code": "PORT_NOLA",
       "hub_name": "Port of New Orleans",
       "hub_type": "seaport",
@@ -24,30 +24,24 @@
       }
     },
     {
-      "recorded_at": "2026-11-22T02:45:07.425473+00:00",
+      "recorded_at": "2026-11-22T03:42:36.032034+00:00",
       "hub_code": "PORT_MIA",
       "hub_name": "Port of Miami",
       "hub_type": "seaport",
       "region": "Southeast",
       "status": "Active / Low Density",
-      "primary_metric": 2,
-      "secondary_metric": 2,
+      "primary_metric": 1,
+      "secondary_metric": 1,
       "weather_summary": "Telemetry Nominal",
       "diesel_price_usd": 5.937,
       "freight_index": 134.4,
       "raw_payload": {
-        "active_vessels": 2,
-        "stationary_or_berthed": 2,
+        "active_vessels": 1,
+        "stationary_or_berthed": 1,
         "tracked_ships": [
           {
-            "mmsi": "367458840",
-            "name": "OSPREY",
-            "speed_kt": 0.0,
-            "status": "Berthed/Idle"
-          },
-          {
-            "mmsi": "368117510",
-            "name": "PELICAN II",
+            "mmsi": "303455000",
+            "name": "UTOPIA IV",
             "speed_kt": 0.0,
             "status": "Berthed/Idle"
           }
@@ -55,13 +49,13 @@
       }
     },
     {
-      "recorded_at": "2026-11-22T02:45:07.425473+00:00",
+      "recorded_at": "2026-11-22T03:42:36.032034+00:00",
       "hub_code": "MSY",
       "hub_name": "Louis Armstrong New Orleans Intl",
       "hub_type": "airport",
       "region": "Gulf Coast",
       "status": "Normal Operations",
-      "primary_metric": 5,
+      "primary_metric": 3,
       "secondary_metric": 0,
       "weather_summary": "Telemetry Nominal",
       "diesel_price_usd": 5.937,
@@ -71,51 +65,37 @@
         "icao": "KMSY",
         "tracked_flights": [
           {
-            "callsign": "EJA462",
-            "type": "E55P",
-            "alt_ft": 4950,
-            "speed_kt": 264.7,
-            "phase": "Terminal Airspace"
+            "callsign": "N911XG",
+            "type": "EC35",
+            "alt_ft": 975,
+            "speed_kt": 123.1,
+            "phase": "Approach/Departure"
           },
           {
-            "callsign": "MXY2811",
-            "type": "BCS3",
-            "alt_ft": 5575,
-            "speed_kt": 267.7,
-            "phase": "Terminal Airspace"
+            "callsign": "SWA3123",
+            "type": "B738",
+            "alt_ft": 0,
+            "speed_kt": 20.5,
+            "phase": "Ground/Taxi"
           },
           {
             "callsign": "SWA2141",
             "type": "B737",
-            "alt_ft": 1275,
-            "speed_kt": 136.1,
-            "phase": "Approach/Departure"
-          },
-          {
-            "callsign": "SWA375",
-            "type": "B737",
-            "alt_ft": 2275,
-            "speed_kt": 220.0,
-            "phase": "Approach/Departure"
-          },
-          {
-            "callsign": "N275LE",
-            "type": "BE9L",
-            "alt_ft": 50,
-            "speed_kt": 64.0,
-            "phase": "Approach/Departure"
+            "alt_ft": 0,
+            "speed_kt": 19.5,
+            "phase": "Ground/Taxi"
           }
         ]
       }
     },
     {
-      "recorded_at": "2026-11-22T02:45:07.425473+00:00",
+      "recorded_at": "2026-11-22T03:42:36.032034+00:00",
       "hub_code": "SDF",
       "hub_name": "Louisville Muhammad Ali Intl (UPS Worldport)",
       "hub_type": "airport",
       "region": "Ohio Valley",
       "status": "Normal Operations",
-      "primary_metric": 1,
+      "primary_metric": 2,
       "secondary_metric": 0,
       "weather_summary": "Telemetry Nominal",
       "diesel_price_usd": 5.937,
@@ -125,10 +105,17 @@
         "icao": "KSDF",
         "tracked_flights": [
           {
-            "callsign": "RPA4563",
+            "callsign": "SWA3444",
+            "type": "B38M",
+            "alt_ft": 2900,
+            "speed_kt": 256.1,
+            "phase": "Approach/Departure"
+          },
+          {
+            "callsign": "RPA3609",
             "type": "E75L",
-            "alt_ft": 2825,
-            "speed_kt": 215.1,
+            "alt_ft": 3275,
+            "speed_kt": 276.6,
             "phase": "Approach/Departure"
           }
         ]
