@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-11-22T05:45:35.132881+00:00",
+  "updated_at": "2026-11-22T06:49:06.691881+00:00",
   "macro": {
     "diesel_price_usd": 5.937,
     "freight_tsi": 134.4
   },
   "hubs": [
     {
-      "recorded_at": "2026-11-22T05:45:35.132881+00:00",
+      "recorded_at": "2026-11-22T06:49:06.691881+00:00",
       "hub_code": "PORT_NOLA",
       "hub_name": "Port of New Orleans",
       "hub_type": "seaport",
@@ -24,44 +24,31 @@
       }
     },
     {
-      "recorded_at": "2026-11-22T05:45:35.132881+00:00",
+      "recorded_at": "2026-11-22T06:49:06.691881+00:00",
       "hub_code": "PORT_MIA",
       "hub_name": "Port of Miami",
       "hub_type": "seaport",
       "region": "Southeast",
       "status": "Active / Low Density",
-      "primary_metric": 2,
-      "secondary_metric": 2,
+      "primary_metric": 0,
+      "secondary_metric": 0,
       "weather_summary": "Telemetry Nominal",
       "diesel_price_usd": 5.937,
       "freight_index": 134.4,
       "raw_payload": {
-        "active_vessels": 2,
-        "stationary_or_berthed": 2,
-        "tracked_ships": [
-          {
-            "mmsi": "369564000",
-            "name": "APOLLO",
-            "speed_kt": 0.0,
-            "status": "Berthed/Idle"
-          },
-          {
-            "mmsi": "339247000",
-            "name": "PERSISTENCE",
-            "speed_kt": 0.0,
-            "status": "Berthed/Idle"
-          }
-        ]
+        "active_vessels": 0,
+        "stationary_or_berthed": 0,
+        "tracked_ships": []
       }
     },
     {
-      "recorded_at": "2026-11-22T05:45:35.132881+00:00",
+      "recorded_at": "2026-11-22T06:49:06.691881+00:00",
       "hub_code": "MSY",
       "hub_name": "Louis Armstrong New Orleans Intl",
       "hub_type": "airport",
       "region": "Gulf Coast",
       "status": "Normal Operations",
-      "primary_metric": 6,
+      "primary_metric": 1,
       "secondary_metric": 0,
       "weather_summary": "Telemetry Nominal",
       "diesel_price_usd": 5.937,
@@ -71,58 +58,23 @@
         "icao": "KMSY",
         "tracked_flights": [
           {
-            "callsign": "SCX8484",
-            "type": "B738",
-            "alt_ft": 2575,
-            "speed_kt": 161.3,
-            "phase": "Approach/Departure"
-          },
-          {
-            "callsign": "N998GP",
-            "type": "GLF4",
-            "alt_ft": 0,
-            "speed_kt": 0.0,
-            "phase": "Ground/Taxi"
-          },
-          {
-            "callsign": "SWA396",
-            "type": "B38M",
-            "alt_ft": 0,
-            "speed_kt": 12.2,
-            "phase": "Ground/Taxi"
-          },
-          {
-            "callsign": "JIA5022",
-            "type": "CRJ9",
-            "alt_ft": 0,
-            "speed_kt": 6.8,
-            "phase": "Ground/Taxi"
-          },
-          {
-            "callsign": "DAL2224",
-            "type": "B752",
-            "alt_ft": 0,
-            "speed_kt": 15.5,
-            "phase": "Ground/Taxi"
-          },
-          {
-            "callsign": "UAL1761",
-            "type": "B738",
-            "alt_ft": 1000,
-            "speed_kt": 148.8,
+            "callsign": "N145CH",
+            "type": "EC45",
+            "alt_ft": 300,
+            "speed_kt": 30.4,
             "phase": "Approach/Departure"
           }
         ]
       }
     },
     {
-      "recorded_at": "2026-11-22T05:45:35.132881+00:00",
+      "recorded_at": "2026-11-22T06:49:06.691881+00:00",
       "hub_code": "SDF",
       "hub_name": "Louisville Muhammad Ali Intl (UPS Worldport)",
       "hub_type": "airport",
       "region": "Ohio Valley",
       "status": "Normal Operations",
-      "primary_metric": 1,
+      "primary_metric": 0,
       "secondary_metric": 0,
       "weather_summary": "Telemetry Nominal",
       "diesel_price_usd": 5.937,
@@ -130,15 +82,7 @@
       "raw_payload": {
         "faa_status": "Normal Operations",
         "icao": "KSDF",
-        "tracked_flights": [
-          {
-            "callsign": "SWA2861",
-            "type": "B38M",
-            "alt_ft": 875,
-            "speed_kt": 138.5,
-            "phase": "Approach/Departure"
-          }
-        ]
+        "tracked_flights": []
       }
     }
   ]
