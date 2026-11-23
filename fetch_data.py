@@ -133,7 +133,7 @@ def get_live_flights(lat, lon, radius_nm=15):
     return flights
 
 
-async def scan_ais_ports(duration_sec=20):
+async def scan_ais_ports(duration_sec=45):
     results = {code: {"vessels": {}, "anchored": set()} for code in PORTS}
     if not AISSTREAM_KEY:
         return results
