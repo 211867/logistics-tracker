@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-11-23T05:53:40.063184+00:00",
+  "updated_at": "2026-11-23T07:05:25.087681+00:00",
   "macro": {
     "diesel_price_usd": 5.937,
     "freight_tsi": 134.4
   },
   "hubs": [
     {
-      "recorded_at": "2026-11-23T05:53:40.063184+00:00",
+      "recorded_at": "2026-11-23T07:05:25.087681+00:00",
       "hub_code": "PORT_NOLA",
       "hub_name": "Port of New Orleans",
       "hub_type": "seaport",
@@ -24,72 +24,64 @@
       }
     },
     {
-      "recorded_at": "2026-11-23T05:53:40.063184+00:00",
+      "recorded_at": "2026-11-23T07:05:25.087681+00:00",
       "hub_code": "PORT_MIA",
       "hub_name": "Port of Miami",
       "hub_type": "seaport",
       "region": "Southeast",
       "status": "Moderate Traffic",
-      "primary_metric": 5,
-      "secondary_metric": 3,
+      "primary_metric": 4,
+      "secondary_metric": 4,
       "weather_summary": "Telemetry Nominal",
       "diesel_price_usd": 5.937,
       "freight_index": 134.4,
       "raw_payload": {
-        "active_vessels": 5,
-        "stationary_or_berthed": 3,
+        "active_vessels": 4,
+        "stationary_or_berthed": 4,
         "tracked_ships": [
           {
-            "mmsi": "255805859",
-            "name": "MSC ANTONELLA",
-            "speed_kt": 5.8,
-            "status": "Underway",
-            "lat": 25.7652,
-            "lon": -80.146
-          },
-          {
-            "mmsi": "367168190",
-            "name": "GRAND LUXE",
-            "speed_kt": 0.0,
+            "mmsi": "367653620",
+            "name": "PAYTON GRACE MORAN",
+            "speed_kt": 0.1,
             "status": "Berthed/Idle",
-            "lat": 25.7727,
-            "lon": -80.1848
+            "lat": 25.766,
+            "lon": -80.1469
           },
           {
-            "mmsi": "367458840",
-            "name": "OSPREY",
+            "mmsi": "368117510",
+            "name": "PELICAN II",
             "speed_kt": 0.0,
             "status": "Berthed/Idle",
             "lat": 25.7644,
-            "lon": -80.1448
+            "lon": -80.1453
           },
           {
-            "mmsi": "368091590",
-            "name": "EAGLE II",
-            "speed_kt": 0.9,
-            "status": "Underway",
-            "lat": 25.7671,
-            "lon": -80.143
-          },
-          {
-            "mmsi": "366872810",
-            "name": "BISCAYNE LADY",
+            "mmsi": "248062000",
+            "name": "HERAKLES",
             "speed_kt": 0.0,
             "status": "Berthed/Idle",
-            "lat": 25.7793,
-            "lon": -80.1838
+            "lat": 25.7863,
+            "lon": -80.1794
+          },
+          {
+            "mmsi": "319269400",
+            "name": "WHY KNOT",
+            "speed_kt": 0.0,
+            "status": "Berthed/Idle",
+            "lat": 25.7562,
+            "lon": -80.1405
           }
         ]
       }
     },
     {
-      "recorded_at": "2026-11-23T05:53:40.063184+00:00",
+      "recorded_at": "2026-11-23T07:05:25.087681+00:00",
       "hub_code": "MSY",
       "hub_name": "Louis Armstrong New Orleans Intl",
       "hub_type": "airport",
       "region": "Gulf Coast",
       "status": "Normal Operations",
-      "primary_metric": 5,
+      "primary_metric": 0,
       "secondary_metric": 0,
       "weather_summary": "Telemetry Nominal",
       "diesel_price_usd": 5.937,
@@ -97,62 +89,11 @@
       "raw_payload": {
         "faa_status": "Normal Operations",
         "icao": "KMSY",
-        "tracked_flights": [
-          {
-            "callsign": "SWA669",
-            "type": "B38M",
-            "alt_ft": 2375,
-            "speed_kt": 217.5,
-            "vert_rate_fpm": -1344,
-            "phase": "Approach",
-            "lat": 30.1258,
-            "lon": -90.4826
-          },
-          {
-            "callsign": "SWA4131",
-            "type": "B38M",
-            "alt_ft": 2350,
-            "speed_kt": 197.0,
-            "vert_rate_fpm": -1152,
-            "phase": "Approach",
-            "lat": 30.0323,
-            "lon": -90.43
-          },
-          {
-            "callsign": "SWA1448",
-            "type": "B738",
-            "alt_ft": 0,
-            "speed_kt": 17.5,
-            "vert_rate_fpm": 0,
-            "phase": "Ground/Taxi",
-            "lat": 29.9937,
-            "lon": -90.2601
-          },
-          {
-            "callsign": "SWA984",
-            "type": "B38M",
-            "alt_ft": 4050,
-            "speed_kt": 217.7,
-            "vert_rate_fpm": -896,
-            "phase": "Approach",
-            "lat": 30.2102,
-            "lon": -90.1798
-          },
-          {
-            "callsign": "N145CH",
-            "type": "EC45",
-            "alt_ft": 350,
-            "speed_kt": 64.7,
-            "vert_rate_fpm": 768,
-            "phase": "Departure",
-            "lat": 29.9195,
-            "lon": -90.1238
-          }
-        ]
+        "tracked_flights": []
       }
     },
     {
-      "recorded_at": "2026-11-23T05:53:40.063184+00:00",
+      "recorded_at": "2026-11-23T07:05:25.087681+00:00",
       "hub_code": "SDF",
       "hub_name": "Louisville Muhammad Ali Intl (UPS Worldport)",
       "hub_type": "airport",
