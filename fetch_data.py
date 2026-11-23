@@ -174,8 +174,7 @@ async def scan_ais_ports(duration_sec=45):
                                     "lat": round(float(lat), 4),
                                     "lon": round(float(lon), 4)
                                 }
-
-                                }
+                                
                                 if sog is not None and sog < 0.5:
                                     results[code]["anchored"].add(mmsi)
                 except asyncio.TimeoutError:
