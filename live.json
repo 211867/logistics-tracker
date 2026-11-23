@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-11-23T11:24:41.166960+00:00",
+  "updated_at": "2026-11-23T12:23:14.646829+00:00",
   "macro": {
     "diesel_price_usd": 5.937,
     "freight_tsi": 134.4
   },
   "hubs": [
     {
-      "recorded_at": "2026-11-23T11:24:41.166960+00:00",
+      "recorded_at": "2026-11-23T12:23:14.646829+00:00",
       "hub_code": "PORT_NOLA",
       "hub_name": "Port of New Orleans",
       "hub_type": "seaport",
@@ -24,64 +24,56 @@
       }
     },
     {
-      "recorded_at": "2026-11-23T11:24:41.166960+00:00",
+      "recorded_at": "2026-11-23T12:23:14.646829+00:00",
       "hub_code": "PORT_MIA",
       "hub_name": "Port of Miami",
       "hub_type": "seaport",
       "region": "Southeast",
-      "status": "Moderate Traffic",
-      "primary_metric": 4,
+      "status": "Active / Low Density",
+      "primary_metric": 3,
       "secondary_metric": 3,
       "weather_summary": "Telemetry Nominal",
       "diesel_price_usd": 5.937,
       "freight_index": 134.4,
       "raw_payload": {
-        "active_vessels": 4,
+        "active_vessels": 3,
         "stationary_or_berthed": 3,
         "tracked_ships": [
           {
-            "mmsi": "366872810",
-            "name": "BISCAYNE LADY",
+            "mmsi": "368373020",
+            "name": "MSRC STEADFAST",
             "speed_kt": 0.0,
             "status": "Berthed/Idle",
-            "lat": 25.7794,
-            "lon": -80.1838
+            "lat": 25.779,
+            "lon": -80.1861
           },
           {
-            "mmsi": "339247000",
-            "name": "PERSISTENCE",
+            "mmsi": "308045000",
+            "name": "CARNIVAL SUNRISE",
             "speed_kt": 0.0,
             "status": "Berthed/Idle",
-            "lat": 25.7942,
-            "lon": -80.1464
+            "lat": 25.7773,
+            "lon": -80.1705
           },
           {
-            "mmsi": "368179250",
-            "name": "SEAHAWK",
+            "mmsi": "248062000",
+            "name": "HERAKLES",
             "speed_kt": 0.0,
             "status": "Berthed/Idle",
-            "lat": 25.7711,
-            "lon": -80.1469
-          },
-          {
-            "mmsi": "367627450",
-            "name": "GEORGE T MORAN",
-            "speed_kt": 4.7,
-            "status": "Underway",
-            "lat": 25.767,
-            "lon": -80.1651
+            "lat": 25.7863,
+            "lon": -80.1794
           }
         ]
       }
     },
     {
-      "recorded_at": "2026-11-23T11:24:41.166960+00:00",
+      "recorded_at": "2026-11-23T12:23:14.646829+00:00",
       "hub_code": "MSY",
       "hub_name": "Louis Armstrong New Orleans Intl",
       "hub_type": "airport",
       "region": "Gulf Coast",
       "status": "Normal Operations",
-      "primary_metric": 1,
+      "primary_metric": 0,
       "secondary_metric": 0,
       "weather_summary": "Telemetry Nominal",
       "diesel_price_usd": 5.937,
@@ -89,28 +81,17 @@
       "raw_payload": {
         "faa_status": "Normal Operations",
         "icao": "KMSY",
-        "tracked_flights": [
-          {
-            "callsign": "SWA1371",
-            "type": "B38M",
-            "alt_ft": 0,
-            "speed_kt": 12.8,
-            "vert_rate_fpm": 0,
-            "phase": "Ground/Taxi",
-            "lat": 30.0031,
-            "lon": -90.246
-          }
-        ]
+        "tracked_flights": []
       }
     },
     {
-      "recorded_at": "2026-11-23T11:24:41.166960+00:00",
+      "recorded_at": "2026-11-23T12:23:14.646829+00:00",
       "hub_code": "SDF",
       "hub_name": "Louisville Muhammad Ali Intl (UPS Worldport)",
       "hub_type": "airport",
       "region": "Ohio Valley",
       "status": "Normal Operations",
-      "primary_metric": 1,
+      "primary_metric": 2,
       "secondary_metric": 0,
       "weather_summary": "Telemetry Nominal",
       "diesel_price_usd": 5.937,
@@ -120,14 +101,24 @@
         "icao": "KSDF",
         "tracked_flights": [
           {
-            "callsign": "KII336",
-            "type": "B733",
+            "callsign": "ASH6266",
+            "type": "E75L",
             "alt_ft": 4125,
-            "speed_kt": 216.0,
-            "vert_rate_fpm": 2752,
+            "speed_kt": 257.1,
+            "vert_rate_fpm": 1984,
             "phase": "Departure",
-            "lat": 38.2572,
-            "lon": -85.7566
+            "lat": 38.2728,
+            "lon": -85.7301
+          },
+          {
+            "callsign": "MXY228",
+            "type": "BCS3",
+            "alt_ft": 3175,
+            "speed_kt": 198.4,
+            "vert_rate_fpm": -786,
+            "phase": "Approach",
+            "lat": 38.0096,
+            "lon": -85.6715
           }
         ]
       }
