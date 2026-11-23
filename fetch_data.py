@@ -130,8 +130,7 @@ def get_live_flights(lat, lon, radius_nm=15):
                     "lat": round(float(ac["lat"]), 4) if ac.get("lat") is not None else None,
                     "lon": round(float(ac["lon"]), 4) if ac.get("lon") is not None else None
                 })
-
-                })
+                
     except Exception as e:
         print(f"ADS-B flight error ({lat},{lon}): {e}")
     return flights
