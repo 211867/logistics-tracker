@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-11-23T07:05:25.087681+00:00",
+  "updated_at": "2026-11-23T08:54:37.216109+00:00",
   "macro": {
     "diesel_price_usd": 5.937,
     "freight_tsi": 134.4
   },
   "hubs": [
     {
-      "recorded_at": "2026-11-23T07:05:25.087681+00:00",
+      "recorded_at": "2026-11-23T08:54:37.216109+00:00",
       "hub_code": "PORT_NOLA",
       "hub_name": "Port of New Orleans",
       "hub_type": "seaport",
@@ -24,58 +24,25 @@
       }
     },
     {
-      "recorded_at": "2026-11-23T07:05:25.087681+00:00",
+      "recorded_at": "2026-11-23T08:54:37.216109+00:00",
       "hub_code": "PORT_MIA",
       "hub_name": "Port of Miami",
       "hub_type": "seaport",
       "region": "Southeast",
-      "status": "Moderate Traffic",
-      "primary_metric": 4,
-      "secondary_metric": 4,
+      "status": "Active / Low Density",
+      "primary_metric": 0,
+      "secondary_metric": 0,
       "weather_summary": "Telemetry Nominal",
       "diesel_price_usd": 5.937,
       "freight_index": 134.4,
       "raw_payload": {
-        "active_vessels": 4,
-        "stationary_or_berthed": 4,
-        "tracked_ships": [
-          {
-            "mmsi": "367653620",
-            "name": "PAYTON GRACE MORAN",
-            "speed_kt": 0.1,
-            "status": "Berthed/Idle",
-            "lat": 25.766,
-            "lon": -80.1469
-          },
-          {
-            "mmsi": "368117510",
-            "name": "PELICAN II",
-            "speed_kt": 0.0,
-            "status": "Berthed/Idle",
-            "lat": 25.7644,
-            "lon": -80.1453
-          },
-          {
-            "mmsi": "248062000",
-            "name": "HERAKLES",
-            "speed_kt": 0.0,
-            "status": "Berthed/Idle",
-            "lat": 25.7863,
-            "lon": -80.1794
-          },
-          {
-            "mmsi": "319269400",
-            "name": "WHY KNOT",
-            "speed_kt": 0.0,
-            "status": "Berthed/Idle",
-            "lat": 25.7562,
-            "lon": -80.1405
-          }
-        ]
+        "active_vessels": 0,
+        "stationary_or_berthed": 0,
+        "tracked_ships": []
       }
     },
     {
-      "recorded_at": "2026-11-23T07:05:25.087681+00:00",
+      "recorded_at": "2026-11-23T08:54:37.216109+00:00",
       "hub_code": "MSY",
       "hub_name": "Louis Armstrong New Orleans Intl",
       "hub_type": "airport",
@@ -93,13 +60,13 @@
       }
     },
     {
-      "recorded_at": "2026-11-23T07:05:25.087681+00:00",
+      "recorded_at": "2026-11-23T08:54:37.216109+00:00",
       "hub_code": "SDF",
       "hub_name": "Louisville Muhammad Ali Intl (UPS Worldport)",
       "hub_type": "airport",
       "region": "Ohio Valley",
       "status": "Normal Operations",
-      "primary_metric": 0,
+      "primary_metric": 1,
       "secondary_metric": 0,
       "weather_summary": "Telemetry Nominal",
       "diesel_price_usd": 5.937,
@@ -107,7 +74,18 @@
       "raw_payload": {
         "faa_status": "Normal Operations",
         "icao": "KSDF",
-        "tracked_flights": []
+        "tracked_flights": [
+          {
+            "callsign": "UPS914",
+            "type": "A306",
+            "alt_ft": 1750,
+            "speed_kt": 153.1,
+            "vert_rate_fpm": 2112,
+            "phase": "Departure",
+            "lat": 38.1935,
+            "lon": -85.7509
+          }
+        ]
       }
     }
   ]
