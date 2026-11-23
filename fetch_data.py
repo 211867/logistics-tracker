@@ -126,7 +126,11 @@ def get_live_flights(lat, lon, radius_nm=15):
                     "alt_ft": alt_num,
                     "speed_kt": round(float(ac.get("gs") or 0), 1),
                     "vert_rate_fpm": v_rate,
-                    "phase": phase
+                    "phase": phase,
+                    "lat": round(float(ac["lat"]), 4) if ac.get("lat") is not None else None,
+                    "lon": round(float(ac["lon"]), 4) if ac.get("lon") is not None else None
+                })
+
                 })
     except Exception as e:
         print(f"ADS-B flight error ({lat},{lon}): {e}")
@@ -167,7 +171,11 @@ async def scan_ais_ports(duration_sec=45):
                                     "mmsi": mmsi,
                                     "name": ship_name,
                                     "speed_kt": round(float(sog or 0), 1),
-                                    "status": "Berthed/Idle" if (sog is not None and sog < 0.5) else "Underway"
+                                    "status": "Berthed/Idle" if (sog is not None and sog < 0.5) else "Underway",
+                                    "lat": round(float(lat), 4),
+                                    "lon": round(float(lon), 4)
+                                }
+
                                 }
                                 if sog is not None and sog < 0.5:
                                     results[code]["anchored"].add(mmsi)
