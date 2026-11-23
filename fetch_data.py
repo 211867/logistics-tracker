@@ -18,13 +18,14 @@ if SUPABASE_URL and not SUPABASE_URL.startswith("http"):
     SUPABASE_URL = f"https:{DBL}{SUPABASE_URL}"
 
 PORTS = {
-    "PORT_NOLA": {
+        "PORT_NOLA": {
         "name": "Port of New Orleans",
         "region": "Gulf Coast",
         "lat": 29.93,
         "lon": -90.06,
-        "box": [[29.85, -90.20], [30.02, -89.90]]
+        "box": [[29.88, -90.28], [30.00, -89.94]]
     },
+
     "PORT_MIA": {
         "name": "Port of Miami",
         "region": "Southeast",
