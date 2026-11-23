@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-11-22T23:30:35.960186+00:00",
+  "updated_at": "2026-11-23T00:38:40.404087+00:00",
   "macro": {
     "diesel_price_usd": 5.937,
     "freight_tsi": 134.4
   },
   "hubs": [
     {
-      "recorded_at": "2026-11-22T23:30:35.960186+00:00",
+      "recorded_at": "2026-11-23T00:38:40.404087+00:00",
       "hub_code": "PORT_NOLA",
       "hub_name": "Port of New Orleans",
       "hub_type": "seaport",
@@ -24,31 +24,44 @@
       }
     },
     {
-      "recorded_at": "2026-11-22T23:30:35.960186+00:00",
+      "recorded_at": "2026-11-23T00:38:40.404087+00:00",
       "hub_code": "PORT_MIA",
       "hub_name": "Port of Miami",
       "hub_type": "seaport",
       "region": "Southeast",
       "status": "Active / Low Density",
-      "primary_metric": 0,
-      "secondary_metric": 0,
+      "primary_metric": 2,
+      "secondary_metric": 2,
       "weather_summary": "Telemetry Nominal",
       "diesel_price_usd": 5.937,
       "freight_index": 134.4,
       "raw_payload": {
-        "active_vessels": 0,
-        "stationary_or_berthed": 0,
-        "tracked_ships": []
+        "active_vessels": 2,
+        "stationary_or_berthed": 2,
+        "tracked_ships": [
+          {
+            "mmsi": "367627450",
+            "name": "GEORGE T MORAN",
+            "speed_kt": 0.0,
+            "status": "Berthed/Idle"
+          },
+          {
+            "mmsi": "367653620",
+            "name": "PAYTON GRACE MORAN",
+            "speed_kt": 0.0,
+            "status": "Berthed/Idle"
+          }
+        ]
       }
     },
     {
-      "recorded_at": "2026-11-22T23:30:35.960186+00:00",
+      "recorded_at": "2026-11-23T00:38:40.404087+00:00",
       "hub_code": "MSY",
       "hub_name": "Louis Armstrong New Orleans Intl",
       "hub_type": "airport",
       "region": "Gulf Coast",
       "status": "Normal Operations",
-      "primary_metric": 7,
+      "primary_metric": 4,
       "secondary_metric": 0,
       "weather_summary": "Telemetry Nominal",
       "diesel_price_usd": 5.937,
@@ -58,66 +71,42 @@
         "icao": "KMSY",
         "tracked_flights": [
           {
-            "callsign": "JCM615",
-            "type": "H25B",
-            "alt_ft": 7950,
-            "speed_kt": 270.4,
-            "vert_rate_fpm": 0,
-            "phase": "Terminal Level"
+            "callsign": "SWA1444",
+            "type": "B38M",
+            "alt_ft": 3650,
+            "speed_kt": 235.1,
+            "vert_rate_fpm": -960,
+            "phase": "Approach"
           },
           {
-            "callsign": "N911XG",
-            "type": "EC35",
-            "alt_ft": 1050,
-            "speed_kt": 116.4,
-            "vert_rate_fpm": 0,
-            "phase": "Terminal Level"
-          },
-          {
-            "callsign": "EJA919",
-            "type": "C68A",
+            "callsign": "SWA1716",
+            "type": "B38M",
             "alt_ft": 0,
-            "speed_kt": 9.8,
+            "speed_kt": 12.8,
             "vert_rate_fpm": 0,
             "phase": "Ground/Taxi"
           },
           {
-            "callsign": "N253SC",
-            "type": "LJ45",
-            "alt_ft": 400,
-            "speed_kt": 124.7,
-            "vert_rate_fpm": -640,
-            "phase": "Approach"
-          },
-          {
-            "callsign": "SCX3072",
+            "callsign": "AAL1251",
             "type": "B738",
-            "alt_ft": 9575,
-            "speed_kt": 289.4,
-            "vert_rate_fpm": 2560,
+            "alt_ft": 0,
+            "speed_kt": 13.2,
+            "vert_rate_fpm": 0,
+            "phase": "Ground/Taxi"
+          },
+          {
+            "callsign": "MXY1660",
+            "type": "BCS3",
+            "alt_ft": 7225,
+            "speed_kt": 296.5,
+            "vert_rate_fpm": 2752,
             "phase": "Departure"
-          },
-          {
-            "callsign": "N621MC",
-            "type": "C82S",
-            "alt_ft": 2600,
-            "speed_kt": 133.6,
-            "vert_rate_fpm": -768,
-            "phase": "Approach"
-          },
-          {
-            "callsign": "GMH709",
-            "type": "BE40",
-            "alt_ft": 1100,
-            "speed_kt": 146.1,
-            "vert_rate_fpm": -896,
-            "phase": "Approach"
           }
         ]
       }
     },
     {
-      "recorded_at": "2026-11-22T23:30:35.960186+00:00",
+      "recorded_at": "2026-11-23T00:38:40.404087+00:00",
       "hub_code": "SDF",
       "hub_name": "Louisville Muhammad Ali Intl (UPS Worldport)",
       "hub_type": "airport",
