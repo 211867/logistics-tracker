@@ -188,7 +188,7 @@ async def main():
     diesel = get_fred_latest("GASDESW")
     freight_idx = get_fred_latest("TSIFRGHT")
     faa_status = get_faa_delays()
-    ais_data = await scan_ais_ports(duration_sec=20)
+    ais_data = await scan_ais_ports(duration_sec=45)
 
     rows = []
     for code, cfg in PORTS.items():
