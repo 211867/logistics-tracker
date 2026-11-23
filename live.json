@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-11-23T02:18:59.437352+00:00",
+  "updated_at": "2026-11-23T02:48:26.390417+00:00",
   "macro": {
     "diesel_price_usd": 5.937,
     "freight_tsi": 134.4
   },
   "hubs": [
     {
-      "recorded_at": "2026-11-23T02:18:59.437352+00:00",
+      "recorded_at": "2026-11-23T02:48:26.390417+00:00",
       "hub_code": "PORT_NOLA",
       "hub_name": "Port of New Orleans",
       "hub_type": "seaport",
@@ -24,56 +24,31 @@
       }
     },
     {
-      "recorded_at": "2026-11-23T02:18:59.437352+00:00",
+      "recorded_at": "2026-11-23T02:48:26.390417+00:00",
       "hub_code": "PORT_MIA",
       "hub_name": "Port of Miami",
       "hub_type": "seaport",
       "region": "Southeast",
-      "status": "Moderate Traffic",
-      "primary_metric": 4,
-      "secondary_metric": 3,
+      "status": "Active / Low Density",
+      "primary_metric": 0,
+      "secondary_metric": 0,
       "weather_summary": "Telemetry Nominal",
       "diesel_price_usd": 5.937,
       "freight_index": 134.4,
       "raw_payload": {
-        "active_vessels": 4,
-        "stationary_or_berthed": 3,
-        "tracked_ships": [
-          {
-            "mmsi": "368373020",
-            "name": "MSRC STEADFAST",
-            "speed_kt": 0.0,
-            "status": "Berthed/Idle"
-          },
-          {
-            "mmsi": "367653620",
-            "name": "PAYTON GRACE MORAN",
-            "speed_kt": 0.0,
-            "status": "Berthed/Idle"
-          },
-          {
-            "mmsi": "366872810",
-            "name": "BISCAYNE LADY",
-            "speed_kt": 0.0,
-            "status": "Berthed/Idle"
-          },
-          {
-            "mmsi": "341325002",
-            "name": "FAST CAT",
-            "speed_kt": 0.6,
-            "status": "Underway"
-          }
-        ]
+        "active_vessels": 0,
+        "stationary_or_berthed": 0,
+        "tracked_ships": []
       }
     },
     {
-      "recorded_at": "2026-11-23T02:18:59.437352+00:00",
+      "recorded_at": "2026-11-23T02:48:26.390417+00:00",
       "hub_code": "MSY",
       "hub_name": "Louis Armstrong New Orleans Intl",
       "hub_type": "airport",
       "region": "Gulf Coast",
       "status": "Normal Operations",
-      "primary_metric": 6,
+      "primary_metric": 4,
       "secondary_metric": 0,
       "weather_summary": "Telemetry Nominal",
       "diesel_price_usd": 5.937,
@@ -83,64 +58,56 @@
         "icao": "KMSY",
         "tracked_flights": [
           {
-            "callsign": "UAL782",
-            "type": "B739",
-            "alt_ft": 1925,
-            "speed_kt": 191.4,
-            "vert_rate_fpm": 64,
-            "phase": "Terminal Level"
-          },
-          {
-            "callsign": "MXY352",
-            "type": "BCS3",
-            "alt_ft": 7375,
-            "speed_kt": 280.6,
-            "vert_rate_fpm": 2880,
-            "phase": "Departure"
-          },
-          {
-            "callsign": "SWA1495",
-            "type": "B38M",
-            "alt_ft": 4575,
-            "speed_kt": 260.2,
-            "vert_rate_fpm": 3584,
-            "phase": "Departure"
-          },
-          {
-            "callsign": "AAL3138",
-            "type": "A320",
+            "callsign": "SWA2141",
+            "type": "B738",
             "alt_ft": 1650,
-            "speed_kt": 168.1,
-            "vert_rate_fpm": 1664,
-            "phase": "Departure"
+            "speed_kt": 174.7,
+            "vert_rate_fpm": -896,
+            "phase": "Approach",
+            "lat": 30.0222,
+            "lon": -90.388
           },
           {
-            "callsign": "DAL678",
-            "type": "B752",
-            "alt_ft": 600,
-            "speed_kt": 128.6,
-            "vert_rate_fpm": -832,
-            "phase": "Approach"
+            "callsign": "AAY377",
+            "type": "A320",
+            "alt_ft": 0,
+            "speed_kt": 0.0,
+            "vert_rate_fpm": 0,
+            "phase": "Ground/Taxi",
+            "lat": 29.995,
+            "lon": -90.2601
           },
           {
-            "callsign": "JTZ317",
-            "type": "E55P",
-            "alt_ft": 1875,
-            "speed_kt": 227.1,
-            "vert_rate_fpm": 832,
-            "phase": "Departure"
+            "callsign": "DAL2180",
+            "type": "B739",
+            "alt_ft": 0,
+            "speed_kt": 18.5,
+            "vert_rate_fpm": 0,
+            "phase": "Ground/Taxi",
+            "lat": 29.9957,
+            "lon": -90.2493
+          },
+          {
+            "callsign": "N465RF",
+            "type": "C25C",
+            "alt_ft": 0,
+            "speed_kt": 20.5,
+            "vert_rate_fpm": 0,
+            "phase": "Ground/Taxi",
+            "lat": 29.9986,
+            "lon": -90.2484
           }
         ]
       }
     },
     {
-      "recorded_at": "2026-11-23T02:18:59.437352+00:00",
+      "recorded_at": "2026-11-23T02:48:26.390417+00:00",
       "hub_code": "SDF",
       "hub_name": "Louisville Muhammad Ali Intl (UPS Worldport)",
       "hub_type": "airport",
       "region": "Ohio Valley",
       "status": "Normal Operations",
-      "primary_metric": 2,
+      "primary_metric": 0,
       "secondary_metric": 0,
       "weather_summary": "Telemetry Nominal",
       "diesel_price_usd": 5.937,
@@ -148,24 +115,7 @@
       "raw_payload": {
         "faa_status": "Normal Operations",
         "icao": "KSDF",
-        "tracked_flights": [
-          {
-            "callsign": "ASH4052",
-            "type": "E75L",
-            "alt_ft": 550,
-            "speed_kt": 136.6,
-            "vert_rate_fpm": -640,
-            "phase": "Approach"
-          },
-          {
-            "callsign": "N163H",
-            "type": "C182",
-            "alt_ft": 2900,
-            "speed_kt": 111.0,
-            "vert_rate_fpm": -256,
-            "phase": "Approach"
-          }
-        ]
+        "tracked_flights": []
       }
     }
   ]
