@@ -1,4 +1,4 @@
-name: Update 30-Minute Hub Telemetry
+name: Update Logistics Telemetry
 
 on:
   schedule:
@@ -9,7 +9,7 @@ permissions:
   contents: write
 
 jobs:
-  fetch-and-log:
+  update-data:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -32,7 +32,6 @@ jobs:
         run: python fetch_data.py
 
       - name: Commit updated live.json
-             - name: Commit updated live.json
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "Telemetry Bot"
