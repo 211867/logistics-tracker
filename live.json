@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-11-24T04:05:50.991947+00:00",
+  "updated_at": "2026-11-24T05:30:23.421910+00:00",
   "macro": {
     "diesel_price_usd": 5.937,
     "freight_tsi": 134.4
   },
   "hubs": [
     {
-      "recorded_at": "2026-11-24T04:05:50.991947+00:00",
+      "recorded_at": "2026-11-24T05:30:23.421910+00:00",
       "hub_code": "PORT_NOLA",
       "hub_name": "Port of New Orleans",
       "hub_type": "seaport",
@@ -24,72 +24,31 @@
       }
     },
     {
-      "recorded_at": "2026-11-24T04:05:50.991947+00:00",
+      "recorded_at": "2026-11-24T05:30:23.421910+00:00",
       "hub_code": "PORT_MIA",
       "hub_name": "Port of Miami",
       "hub_type": "seaport",
       "region": "Southeast",
-      "status": "Moderate Traffic",
-      "primary_metric": 4,
-      "secondary_metric": 4,
+      "status": "Active / Low Density",
+      "primary_metric": 0,
+      "secondary_metric": 0,
       "weather_summary": "Telemetry Nominal",
       "diesel_price_usd": 5.937,
       "freight_index": 134.4,
       "raw_payload": {
-        "active_vessels": 4,
-        "stationary_or_berthed": 4,
-        "tracked_ships": [
-          {
-            "mmsi": "248062000",
-            "name": "HERAKLES",
-            "ship_type_code": null,
-            "speed_kt": 0.0,
-            "status": "Berthed/Idle",
-            "heading_deg": 228.8,
-            "lat": 25.7862,
-            "lon": -80.1794
-          },
-          {
-            "mmsi": "319844000",
-            "name": "PATIENCE",
-            "ship_type_code": null,
-            "speed_kt": 0.0,
-            "status": "Berthed/Idle",
-            "heading_deg": 266.1,
-            "lat": 25.7851,
-            "lon": -80.1788
-          },
-          {
-            "mmsi": "367315540",
-            "name": "FLAMINGO",
-            "ship_type_code": null,
-            "speed_kt": 0.0,
-            "status": "Berthed/Idle",
-            "heading_deg": 360.0,
-            "lat": 25.7644,
-            "lon": -80.1458
-          },
-          {
-            "mmsi": "368337550",
-            "name": "ABBENTURES2",
-            "ship_type_code": null,
-            "speed_kt": 0.0,
-            "status": "Berthed/Idle",
-            "heading_deg": 32.8,
-            "lat": 25.77,
-            "lon": -80.1405
-          }
-        ]
+        "active_vessels": 0,
+        "stationary_or_berthed": 0,
+        "tracked_ships": []
       }
     },
     {
-      "recorded_at": "2026-11-24T04:05:50.991947+00:00",
+      "recorded_at": "2026-11-24T05:30:23.421910+00:00",
       "hub_code": "MSY",
       "hub_name": "Louis Armstrong New Orleans Intl",
       "hub_type": "airport",
       "region": "Gulf Coast",
       "status": "Normal Operations",
-      "primary_metric": 2,
+      "primary_metric": 3,
       "secondary_metric": 0,
       "weather_summary": "Telemetry Nominal",
       "diesel_price_usd": 5.937,
@@ -99,36 +58,46 @@
         "icao": "KMSY",
         "tracked_flights": [
           {
-            "callsign": "SWA1186",
-            "type": "B737",
+            "callsign": "RPA4452",
+            "type": "E75L",
             "alt_ft": 1825,
-            "speed_kt": 205.1,
-            "vert_rate_fpm": 0,
+            "speed_kt": 167.8,
+            "vert_rate_fpm": -64,
             "phase": "Terminal Level",
-            "lat": 29.8251,
-            "lon": -90.2997
+            "lat": 29.813,
+            "lon": -90.3055
           },
           {
-            "callsign": "LBQ640",
-            "type": "PC12",
-            "alt_ft": 0,
-            "speed_kt": 5.2,
-            "vert_rate_fpm": 0,
-            "phase": "Ground/Taxi",
-            "lat": 29.9962,
-            "lon": -90.2614
+            "callsign": "SWA4781",
+            "type": "B38M",
+            "alt_ft": 650,
+            "speed_kt": 126.9,
+            "vert_rate_fpm": -832,
+            "phase": "Approach",
+            "lat": 29.9439,
+            "lon": -90.2644
+          },
+          {
+            "callsign": "SWA669",
+            "type": "B38M",
+            "alt_ft": 3000,
+            "speed_kt": 266.0,
+            "vert_rate_fpm": -1280,
+            "phase": "Approach",
+            "lat": 30.0168,
+            "lon": -90.1457
           }
         ]
       }
     },
     {
-      "recorded_at": "2026-11-24T04:05:50.991947+00:00",
+      "recorded_at": "2026-11-24T05:30:23.421910+00:00",
       "hub_code": "SDF",
       "hub_name": "Louisville Muhammad Ali Intl (UPS Worldport)",
       "hub_type": "airport",
       "region": "Ohio Valley",
       "status": "Normal Operations",
-      "primary_metric": 4,
+      "primary_metric": 10,
       "secondary_metric": 0,
       "weather_summary": "Telemetry Nominal",
       "diesel_price_usd": 5.937,
@@ -138,44 +107,104 @@
         "icao": "KSDF",
         "tracked_flights": [
           {
-            "callsign": "UPS771",
+            "callsign": "UPS795",
+            "type": "B752",
+            "alt_ft": 3900,
+            "speed_kt": 239.3,
+            "vert_rate_fpm": -1152,
+            "phase": "Approach",
+            "lat": 38.003,
+            "lon": -85.7873
+          },
+          {
+            "callsign": "UPS619",
+            "type": "B752",
+            "alt_ft": 300,
+            "speed_kt": 110.4,
+            "vert_rate_fpm": -576,
+            "phase": "Approach",
+            "lat": 38.1487,
+            "lon": -85.7362
+          },
+          {
+            "callsign": "UPS1331",
             "type": "B763",
             "alt_ft": 175,
-            "speed_kt": 132.4,
-            "vert_rate_fpm": -704,
+            "speed_kt": 131.2,
+            "vert_rate_fpm": -640,
             "phase": "Approach",
-            "lat": 38.1548,
-            "lon": -85.7382
+            "lat": 38.1622,
+            "lon": -85.7228
           },
           {
-            "callsign": "ATN1335",
-            "type": "B763",
-            "alt_ft": 700,
-            "speed_kt": 118.9,
+            "callsign": "UPS525",
+            "type": "B752",
+            "alt_ft": 1550,
+            "speed_kt": 120.8,
             "vert_rate_fpm": -768,
             "phase": "Approach",
-            "lat": 38.1383,
-            "lon": -85.7146
+            "lat": 38.0903,
+            "lon": -85.717
           },
           {
-            "callsign": "UPS617",
-            "type": "B763",
-            "alt_ft": 2125,
-            "speed_kt": 154.0,
-            "vert_rate_fpm": -832,
-            "phase": "Approach",
-            "lat": 38.0625,
-            "lon": -85.7079
-          },
-          {
-            "callsign": "UPS1477",
-            "type": "A306",
-            "alt_ft": 2625,
-            "speed_kt": 206.2,
+            "callsign": "UPS671",
+            "type": "B752",
+            "alt_ft": 2575,
+            "speed_kt": 156.0,
             "vert_rate_fpm": 0,
             "phase": "Terminal Level",
-            "lat": 37.9981,
-            "lon": -85.6072
+            "lat": 38.0225,
+            "lon": -85.6948
+          },
+          {
+            "callsign": "UPS339",
+            "type": "B763",
+            "alt_ft": 2325,
+            "speed_kt": 155.5,
+            "vert_rate_fpm": -1024,
+            "phase": "Approach",
+            "lat": 38.0611,
+            "lon": -85.6883
+          },
+          {
+            "callsign": "UPS491",
+            "type": "A306",
+            "alt_ft": 2600,
+            "speed_kt": 159.7,
+            "vert_rate_fpm": 0,
+            "phase": "Terminal Level",
+            "lat": 37.9383,
+            "lon": -85.6671
+          },
+          {
+            "callsign": "CJT487",
+            "type": "BALL",
+            "alt_ft": 3800,
+            "speed_kt": 160.3,
+            "vert_rate_fpm": -960,
+            "phase": "Approach",
+            "lat": 37.9931,
+            "lon": -85.6654
+          },
+          {
+            "callsign": "N191CZ",
+            "type": "B190",
+            "alt_ft": 6550,
+            "speed_kt": 215.4,
+            "vert_rate_fpm": -64,
+            "phase": "Terminal Level",
+            "lat": 38.1011,
+            "lon": -85.5972
+          },
+          {
+            "callsign": "UPS1467",
+            "type": "B752",
+            "alt_ft": 4600,
+            "speed_kt": 228.4,
+            "vert_rate_fpm": 0,
+            "phase": "Terminal Level",
+            "lat": 38.0006,
+            "lon": -85.5614
           }
         ]
       }
