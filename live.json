@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-11-24T08:29:44.179536+00:00",
+  "updated_at": "2026-11-24T09:43:13.721780+00:00",
   "macro": {
     "diesel_price_usd": 5.937,
     "freight_tsi": 134.4
   },
   "hubs": [
     {
-      "recorded_at": "2026-11-24T08:29:44.179536+00:00",
+      "recorded_at": "2026-11-24T09:43:13.721780+00:00",
       "hub_code": "PORT_NOLA",
       "hub_name": "Port of New Orleans",
       "hub_type": "seaport",
@@ -24,56 +24,25 @@
       }
     },
     {
-      "recorded_at": "2026-11-24T08:29:44.179536+00:00",
+      "recorded_at": "2026-11-24T09:43:13.721780+00:00",
       "hub_code": "PORT_MIA",
       "hub_name": "Port of Miami",
       "hub_type": "seaport",
       "region": "Southeast",
       "status": "Active / Low Density",
-      "primary_metric": 3,
-      "secondary_metric": 2,
+      "primary_metric": 0,
+      "secondary_metric": 0,
       "weather_summary": "Telemetry Nominal",
       "diesel_price_usd": 5.937,
       "freight_index": 134.4,
       "raw_payload": {
-        "active_vessels": 3,
-        "stationary_or_berthed": 2,
-        "tracked_ships": [
-          {
-            "mmsi": "368117510",
-            "name": "PELICAN II",
-            "ship_type_code": null,
-            "speed_kt": 1.2,
-            "status": "Underway",
-            "heading_deg": 131.1,
-            "lat": 25.7644,
-            "lon": -80.1396
-          },
-          {
-            "mmsi": "538072802",
-            "name": "SYNESTHESIA",
-            "ship_type_code": null,
-            "speed_kt": 0.0,
-            "status": "Berthed/Idle",
-            "heading_deg": 210.5,
-            "lat": 25.7851,
-            "lon": -80.1788
-          },
-          {
-            "mmsi": "319219100",
-            "name": "COCKTAILS",
-            "ship_type_code": null,
-            "speed_kt": 0.0,
-            "status": "Berthed/Idle",
-            "heading_deg": 179.3,
-            "lat": 25.7567,
-            "lon": -80.1413
-          }
-        ]
+        "active_vessels": 0,
+        "stationary_or_berthed": 0,
+        "tracked_ships": []
       }
     },
     {
-      "recorded_at": "2026-11-24T08:29:44.179536+00:00",
+      "recorded_at": "2026-11-24T09:43:13.721780+00:00",
       "hub_code": "MSY",
       "hub_name": "Louis Armstrong New Orleans Intl",
       "hub_type": "airport",
@@ -91,13 +60,13 @@
       }
     },
     {
-      "recorded_at": "2026-11-24T08:29:44.179536+00:00",
+      "recorded_at": "2026-11-24T09:43:13.721780+00:00",
       "hub_code": "SDF",
       "hub_name": "Louisville Muhammad Ali Intl (UPS Worldport)",
       "hub_type": "airport",
       "region": "Ohio Valley",
       "status": "Normal Operations",
-      "primary_metric": 2,
+      "primary_metric": 5,
       "secondary_metric": 0,
       "weather_summary": "Telemetry Nominal",
       "diesel_price_usd": 5.937,
@@ -107,24 +76,54 @@
         "icao": "KSDF",
         "tracked_flights": [
           {
-            "callsign": "UPS710",
-            "type": "B752",
-            "alt_ft": 3000,
-            "speed_kt": 234.5,
-            "vert_rate_fpm": 1728,
+            "callsign": "UPS1304",
+            "type": "A306",
+            "alt_ft": 5375,
+            "speed_kt": 267.4,
+            "vert_rate_fpm": 3328,
             "phase": "Departure",
-            "lat": 38.2427,
-            "lon": -85.7832
+            "lat": 38.2837,
+            "lon": -85.8229
           },
           {
-            "callsign": "UPS9779",
-            "type": "B752",
-            "alt_ft": 500,
-            "speed_kt": 103.1,
-            "vert_rate_fpm": -576,
-            "phase": "Approach",
-            "lat": 38.138,
-            "lon": -85.7326
+            "callsign": "UPS776",
+            "type": "A306",
+            "alt_ft": 2425,
+            "speed_kt": 178.9,
+            "vert_rate_fpm": 2112,
+            "phase": "Departure",
+            "lat": 38.21,
+            "lon": -85.7581
+          },
+          {
+            "callsign": "UPS606",
+            "type": "B763",
+            "alt_ft": 2125,
+            "speed_kt": 204.2,
+            "vert_rate_fpm": 576,
+            "phase": "Departure",
+            "lat": 38.2263,
+            "lon": -85.7443
+          },
+          {
+            "callsign": "UPS1220",
+            "type": "B763",
+            "alt_ft": 5950,
+            "speed_kt": 257.6,
+            "vert_rate_fpm": 3264,
+            "phase": "Departure",
+            "lat": 38.2921,
+            "lon": -85.6919
+          },
+          {
+            "callsign": "UPS1088",
+            "type": "A306",
+            "alt_ft": 9100,
+            "speed_kt": 298.3,
+            "vert_rate_fpm": 2944,
+            "phase": "Departure",
+            "lat": 38.2607,
+            "lon": -85.6037
           }
         ]
       }
