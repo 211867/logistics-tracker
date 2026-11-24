@@ -135,16 +135,19 @@ def get_live_flights(lat, lon, radius_nm=15):
         print(f"ADS-B flight error ({lat},{lon}): {e}")
     return flights
 
+COMMERCIAL_SHIP_TYPES = set(range(70, 90)) | {31, 32, 50, 51, 52, 53, 54, 55}
 
 async def scan_ais_ports(duration_sec=45):
     results = {code: {"vessels": {}, "anchored": set()} for code in PORTS}
+    vessel_types = {}
+    vessel_names = {}
     if not AISSTREAM_KEY:
         return results
     boxes = [cfg["box"] for cfg in PORTS.values()]
     sub_msg = {
         "APIKey": AISSTREAM_KEY,
         "BoundingBoxes": boxes,
-        "FilterMessageTypes": ["PositionReport"]
+        "FilterMessageTypes": ["PositionReport", "ShipStaticData"]
     }
     ws_url = f"wss:{DBL}stream.aisstream.io{SLASH}v0{SLASH}stream"
     try:
@@ -155,28 +158,51 @@ async def scan_ais_ports(duration_sec=45):
                 try:
                     raw = await asyncio.wait_for(ws.recv(), timeout=3.0)
                     msg = json.loads(raw)
+                    msg_type = msg.get("MessageType", "")
                     meta = msg.get("MetaData", {})
-                    pos = msg.get("Message", {}).get("PositionReport", {})
                     mmsi = str(meta.get("MMSI", ""))
-                    ship_name = (meta.get("ShipName") or f"VESSEL_{mmsi}").strip()
-                    lat = meta.get("latitude")
-                    lon = meta.get("longitude")
-                    sog = pos.get("Sog", 0)
-                    if mmsi and lat is not None and lon is not None:
-                        for code, cfg in PORTS.items():
-                            (min_lat, min_lon), (max_lat, max_lon) = cfg["box"]
-                            if min_lat <= lat <= max_lat and min_lon <= lon <= max_lon:
-                                results[code]["vessels"][mmsi] = {
-                                    "mmsi": mmsi,
-                                    "name": ship_name,
-                                    "speed_kt": round(float(sog or 0), 1),
-                                    "status": "Berthed/Idle" if (sog is not None and sog < 0.5) else "Underway",
-                                    "lat": round(float(lat), 4),
-                                    "lon": round(float(lon), 4)
-                                }
-                                
-                                if sog is not None and sog < 0.5:
-                                    results[code]["anchored"].add(mmsi)
+                    if not mmsi:
+                        continue
+
+                    if msg_type == "ShipStaticData":
+                        static = msg.get("Message", {}).get("ShipStaticData", {})
+                        ship_type = static.get("Type")
+                        static_name = (static.get("Name") or meta.get("ShipName") or "").strip()
+                        if ship_type is not None:
+                            vessel_types[mmsi] = int(ship_type)
+                        if static_name:
+                            vessel_names[mmsi] = static_name
+                        continue
+
+                    if msg_type == "PositionReport":
+                        pos = msg.get("Message", {}).get("PositionReport", {})
+                        lat = meta.get("latitude")
+                        lon = meta.get("longitude")
+                        sog = pos.get("Sog", 0)
+                        cog = pos.get("Cog")
+                        known_type = vessel_types.get(mmsi)
+
+                        # Exclude confirmed private yachts/pleasure craft (36, 37) and passenger/cruise ships (60-69)
+                        if known_type is not None and known_type not in COMMERCIAL_SHIP_TYPES:
+                            continue
+
+                        ship_name = (vessel_names.get(mmsi) or meta.get("ShipName") or f"COMMERCIAL_VESSEL_{mmsi}").strip()
+                        if lat is not None and lon is not None:
+                            for code, cfg in PORTS.items():
+                                (min_lat, min_lon), (max_lat, max_lon) = cfg["box"]
+                                if min_lat <= lat <= max_lat and min_lon <= lon <= max_lon:
+                                    results[code]["vessels"][mmsi] = {
+                                        "mmsi": mmsi,
+                                        "name": ship_name,
+                                        "ship_type_code": known_type,
+                                        "speed_kt": round(float(sog or 0), 1),
+                                        "status": "Berthed/Idle" if (sog is not None and sog < 0.5) else "Underway",
+                                        "heading_deg": round(float(cog), 1) if cog is not None else None,
+                                        "lat": round(float(lat), 4),
+                                        "lon": round(float(lon), 4)
+                                    }
+                                    if sog is not None and sog < 0.5:
+                                        results[code]["anchored"].add(mmsi)
                 except asyncio.TimeoutError:
                     continue
     except Exception as e:
