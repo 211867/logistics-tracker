@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-11-24T09:43:13.721780+00:00",
+  "updated_at": "2026-11-24T10:50:01.106836+00:00",
   "macro": {
     "diesel_price_usd": 5.937,
     "freight_tsi": 134.4
   },
   "hubs": [
     {
-      "recorded_at": "2026-11-24T09:43:13.721780+00:00",
+      "recorded_at": "2026-11-24T10:50:01.106836+00:00",
       "hub_code": "PORT_NOLA",
       "hub_name": "Port of New Orleans",
       "hub_type": "seaport",
@@ -24,7 +24,7 @@
       }
     },
     {
-      "recorded_at": "2026-11-24T09:43:13.721780+00:00",
+      "recorded_at": "2026-11-24T10:50:01.106836+00:00",
       "hub_code": "PORT_MIA",
       "hub_name": "Port of Miami",
       "hub_type": "seaport",
@@ -42,11 +42,70 @@
       }
     },
     {
-      "recorded_at": "2026-11-24T09:43:13.721780+00:00",
+      "recorded_at": "2026-11-24T10:50:01.106836+00:00",
       "hub_code": "MSY",
       "hub_name": "Louis Armstrong New Orleans Intl",
       "hub_type": "airport",
       "region": "Gulf Coast",
+      "status": "Normal Operations",
+      "primary_metric": 4,
+      "secondary_metric": 0,
+      "weather_summary": "Telemetry Nominal",
+      "diesel_price_usd": 5.937,
+      "freight_index": 134.4,
+      "raw_payload": {
+        "faa_status": "Normal Operations",
+        "icao": "KMSY",
+        "tracked_flights": [
+          {
+            "callsign": "UPS710",
+            "type": "B752",
+            "alt_ft": 0,
+            "speed_kt": 10.2,
+            "vert_rate_fpm": 0,
+            "phase": "Ground/Taxi",
+            "lat": 29.9899,
+            "lon": -90.259
+          },
+          {
+            "callsign": "SCX3022",
+            "type": "B738",
+            "alt_ft": 0,
+            "speed_kt": 20.5,
+            "vert_rate_fpm": 0,
+            "phase": "Ground/Taxi",
+            "lat": 29.9894,
+            "lon": -90.2568
+          },
+          {
+            "callsign": "MXY166",
+            "type": "N/A",
+            "alt_ft": 0,
+            "speed_kt": 12.2,
+            "vert_rate_fpm": 0,
+            "phase": "Ground/Taxi",
+            "lat": 29.9919,
+            "lon": -90.2528
+          },
+          {
+            "callsign": "FDX1757",
+            "type": "B752",
+            "alt_ft": 7575,
+            "speed_kt": 267.2,
+            "vert_rate_fpm": -704,
+            "phase": "Approach",
+            "lat": 30.1962,
+            "lon": -90.2325
+          }
+        ]
+      }
+    },
+    {
+      "recorded_at": "2026-11-24T10:50:01.106836+00:00",
+      "hub_code": "SDF",
+      "hub_name": "Louisville Muhammad Ali Intl (UPS Worldport)",
+      "hub_type": "airport",
+      "region": "Ohio Valley",
       "status": "Normal Operations",
       "primary_metric": 0,
       "secondary_metric": 0,
@@ -55,77 +114,8 @@
       "freight_index": 134.4,
       "raw_payload": {
         "faa_status": "Normal Operations",
-        "icao": "KMSY",
-        "tracked_flights": []
-      }
-    },
-    {
-      "recorded_at": "2026-11-24T09:43:13.721780+00:00",
-      "hub_code": "SDF",
-      "hub_name": "Louisville Muhammad Ali Intl (UPS Worldport)",
-      "hub_type": "airport",
-      "region": "Ohio Valley",
-      "status": "Normal Operations",
-      "primary_metric": 5,
-      "secondary_metric": 0,
-      "weather_summary": "Telemetry Nominal",
-      "diesel_price_usd": 5.937,
-      "freight_index": 134.4,
-      "raw_payload": {
-        "faa_status": "Normal Operations",
         "icao": "KSDF",
-        "tracked_flights": [
-          {
-            "callsign": "UPS1304",
-            "type": "A306",
-            "alt_ft": 5375,
-            "speed_kt": 267.4,
-            "vert_rate_fpm": 3328,
-            "phase": "Departure",
-            "lat": 38.2837,
-            "lon": -85.8229
-          },
-          {
-            "callsign": "UPS776",
-            "type": "A306",
-            "alt_ft": 2425,
-            "speed_kt": 178.9,
-            "vert_rate_fpm": 2112,
-            "phase": "Departure",
-            "lat": 38.21,
-            "lon": -85.7581
-          },
-          {
-            "callsign": "UPS606",
-            "type": "B763",
-            "alt_ft": 2125,
-            "speed_kt": 204.2,
-            "vert_rate_fpm": 576,
-            "phase": "Departure",
-            "lat": 38.2263,
-            "lon": -85.7443
-          },
-          {
-            "callsign": "UPS1220",
-            "type": "B763",
-            "alt_ft": 5950,
-            "speed_kt": 257.6,
-            "vert_rate_fpm": 3264,
-            "phase": "Departure",
-            "lat": 38.2921,
-            "lon": -85.6919
-          },
-          {
-            "callsign": "UPS1088",
-            "type": "A306",
-            "alt_ft": 9100,
-            "speed_kt": 298.3,
-            "vert_rate_fpm": 2944,
-            "phase": "Departure",
-            "lat": 38.2607,
-            "lon": -85.6037
-          }
-        ]
+        "tracked_flights": []
       }
     }
   ]
