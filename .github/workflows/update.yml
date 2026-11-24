@@ -32,9 +32,9 @@ jobs:
         run: python fetch_data.py
 
       - name: Commit updated live.json
+             - name: Commit updated live.json
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "Telemetry Bot"
           git add live.json
-          git diff --quiet && git diff --staged --quiet || git commit -m "Update live.json snapshot"
-          git push
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Update live.json snapshot" && git pull --rebase && git push)
