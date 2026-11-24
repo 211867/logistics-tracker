@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-11-24T17:50:03.860203+00:00",
+  "updated_at": "2026-11-24T18:49:54.186291+00:00",
   "macro": {
     "diesel_price_usd": 5.695,
     "freight_tsi": 134.4
   },
   "hubs": [
     {
-      "recorded_at": "2026-11-24T17:50:03.860203+00:00",
+      "recorded_at": "2026-11-24T18:49:54.186291+00:00",
       "hub_code": "PORT_NOLA",
       "hub_name": "Port of New Orleans",
       "hub_type": "seaport",
@@ -24,7 +24,7 @@
       }
     },
     {
-      "recorded_at": "2026-11-24T17:50:03.860203+00:00",
+      "recorded_at": "2026-11-24T18:49:54.186291+00:00",
       "hub_code": "PORT_MIA",
       "hub_name": "Port of Miami",
       "hub_type": "seaport",
@@ -42,13 +42,13 @@
       }
     },
     {
-      "recorded_at": "2026-11-24T17:50:03.860203+00:00",
+      "recorded_at": "2026-11-24T18:49:54.186291+00:00",
       "hub_code": "MSY",
       "hub_name": "Louis Armstrong New Orleans Intl",
       "hub_type": "airport",
       "region": "Gulf Coast",
       "status": "Normal Operations",
-      "primary_metric": 5,
+      "primary_metric": 4,
       "secondary_metric": 0,
       "weather_summary": "Telemetry Nominal",
       "diesel_price_usd": 5.695,
@@ -58,66 +58,56 @@
         "icao": "KMSY",
         "tracked_flights": [
           {
-            "callsign": "SWA978",
-            "type": "B737",
-            "alt_ft": 2100,
-            "speed_kt": 213.0,
-            "vert_rate_fpm": 2752,
-            "phase": "Departure",
-            "lat": 30.0094,
-            "lon": -90.334
-          },
-          {
-            "callsign": "EJA459",
-            "type": "E55P",
-            "alt_ft": 1450,
-            "speed_kt": 120.6,
-            "vert_rate_fpm": -832,
-            "phase": "Approach",
-            "lat": 29.9056,
-            "lon": -90.2767
-          },
-          {
-            "callsign": "UAL1187",
-            "type": "B38M",
-            "alt_ft": -75,
-            "speed_kt": 129.1,
-            "vert_rate_fpm": -704,
-            "phase": "Approach",
-            "lat": 29.9816,
-            "lon": -90.2524
-          },
-          {
-            "callsign": "AAL2682",
+            "callsign": "SWA1539",
             "type": "B738",
-            "alt_ft": 0,
-            "speed_kt": 17.5,
+            "alt_ft": 1825,
+            "speed_kt": 220.5,
             "vert_rate_fpm": 0,
-            "phase": "Ground/Taxi",
-            "lat": 29.9949,
-            "lon": -90.2495
+            "phase": "Terminal Level",
+            "lat": 29.7983,
+            "lon": -90.2638
           },
           {
-            "callsign": "AAL3145",
-            "type": "B738",
-            "alt_ft": 2775,
-            "speed_kt": 228.0,
-            "vert_rate_fpm": -128,
+            "callsign": "N623SR",
+            "type": "SR22",
+            "alt_ft": 2800,
+            "speed_kt": 169.4,
+            "vert_rate_fpm": 0,
             "phase": "Terminal Level",
-            "lat": 29.8347,
-            "lon": -90.1744
+            "lat": 30.0868,
+            "lon": -90.2421
+          },
+          {
+            "callsign": "UAL1532",
+            "type": "B738",
+            "alt_ft": 2825,
+            "speed_kt": 242.0,
+            "vert_rate_fpm": 0,
+            "phase": "Terminal Level",
+            "lat": 29.9997,
+            "lon": -90.1927
+          },
+          {
+            "callsign": "LN60LJ",
+            "type": "LJ60",
+            "alt_ft": 3825,
+            "speed_kt": 257.0,
+            "vert_rate_fpm": -64,
+            "phase": "Terminal Level",
+            "lat": 29.9577,
+            "lon": -90.0229
           }
         ]
       }
     },
     {
-      "recorded_at": "2026-11-24T17:50:03.860203+00:00",
+      "recorded_at": "2026-11-24T18:49:54.186291+00:00",
       "hub_code": "SDF",
       "hub_name": "Louisville Muhammad Ali Intl (UPS Worldport)",
       "hub_type": "airport",
       "region": "Ohio Valley",
       "status": "Normal Operations",
-      "primary_metric": 10,
+      "primary_metric": 14,
       "secondary_metric": 0,
       "weather_summary": "Telemetry Nominal",
       "diesel_price_usd": 5.695,
@@ -127,104 +117,144 @@
         "icao": "KSDF",
         "tracked_flights": [
           {
-            "callsign": "N9158D",
-            "type": "M20P",
-            "alt_ft": 3400,
-            "speed_kt": 141.3,
-            "vert_rate_fpm": -448,
+            "callsign": "UPS2971",
+            "type": "B763",
+            "alt_ft": 5500,
+            "speed_kt": 261.7,
+            "vert_rate_fpm": -512,
             "phase": "Approach",
-            "lat": 38.1975,
-            "lon": -85.9451
+            "lat": 38.1461,
+            "lon": -85.9722
           },
           {
-            "callsign": "SKW3978",
-            "type": "E75L",
-            "alt_ft": 5525,
-            "speed_kt": 264.7,
-            "vert_rate_fpm": 2816,
+            "callsign": "N9702L",
+            "type": "C172",
+            "alt_ft": 6100,
+            "speed_kt": 115.4,
+            "vert_rate_fpm": 0,
+            "phase": "Terminal Level",
+            "lat": 38.3139,
+            "lon": -85.914
+          },
+          {
+            "callsign": "N409PH",
+            "type": "B407",
+            "alt_ft": 850,
+            "speed_kt": 83.8,
+            "vert_rate_fpm": 192,
+            "phase": "Terminal Level",
+            "lat": 38.3254,
+            "lon": -85.8244
+          },
+          {
+            "callsign": "RPA3452",
+            "type": "E170",
+            "alt_ft": 3300,
+            "speed_kt": 204.4,
+            "vert_rate_fpm": 2496,
             "phase": "Departure",
-            "lat": 38.3077,
-            "lon": -85.7727
+            "lat": 38.2456,
+            "lon": -85.7492
           },
           {
-            "callsign": "UPS2797",
-            "type": "B752",
-            "alt_ft": 250,
-            "speed_kt": 121.3,
-            "vert_rate_fpm": -704,
+            "callsign": "DAL3195",
+            "type": "B712",
+            "alt_ft": 25,
+            "speed_kt": 110.9,
+            "vert_rate_fpm": -768,
             "phase": "Approach",
-            "lat": 38.1485,
-            "lon": -85.7362
+            "lat": 38.1748,
+            "lon": -85.7271
+          },
+          {
+            "callsign": "SWA3027",
+            "type": "B737",
+            "alt_ft": 1850,
+            "speed_kt": 132.9,
+            "vert_rate_fpm": -896,
+            "phase": "Approach",
+            "lat": 38.0711,
+            "lon": -85.7107
+          },
+          {
+            "callsign": "N230DF",
+            "type": "C56X",
+            "alt_ft": 8825,
+            "speed_kt": 269.1,
+            "vert_rate_fpm": 3712,
+            "phase": "Departure",
+            "lat": 38.2902,
+            "lon": -85.6389
+          },
+          {
+            "callsign": "N2804M",
+            "type": "P28A",
+            "alt_ft": 2300,
+            "speed_kt": 102.9,
+            "vert_rate_fpm": 960,
+            "phase": "Departure",
+            "lat": 38.3326,
+            "lon": -85.6313
+          },
+          {
+            "callsign": "N3635Q",
+            "type": "BE23",
+            "alt_ft": 1500,
+            "speed_kt": 84.0,
+            "vert_rate_fpm": -192,
+            "phase": "Terminal Level",
+            "lat": 38.2819,
+            "lon": -85.6281
+          },
+          {
+            "callsign": "N910CT",
+            "type": "DV20",
+            "alt_ft": 1500,
+            "speed_kt": 85.6,
+            "vert_rate_fpm": 0,
+            "phase": "Terminal Level",
+            "lat": 38.358,
+            "lon": -85.6139
+          },
+          {
+            "callsign": "N8756E",
+            "type": "P28A",
+            "alt_ft": 1525,
+            "speed_kt": 117.2,
+            "vert_rate_fpm": -128,
+            "phase": "Terminal Level",
+            "lat": 38.2865,
+            "lon": -85.571
           },
           {
             "callsign": "N691TC",
             "type": "C172",
-            "alt_ft": 200,
-            "speed_kt": 51.6,
-            "vert_rate_fpm": -640,
+            "alt_ft": 3050,
+            "speed_kt": 110.1,
+            "vert_rate_fpm": -256,
             "phase": "Approach",
-            "lat": 38.2254,
-            "lon": -85.6695
+            "lat": 38.1954,
+            "lon": -85.5687
           },
           {
-            "callsign": "N980CT",
-            "type": "DV20",
-            "alt_ft": 900,
-            "speed_kt": 93.0,
-            "vert_rate_fpm": -320,
+            "callsign": "UPS5189",
+            "type": "A306",
+            "alt_ft": 4425,
+            "speed_kt": 272.3,
+            "vert_rate_fpm": -1088,
             "phase": "Approach",
-            "lat": 38.2143,
-            "lon": -85.6624
+            "lat": 38.1159,
+            "lon": -85.5264
           },
           {
-            "callsign": "N491BL",
-            "type": "NG5",
-            "alt_ft": 500,
-            "speed_kt": 52.7,
-            "vert_rate_fpm": 832,
-            "phase": "Departure",
-            "lat": 38.2314,
-            "lon": -85.656
-          },
-          {
-            "callsign": "N734AE",
+            "callsign": "N739UM",
             "type": "C172",
-            "alt_ft": 1200,
-            "speed_kt": 99.3,
-            "vert_rate_fpm": -300,
+            "alt_ft": 3000,
+            "speed_kt": 97.0,
+            "vert_rate_fpm": -256,
             "phase": "Approach",
-            "lat": 38.2369,
-            "lon": -85.6128
-          },
-          {
-            "callsign": "N6113F",
-            "type": "C182",
-            "alt_ft": 2025,
-            "speed_kt": 109.4,
-            "vert_rate_fpm": 192,
-            "phase": "Terminal Level",
-            "lat": 38.0996,
-            "lon": -85.611
-          },
-          {
-            "callsign": "N880VJ",
-            "type": "F2TH",
-            "alt_ft": 2525,
-            "speed_kt": 209.7,
-            "vert_rate_fpm": -192,
-            "phase": "Terminal Level",
-            "lat": 38.3572,
-            "lon": -85.5514
-          },
-          {
-            "callsign": "N741WB",
-            "type": "C172",
-            "alt_ft": 5025,
-            "speed_kt": 95.7,
-            "vert_rate_fpm": 0,
-            "phase": "Terminal Level",
-            "lat": 38.1935,
-            "lon": -85.4567
+            "lat": 38.2135,
+            "lon": -85.4676
           }
         ]
       }
