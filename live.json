@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-11-25T02:17:29.551038+00:00",
+  "updated_at": "2026-11-25T03:30:07.241464+00:00",
   "macro": {
     "diesel_price_usd": 5.695,
     "freight_tsi": 134.4
   },
   "hubs": [
     {
-      "recorded_at": "2026-11-25T02:17:29.551038+00:00",
+      "recorded_at": "2026-11-25T03:30:07.241464+00:00",
       "hub_code": "PORT_NOLA",
       "hub_name": "Port of New Orleans",
       "hub_type": "seaport",
@@ -24,52 +24,31 @@
       }
     },
     {
-      "recorded_at": "2026-11-25T02:17:29.551038+00:00",
+      "recorded_at": "2026-11-25T03:30:07.241464+00:00",
       "hub_code": "PORT_MIA",
       "hub_name": "Port of Miami",
       "hub_type": "seaport",
       "region": "Southeast",
       "status": "Active / Low Density",
-      "primary_metric": 2,
-      "secondary_metric": 2,
+      "primary_metric": 0,
+      "secondary_metric": 0,
       "weather_summary": "Telemetry Nominal",
       "diesel_price_usd": 5.695,
       "freight_index": 134.4,
       "raw_payload": {
-        "active_vessels": 2,
-        "stationary_or_berthed": 2,
-        "tracked_ships": [
-          {
-            "mmsi": "368109540",
-            "name": "SIR WINSTON  2",
-            "ship_type_code": null,
-            "speed_kt": 0.0,
-            "status": "Berthed/Idle",
-            "heading_deg": 360.0,
-            "lat": 25.7834,
-            "lon": -80.2165
-          },
-          {
-            "mmsi": "367458840",
-            "name": "OSPREY",
-            "ship_type_code": null,
-            "speed_kt": 0.0,
-            "status": "Berthed/Idle",
-            "heading_deg": 360.0,
-            "lat": 25.7643,
-            "lon": -80.1396
-          }
-        ]
+        "active_vessels": 0,
+        "stationary_or_berthed": 0,
+        "tracked_ships": []
       }
     },
     {
-      "recorded_at": "2026-11-25T02:17:29.551038+00:00",
+      "recorded_at": "2026-11-25T03:30:07.241464+00:00",
       "hub_code": "MSY",
       "hub_name": "Louis Armstrong New Orleans Intl",
       "hub_type": "airport",
       "region": "Gulf Coast",
       "status": "Normal Operations",
-      "primary_metric": 4,
+      "primary_metric": 0,
       "secondary_metric": 0,
       "weather_summary": "Telemetry Nominal",
       "diesel_price_usd": 5.695,
@@ -77,58 +56,17 @@
       "raw_payload": {
         "faa_status": "Normal Operations",
         "icao": "KMSY",
-        "tracked_flights": [
-          {
-            "callsign": "BAW224U",
-            "type": "B78X",
-            "alt_ft": 650,
-            "speed_kt": 175.4,
-            "vert_rate_fpm": 2304,
-            "phase": "Departure",
-            "lat": 30.0002,
-            "lon": -90.2963
-          },
-          {
-            "callsign": "UPS701",
-            "type": "A306",
-            "alt_ft": 0,
-            "speed_kt": 0.0,
-            "vert_rate_fpm": 0,
-            "phase": "Ground/Taxi",
-            "lat": 29.9868,
-            "lon": -90.2596
-          },
-          {
-            "callsign": "DAL1450",
-            "type": "B739",
-            "alt_ft": 4800,
-            "speed_kt": 247.0,
-            "vert_rate_fpm": 0,
-            "phase": "Terminal Level",
-            "lat": 30.0024,
-            "lon": -90.1925
-          },
-          {
-            "callsign": "SWA2819",
-            "type": "B738",
-            "alt_ft": 5300,
-            "speed_kt": 277.6,
-            "vert_rate_fpm": -896,
-            "phase": "Approach",
-            "lat": 29.7606,
-            "lon": -90.1482
-          }
-        ]
+        "tracked_flights": []
       }
     },
     {
-      "recorded_at": "2026-11-25T02:17:29.551038+00:00",
+      "recorded_at": "2026-11-25T03:30:07.241464+00:00",
       "hub_code": "SDF",
       "hub_name": "Louisville Muhammad Ali Intl (UPS Worldport)",
       "hub_type": "airport",
       "region": "Ohio Valley",
       "status": "Normal Operations",
-      "primary_metric": 1,
+      "primary_metric": 3,
       "secondary_metric": 0,
       "weather_summary": "Telemetry Nominal",
       "diesel_price_usd": 5.695,
@@ -138,14 +76,34 @@
         "icao": "KSDF",
         "tracked_flights": [
           {
-            "callsign": "RPA4480",
-            "type": "E75L",
-            "alt_ft": 175,
-            "speed_kt": 125.2,
-            "vert_rate_fpm": -704,
+            "callsign": "UPS1269",
+            "type": "B752",
+            "alt_ft": 1150,
+            "speed_kt": 110.4,
+            "vert_rate_fpm": -576,
             "phase": "Approach",
-            "lat": 38.1526,
-            "lon": -85.7375
+            "lat": 38.1075,
+            "lon": -85.7226
+          },
+          {
+            "callsign": "UPS1231",
+            "type": "B763",
+            "alt_ft": 1800,
+            "speed_kt": 153.1,
+            "vert_rate_fpm": -832,
+            "phase": "Approach",
+            "lat": 38.0842,
+            "lon": -85.6962
+          },
+          {
+            "callsign": "N269AE",
+            "type": "B06",
+            "alt_ft": 1050,
+            "speed_kt": 96.3,
+            "vert_rate_fpm": 64,
+            "phase": "Terminal Level",
+            "lat": 38.2039,
+            "lon": -85.6735
           }
         ]
       }
