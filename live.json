@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-11-25T11:26:01.913983+00:00",
+  "updated_at": "2026-11-25T12:32:00.271096+00:00",
   "macro": {
     "diesel_price_usd": 5.695,
     "freight_tsi": 134.4
   },
   "hubs": [
     {
-      "recorded_at": "2026-11-25T11:26:01.913983+00:00",
+      "recorded_at": "2026-11-25T12:32:00.271096+00:00",
       "hub_code": "PORT_NOLA",
       "hub_name": "Port of New Orleans",
       "hub_type": "seaport",
@@ -24,7 +24,7 @@
       }
     },
     {
-      "recorded_at": "2026-11-25T11:26:01.913983+00:00",
+      "recorded_at": "2026-11-25T12:32:00.271096+00:00",
       "hub_code": "PORT_MIA",
       "hub_name": "Port of Miami",
       "hub_type": "seaport",
@@ -42,13 +42,13 @@
       }
     },
     {
-      "recorded_at": "2026-11-25T11:26:01.913983+00:00",
+      "recorded_at": "2026-11-25T12:32:00.271096+00:00",
       "hub_code": "MSY",
       "hub_name": "Louis Armstrong New Orleans Intl",
       "hub_type": "airport",
       "region": "Gulf Coast",
       "status": "Normal Operations",
-      "primary_metric": 1,
+      "primary_metric": 2,
       "secondary_metric": 0,
       "weather_summary": "Telemetry Nominal",
       "diesel_price_usd": 5.695,
@@ -60,24 +60,34 @@
           {
             "callsign": "FDX1453",
             "type": "B763",
-            "alt_ft": 2900,
-            "speed_kt": 255.2,
+            "alt_ft": 0,
+            "speed_kt": 0.0,
             "vert_rate_fpm": 0,
+            "phase": "Ground/Taxi",
+            "lat": 29.9889,
+            "lon": -90.2641
+          },
+          {
+            "callsign": "FFT1371",
+            "type": "A20N",
+            "alt_ft": 2900,
+            "speed_kt": 274.1,
+            "vert_rate_fpm": -192,
             "phase": "Terminal Level",
-            "lat": 30.0783,
-            "lon": -90.1022
+            "lat": 30.1623,
+            "lon": -90.2237
           }
         ]
       }
     },
     {
-      "recorded_at": "2026-11-25T11:26:01.913983+00:00",
+      "recorded_at": "2026-11-25T12:32:00.271096+00:00",
       "hub_code": "SDF",
       "hub_name": "Louisville Muhammad Ali Intl (UPS Worldport)",
       "hub_type": "airport",
       "region": "Ohio Valley",
       "status": "Normal Operations",
-      "primary_metric": 2,
+      "primary_metric": 0,
       "secondary_metric": 0,
       "weather_summary": "Telemetry Nominal",
       "diesel_price_usd": 5.695,
@@ -85,28 +95,7 @@
       "raw_payload": {
         "faa_status": "Normal Operations",
         "icao": "KSDF",
-        "tracked_flights": [
-          {
-            "callsign": "FDX1467",
-            "type": "B763",
-            "alt_ft": 5075,
-            "speed_kt": 256.3,
-            "vert_rate_fpm": -960,
-            "phase": "Approach",
-            "lat": 38.2787,
-            "lon": -86.0133
-          },
-          {
-            "callsign": "UPS9835",
-            "type": "B763",
-            "alt_ft": 2625,
-            "speed_kt": 175.4,
-            "vert_rate_fpm": 0,
-            "phase": "Terminal Level",
-            "lat": 38.3454,
-            "lon": -85.7873
-          }
-        ]
+        "tracked_flights": []
       }
     }
   ]
