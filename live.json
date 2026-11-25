@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-11-25T07:02:10.682985+00:00",
+  "updated_at": "2026-11-25T08:45:41.120264+00:00",
   "macro": {
     "diesel_price_usd": 5.695,
     "freight_tsi": 134.4
   },
   "hubs": [
     {
-      "recorded_at": "2026-11-25T07:02:10.682985+00:00",
+      "recorded_at": "2026-11-25T08:45:41.120264+00:00",
       "hub_code": "PORT_NOLA",
       "hub_name": "Port of New Orleans",
       "hub_type": "seaport",
@@ -24,7 +24,7 @@
       }
     },
     {
-      "recorded_at": "2026-11-25T07:02:10.682985+00:00",
+      "recorded_at": "2026-11-25T08:45:41.120264+00:00",
       "hub_code": "PORT_MIA",
       "hub_name": "Port of Miami",
       "hub_type": "seaport",
@@ -42,13 +42,13 @@
       }
     },
     {
-      "recorded_at": "2026-11-25T07:02:10.682985+00:00",
+      "recorded_at": "2026-11-25T08:45:41.120264+00:00",
       "hub_code": "MSY",
       "hub_name": "Louis Armstrong New Orleans Intl",
       "hub_type": "airport",
       "region": "Gulf Coast",
       "status": "Normal Operations",
-      "primary_metric": 2,
+      "primary_metric": 0,
       "secondary_metric": 0,
       "weather_summary": "Telemetry Nominal",
       "diesel_price_usd": 5.695,
@@ -56,38 +56,17 @@
       "raw_payload": {
         "faa_status": "Normal Operations",
         "icao": "KMSY",
-        "tracked_flights": [
-          {
-            "callsign": "SWA2386",
-            "type": "B738",
-            "alt_ft": 1825,
-            "speed_kt": 172.9,
-            "vert_rate_fpm": 0,
-            "phase": "Terminal Level",
-            "lat": 30.0089,
-            "lon": -90.4853
-          },
-          {
-            "callsign": "SWA4747",
-            "type": "B738",
-            "alt_ft": 0,
-            "speed_kt": 27.5,
-            "vert_rate_fpm": -128,
-            "phase": "Ground/Taxi",
-            "lat": 29.9969,
-            "lon": -90.2475
-          }
-        ]
+        "tracked_flights": []
       }
     },
     {
-      "recorded_at": "2026-11-25T07:02:10.682985+00:00",
+      "recorded_at": "2026-11-25T08:45:41.120264+00:00",
       "hub_code": "SDF",
       "hub_name": "Louisville Muhammad Ali Intl (UPS Worldport)",
       "hub_type": "airport",
       "region": "Ohio Valley",
       "status": "Normal Operations",
-      "primary_metric": 4,
+      "primary_metric": 2,
       "secondary_metric": 0,
       "weather_summary": "Telemetry Nominal",
       "diesel_price_usd": 5.695,
@@ -97,44 +76,24 @@
         "icao": "KSDF",
         "tracked_flights": [
           {
-            "callsign": "UPS981",
-            "type": "B763",
-            "alt_ft": 4125,
-            "speed_kt": 218.1,
-            "vert_rate_fpm": -832,
-            "phase": "Approach",
-            "lat": 37.9484,
-            "lon": -85.7629
-          },
-          {
-            "callsign": "UPS923",
-            "type": "B763",
-            "alt_ft": 75,
-            "speed_kt": 131.2,
-            "vert_rate_fpm": -640,
-            "phase": "Approach",
-            "lat": 38.1687,
-            "lon": -85.7427
-          },
-          {
-            "callsign": "UPS907",
+            "callsign": "UPS838",
             "type": "A306",
-            "alt_ft": 1025,
-            "speed_kt": 126.6,
-            "vert_rate_fpm": -448,
-            "phase": "Approach",
-            "lat": 38.1165,
-            "lon": -85.7255
+            "alt_ft": 3750,
+            "speed_kt": 191.1,
+            "vert_rate_fpm": 2752,
+            "phase": "Departure",
+            "lat": 38.1172,
+            "lon": -85.7332
           },
           {
-            "callsign": "UPS921",
-            "type": "B763",
-            "alt_ft": 2600,
-            "speed_kt": 226.6,
-            "vert_rate_fpm": -192,
-            "phase": "Terminal Level",
-            "lat": 37.9676,
-            "lon": -85.7115
+            "callsign": "UPS1190",
+            "type": "B748",
+            "alt_ft": 8900,
+            "speed_kt": 268.5,
+            "vert_rate_fpm": 3584,
+            "phase": "Departure",
+            "lat": 37.9907,
+            "lon": -85.7092
           }
         ]
       }
