@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-11-25T22:47:17.107352+00:00",
+  "updated_at": "2026-11-25T23:43:03.299533+00:00",
   "macro": {
     "diesel_price_usd": 5.695,
     "freight_tsi": 134.4
   },
   "hubs": [
     {
-      "recorded_at": "2026-11-25T22:47:17.107352+00:00",
+      "recorded_at": "2026-11-25T23:43:03.299533+00:00",
       "hub_code": "PORT_NOLA",
       "hub_name": "Port of New Orleans",
       "hub_type": "seaport",
@@ -24,7 +24,7 @@
       }
     },
     {
-      "recorded_at": "2026-11-25T22:47:17.107352+00:00",
+      "recorded_at": "2026-11-25T23:43:03.299533+00:00",
       "hub_code": "PORT_MIA",
       "hub_name": "Port of Miami",
       "hub_type": "seaport",
@@ -42,13 +42,13 @@
       }
     },
     {
-      "recorded_at": "2026-11-25T22:47:17.107352+00:00",
+      "recorded_at": "2026-11-25T23:43:03.299533+00:00",
       "hub_code": "MSY",
       "hub_name": "Louis Armstrong New Orleans Intl",
       "hub_type": "airport",
       "region": "Gulf Coast",
       "status": "Normal Operations",
-      "primary_metric": 5,
+      "primary_metric": 6,
       "secondary_metric": 0,
       "weather_summary": "Telemetry Nominal",
       "diesel_price_usd": 5.695,
@@ -58,66 +58,76 @@
         "icao": "KMSY",
         "tracked_flights": [
           {
-            "callsign": "SCX3072",
-            "type": "B738",
-            "alt_ft": 3200,
-            "speed_kt": 240.6,
-            "vert_rate_fpm": 2560,
-            "phase": "Departure",
-            "lat": 30.0271,
-            "lon": -90.379
-          },
-          {
-            "callsign": "N2115K",
-            "type": "C82T",
-            "alt_ft": 1375,
-            "speed_kt": 150.3,
-            "vert_rate_fpm": -256,
-            "phase": "Approach",
-            "lat": 30.0531,
-            "lon": -90.306
-          },
-          {
-            "callsign": "UAL250",
-            "type": "B39M",
-            "alt_ft": 0,
-            "speed_kt": 2.8,
-            "vert_rate_fpm": -128,
-            "phase": "Ground/Taxi",
-            "lat": 29.9977,
-            "lon": -90.2473
-          },
-          {
-            "callsign": "SWA2980",
-            "type": "N/A",
+            "callsign": "DAL2405",
+            "type": "B739",
             "alt_ft": 1875,
-            "speed_kt": 233.0,
+            "speed_kt": 152.1,
+            "vert_rate_fpm": -64,
+            "phase": "Terminal Level",
+            "lat": 29.8533,
+            "lon": -90.2707
+          },
+          {
+            "callsign": "SWA3792",
+            "type": "B738",
+            "alt_ft": 925,
+            "speed_kt": 124.2,
+            "vert_rate_fpm": -512,
+            "phase": "Approach",
+            "lat": 29.9352,
+            "lon": -90.2673
+          },
+          {
+            "callsign": "JBU775",
+            "type": "BCS3",
+            "alt_ft": 2875,
+            "speed_kt": 274.9,
             "vert_rate_fpm": 0,
             "phase": "Terminal Level",
-            "lat": 29.861,
-            "lon": -90.2169
+            "lat": 29.8996,
+            "lon": -90.1664
           },
           {
-            "callsign": "SKW5745",
-            "type": "E75L",
-            "alt_ft": 4675,
-            "speed_kt": 285.0,
-            "vert_rate_fpm": -1472,
+            "callsign": "C6037",
+            "type": "H60",
+            "alt_ft": 775,
+            "speed_kt": 124.2,
+            "vert_rate_fpm": 128,
+            "phase": "Terminal Level",
+            "lat": 29.821,
+            "lon": -90.0693
+          },
+          {
+            "callsign": "FFT1431",
+            "type": "A21N",
+            "alt_ft": 4625,
+            "speed_kt": 271.4,
+            "vert_rate_fpm": -960,
             "phase": "Approach",
-            "lat": 30.0886,
-            "lon": -90.1926
+            "lat": 30.0493,
+            "lon": -90.0687
+          },
+          {
+            "callsign": "N3JG",
+            "type": "E50P",
+            "alt_ft": 2825,
+            "speed_kt": 222.3,
+            "vert_rate_fpm": 1344,
+            "phase": "Departure",
+            "lat": 30.1,
+            "lon": -90.0569
           }
         ]
       }
     },
     {
-      "recorded_at": "2026-11-25T22:47:17.107352+00:00",
+      "recorded_at": "2026-11-25T23:43:03.299533+00:00",
       "hub_code": "SDF",
       "hub_name": "Louisville Muhammad Ali Intl (UPS Worldport)",
       "hub_type": "airport",
       "region": "Ohio Valley",
       "status": "Normal Operations",
-      "primary_metric": 1,
+      "primary_metric": 2,
       "secondary_metric": 0,
       "weather_summary": "Telemetry Nominal",
       "diesel_price_usd": 5.695,
@@ -127,14 +137,24 @@
         "icao": "KSDF",
         "tracked_flights": [
           {
-            "callsign": "AAL3072",
-            "type": "A319",
-            "alt_ft": 175,
-            "speed_kt": 0.0,
-            "vert_rate_fpm": 0,
-            "phase": "Terminal Level",
-            "lat": 38.1665,
-            "lon": -85.742
+            "callsign": "JIA5405",
+            "type": "CRJ7",
+            "alt_ft": 7575,
+            "speed_kt": 302.7,
+            "vert_rate_fpm": 3520,
+            "phase": "Departure",
+            "lat": 38.3683,
+            "lon": -85.8074
+          },
+          {
+            "callsign": "N100PM",
+            "type": "C172",
+            "alt_ft": 1100,
+            "speed_kt": 61.1,
+            "vert_rate_fpm": 448,
+            "phase": "Departure",
+            "lat": 38.2436,
+            "lon": -85.6647
           }
         ]
       }
