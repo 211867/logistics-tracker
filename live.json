@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-11-26T17:52:49.798995+00:00",
+  "updated_at": "2026-11-26T18:48:18.877890+00:00",
   "macro": {
     "diesel_price_usd": 5.695,
     "freight_tsi": 134.4
   },
   "hubs": [
     {
-      "recorded_at": "2026-11-26T17:52:49.798995+00:00",
+      "recorded_at": "2026-11-26T18:48:18.877890+00:00",
       "hub_code": "PORT_NOLA",
       "hub_name": "Port of New Orleans",
       "hub_type": "seaport",
@@ -24,82 +24,72 @@
       }
     },
     {
-      "recorded_at": "2026-11-26T17:52:49.798995+00:00",
+      "recorded_at": "2026-11-26T18:48:18.877890+00:00",
       "hub_code": "PORT_MIA",
       "hub_name": "Port of Miami",
       "hub_type": "seaport",
       "region": "Southeast",
       "status": "Moderate Traffic",
-      "primary_metric": 5,
-      "secondary_metric": 5,
+      "primary_metric": 4,
+      "secondary_metric": 3,
       "weather_summary": "Telemetry Nominal",
       "diesel_price_usd": 5.695,
       "freight_index": 134.4,
       "raw_payload": {
-        "active_vessels": 5,
-        "stationary_or_berthed": 5,
+        "active_vessels": 4,
+        "stationary_or_berthed": 3,
         "tracked_ships": [
           {
-            "mmsi": "319155500",
-            "name": "SIXTH SENSE",
+            "mmsi": "304972000",
+            "name": "ALDEBARAN J",
             "ship_type_code": null,
             "speed_kt": 0.0,
             "status": "Berthed/Idle",
-            "heading_deg": 176.1,
-            "lat": 25.7717,
-            "lon": -80.142
+            "heading_deg": 217.1,
+            "lat": 25.7707,
+            "lon": -80.1699
           },
           {
-            "mmsi": "368373020",
-            "name": "MSRC STEADFAST",
-            "ship_type_code": null,
-            "speed_kt": 0.0,
-            "status": "Berthed/Idle",
-            "heading_deg": 243.4,
-            "lat": 25.779,
-            "lon": -80.1862
-          },
-          {
-            "mmsi": "367458840",
-            "name": "OSPREY",
+            "mmsi": "368179250",
+            "name": "SEAHAWK",
             "ship_type_code": null,
             "speed_kt": 0.0,
             "status": "Berthed/Idle",
             "heading_deg": 360.0,
-            "lat": 25.7643,
-            "lon": -80.1395
+            "lat": 25.7644,
+            "lon": -80.1453
           },
           {
-            "mmsi": "319302600",
-            "name": "DREAM",
+            "mmsi": "431120000",
+            "name": "ONE MANEUVER",
+            "ship_type_code": null,
+            "speed_kt": 12.1,
+            "status": "Underway",
+            "heading_deg": 90.1,
+            "lat": 25.7569,
+            "lon": -80.113
+          },
+          {
+            "mmsi": "319064900",
+            "name": "OKTO",
             "ship_type_code": null,
             "speed_kt": 0.0,
             "status": "Berthed/Idle",
-            "heading_deg": 146.9,
-            "lat": 25.7848,
-            "lon": -80.1792
-          },
-          {
-            "mmsi": "538071479",
-            "name": "PERSISTENCE",
-            "ship_type_code": null,
-            "speed_kt": 0.0,
-            "status": "Berthed/Idle",
-            "heading_deg": 360.0,
-            "lat": 25.7685,
-            "lon": -80.1395
+            "heading_deg": 92.5,
+            "lat": 25.7571,
+            "lon": -80.1419
           }
         ]
       }
     },
     {
-      "recorded_at": "2026-11-26T17:52:49.798995+00:00",
+      "recorded_at": "2026-11-26T18:48:18.877890+00:00",
       "hub_code": "MSY",
       "hub_name": "Louis Armstrong New Orleans Intl",
       "hub_type": "airport",
       "region": "Gulf Coast",
       "status": "Normal Operations",
-      "primary_metric": 2,
+      "primary_metric": 3,
       "secondary_metric": 0,
       "weather_summary": "Telemetry Nominal",
       "diesel_price_usd": 5.695,
@@ -109,36 +99,46 @@
         "icao": "KMSY",
         "tracked_flights": [
           {
-            "callsign": "AAL909",
-            "type": "B738",
-            "alt_ft": 1325,
-            "speed_kt": 152.5,
-            "vert_rate_fpm": -832,
-            "phase": "Approach",
-            "lat": 29.911,
-            "lon": -90.2748
+            "callsign": "UAL2497",
+            "type": "B38M",
+            "alt_ft": 5875,
+            "speed_kt": 274.7,
+            "vert_rate_fpm": 2944,
+            "phase": "Departure",
+            "lat": 30.0751,
+            "lon": -90.2972
           },
           {
-            "callsign": "KOW25",
-            "type": "C750",
+            "callsign": "SWA3002",
+            "type": "B738",
             "alt_ft": 0,
-            "speed_kt": 18.5,
+            "speed_kt": 23.5,
             "vert_rate_fpm": 0,
             "phase": "Ground/Taxi",
-            "lat": 29.9919,
-            "lon": -90.253
+            "lat": 29.9949,
+            "lon": -90.2495
+          },
+          {
+            "callsign": "DAL2695",
+            "type": "A320",
+            "alt_ft": 1850,
+            "speed_kt": 164.9,
+            "vert_rate_fpm": -64,
+            "phase": "Terminal Level",
+            "lat": 29.8398,
+            "lon": -90.2455
           }
         ]
       }
     },
     {
-      "recorded_at": "2026-11-26T17:52:49.798995+00:00",
+      "recorded_at": "2026-11-26T18:48:18.877890+00:00",
       "hub_code": "SDF",
       "hub_name": "Louisville Muhammad Ali Intl (UPS Worldport)",
       "hub_type": "airport",
       "region": "Ohio Valley",
       "status": "Normal Operations",
-      "primary_metric": 2,
+      "primary_metric": 0,
       "secondary_metric": 0,
       "weather_summary": "Telemetry Nominal",
       "diesel_price_usd": 5.695,
@@ -146,28 +146,7 @@
       "raw_payload": {
         "faa_status": "Normal Operations",
         "icao": "KSDF",
-        "tracked_flights": [
-          {
-            "callsign": "RPA3432",
-            "type": "E75L",
-            "alt_ft": 3275,
-            "speed_kt": 249.3,
-            "vert_rate_fpm": 64,
-            "phase": "Terminal Level",
-            "lat": 37.9909,
-            "lon": -85.7893
-          },
-          {
-            "callsign": "UPS3335",
-            "type": "B763",
-            "alt_ft": 3375,
-            "speed_kt": 174.9,
-            "vert_rate_fpm": -896,
-            "phase": "Approach",
-            "lat": 38.0273,
-            "lon": -85.6963
-          }
-        ]
+        "tracked_flights": []
       }
     }
   ]
