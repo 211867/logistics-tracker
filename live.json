@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-11-26T20:48:43.098748+00:00",
+  "updated_at": "2026-11-26T21:45:18.793638+00:00",
   "macro": {
     "diesel_price_usd": 5.695,
     "freight_tsi": 134.4
   },
   "hubs": [
     {
-      "recorded_at": "2026-11-26T20:48:43.098748+00:00",
+      "recorded_at": "2026-11-26T21:45:18.793638+00:00",
       "hub_code": "PORT_NOLA",
       "hub_name": "Port of New Orleans",
       "hub_type": "seaport",
@@ -24,7 +24,7 @@
       }
     },
     {
-      "recorded_at": "2026-11-26T20:48:43.098748+00:00",
+      "recorded_at": "2026-11-26T21:45:18.793638+00:00",
       "hub_code": "PORT_MIA",
       "hub_name": "Port of Miami",
       "hub_type": "seaport",
@@ -42,13 +42,13 @@
       }
     },
     {
-      "recorded_at": "2026-11-26T20:48:43.098748+00:00",
+      "recorded_at": "2026-11-26T21:45:18.793638+00:00",
       "hub_code": "MSY",
       "hub_name": "Louis Armstrong New Orleans Intl",
       "hub_type": "airport",
       "region": "Gulf Coast",
       "status": "Normal Operations",
-      "primary_metric": 5,
+      "primary_metric": 1,
       "secondary_metric": 0,
       "weather_summary": "Telemetry Nominal",
       "diesel_price_usd": 5.695,
@@ -58,66 +58,26 @@
         "icao": "KMSY",
         "tracked_flights": [
           {
-            "callsign": "N813CT",
-            "type": "P28A",
-            "alt_ft": 2300,
-            "speed_kt": 124.6,
-            "vert_rate_fpm": -300,
-            "phase": "Approach",
-            "lat": 30.0867,
-            "lon": -90.3357
-          },
-          {
-            "callsign": "SWA4600",
-            "type": "B38M",
-            "alt_ft": 1875,
-            "speed_kt": 204.0,
-            "vert_rate_fpm": -64,
-            "phase": "Terminal Level",
-            "lat": 29.89,
-            "lon": -90.3004
-          },
-          {
-            "callsign": "N599LB",
-            "type": "N/A",
-            "alt_ft": 1175,
-            "speed_kt": 131.1,
-            "vert_rate_fpm": -640,
-            "phase": "Approach",
-            "lat": 29.9688,
-            "lon": -90.1914
-          },
-          {
-            "callsign": "N207RS",
-            "type": "C425",
-            "alt_ft": 1500,
-            "speed_kt": 199.0,
-            "vert_rate_fpm": -448,
-            "phase": "Approach",
-            "lat": 30.0809,
-            "lon": -90.0877
-          },
-          {
             "callsign": "N3207E",
             "type": "C172",
-            "alt_ft": 900,
-            "speed_kt": 46.0,
-            "vert_rate_fpm": 320,
-            "phase": "Departure",
-            "lat": 29.9652,
-            "lon": -90.0774
+            "alt_ft": 800,
+            "speed_kt": 46.4,
+            "vert_rate_fpm": 0,
+            "phase": "Terminal Level",
+            "lat": 29.9555,
+            "lon": -90.0892
           }
         ]
       }
     },
     {
-      "recorded_at": "2026-11-26T20:48:43.098748+00:00",
+      "recorded_at": "2026-11-26T21:45:18.793638+00:00",
       "hub_code": "SDF",
       "hub_name": "Louisville Muhammad Ali Intl (UPS Worldport)",
       "hub_type": "airport",
       "region": "Ohio Valley",
       "status": "Normal Operations",
-      "primary_metric": 2,
+      "primary_metric": 0,
       "secondary_metric": 0,
       "weather_summary": "Telemetry Nominal",
       "diesel_price_usd": 5.695,
@@ -125,28 +85,7 @@
       "raw_payload": {
         "faa_status": "Normal Operations",
         "icao": "KSDF",
-        "tracked_flights": [
-          {
-            "callsign": "SWA726",
-            "type": "B38M",
-            "alt_ft": 925,
-            "speed_kt": 133.4,
-            "vert_rate_fpm": -704,
-            "phase": "Approach",
-            "lat": 38.155,
-            "lon": -85.7382
-          },
-          {
-            "callsign": "ASH3980",
-            "type": "E75L",
-            "alt_ft": 2175,
-            "speed_kt": 137.3,
-            "vert_rate_fpm": -704,
-            "phase": "Approach",
-            "lat": 38.0939,
-            "lon": -85.7182
-          }
-        ]
+        "tracked_flights": []
       }
     }
   ]
