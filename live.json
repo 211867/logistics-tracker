@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-11-26T18:48:18.877890+00:00",
+  "updated_at": "2026-11-26T19:56:24.569829+00:00",
   "macro": {
     "diesel_price_usd": 5.695,
     "freight_tsi": 134.4
   },
   "hubs": [
     {
-      "recorded_at": "2026-11-26T18:48:18.877890+00:00",
+      "recorded_at": "2026-11-26T19:56:24.569829+00:00",
       "hub_code": "PORT_NOLA",
       "hub_name": "Port of New Orleans",
       "hub_type": "seaport",
@@ -24,66 +24,25 @@
       }
     },
     {
-      "recorded_at": "2026-11-26T18:48:18.877890+00:00",
+      "recorded_at": "2026-11-26T19:56:24.569829+00:00",
       "hub_code": "PORT_MIA",
       "hub_name": "Port of Miami",
       "hub_type": "seaport",
       "region": "Southeast",
-      "status": "Moderate Traffic",
-      "primary_metric": 4,
-      "secondary_metric": 3,
+      "status": "Active / Low Density",
+      "primary_metric": 0,
+      "secondary_metric": 0,
       "weather_summary": "Telemetry Nominal",
       "diesel_price_usd": 5.695,
       "freight_index": 134.4,
       "raw_payload": {
-        "active_vessels": 4,
-        "stationary_or_berthed": 3,
-        "tracked_ships": [
-          {
-            "mmsi": "304972000",
-            "name": "ALDEBARAN J",
-            "ship_type_code": null,
-            "speed_kt": 0.0,
-            "status": "Berthed/Idle",
-            "heading_deg": 217.1,
-            "lat": 25.7707,
-            "lon": -80.1699
-          },
-          {
-            "mmsi": "368179250",
-            "name": "SEAHAWK",
-            "ship_type_code": null,
-            "speed_kt": 0.0,
-            "status": "Berthed/Idle",
-            "heading_deg": 360.0,
-            "lat": 25.7644,
-            "lon": -80.1453
-          },
-          {
-            "mmsi": "431120000",
-            "name": "ONE MANEUVER",
-            "ship_type_code": null,
-            "speed_kt": 12.1,
-            "status": "Underway",
-            "heading_deg": 90.1,
-            "lat": 25.7569,
-            "lon": -80.113
-          },
-          {
-            "mmsi": "319064900",
-            "name": "OKTO",
-            "ship_type_code": null,
-            "speed_kt": 0.0,
-            "status": "Berthed/Idle",
-            "heading_deg": 92.5,
-            "lat": 25.7571,
-            "lon": -80.1419
-          }
-        ]
+        "active_vessels": 0,
+        "stationary_or_berthed": 0,
+        "tracked_ships": []
       }
     },
     {
-      "recorded_at": "2026-11-26T18:48:18.877890+00:00",
+      "recorded_at": "2026-11-26T19:56:24.569829+00:00",
       "hub_code": "MSY",
       "hub_name": "Louis Armstrong New Orleans Intl",
       "hub_type": "airport",
@@ -99,40 +58,40 @@
         "icao": "KMSY",
         "tracked_flights": [
           {
-            "callsign": "UAL2497",
-            "type": "B38M",
-            "alt_ft": 5875,
-            "speed_kt": 274.7,
-            "vert_rate_fpm": 2944,
-            "phase": "Departure",
-            "lat": 30.0751,
-            "lon": -90.2972
+            "callsign": "UAL1076",
+            "type": "A320",
+            "alt_ft": 4775,
+            "speed_kt": 308.1,
+            "vert_rate_fpm": -1472,
+            "phase": "Approach",
+            "lat": 29.9674,
+            "lon": -90.5039
           },
           {
-            "callsign": "SWA3002",
-            "type": "B738",
+            "callsign": "JBU401",
+            "type": "BCS3",
+            "alt_ft": 925,
+            "speed_kt": 149.2,
+            "vert_rate_fpm": -704,
+            "phase": "Approach",
+            "lat": 29.9359,
+            "lon": -90.2669
+          },
+          {
+            "callsign": "UAL2468",
+            "type": "A319",
             "alt_ft": 0,
-            "speed_kt": 23.5,
+            "speed_kt": 20.5,
             "vert_rate_fpm": 0,
             "phase": "Ground/Taxi",
-            "lat": 29.9949,
+            "lat": 29.9951,
             "lon": -90.2495
-          },
-          {
-            "callsign": "DAL2695",
-            "type": "A320",
-            "alt_ft": 1850,
-            "speed_kt": 164.9,
-            "vert_rate_fpm": -64,
-            "phase": "Terminal Level",
-            "lat": 29.8398,
-            "lon": -90.2455
           }
         ]
       }
     },
     {
-      "recorded_at": "2026-11-26T18:48:18.877890+00:00",
+      "recorded_at": "2026-11-26T19:56:24.569829+00:00",
       "hub_code": "SDF",
       "hub_name": "Louisville Muhammad Ali Intl (UPS Worldport)",
       "hub_type": "airport",
