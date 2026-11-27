@@ -83,8 +83,6 @@ COMMODITY_SERIES = {
     "us_commercial_crude_stocks_kbbl": ("WCESTUS1", "Commercial Crude Oil Inventories (Thousand Bbl)")
 }
 
-}
-
 def classify_vessel(ship_type_code):
     if ship_type_code is None:
         return "Commercial Vessel"
