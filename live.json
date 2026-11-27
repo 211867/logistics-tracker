@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-27T05:48:22.613434+00:00",
+  "updated_at": "2026-11-27T05:55:28.211771+00:00",
   "macro": {
     "diesel_price_usd": 5.695,
     "freight_tsi": 134.4,
@@ -86,7 +86,7 @@
   },
   "hubs": [
     {
-      "recorded_at": "2026-11-27T05:48:22.613434+00:00",
+      "recorded_at": "2026-11-27T05:55:28.211771+00:00",
       "hub_code": "PORT_NOLA",
       "hub_name": "Port of New Orleans",
       "hub_type": "seaport",
@@ -105,7 +105,7 @@
       }
     },
     {
-      "recorded_at": "2026-11-27T05:48:22.613434+00:00",
+      "recorded_at": "2026-11-27T05:55:28.211771+00:00",
       "hub_code": "PORT_BTR",
       "hub_name": "Port of Greater Baton Rouge",
       "hub_type": "seaport",
@@ -124,7 +124,7 @@
       }
     },
     {
-      "recorded_at": "2026-11-27T05:48:22.613434+00:00",
+      "recorded_at": "2026-11-27T05:55:28.211771+00:00",
       "hub_code": "PORT_SOUTH_LA",
       "hub_name": "Port of South Louisiana (Grain & Petrochemical Corridor)",
       "hub_type": "seaport",
@@ -143,7 +143,7 @@
       }
     },
     {
-      "recorded_at": "2026-11-27T05:48:22.613434+00:00",
+      "recorded_at": "2026-11-27T05:55:28.211771+00:00",
       "hub_code": "PORT_MIA",
       "hub_name": "Port of Miami",
       "hub_type": "seaport",
@@ -162,7 +162,7 @@
       }
     },
     {
-      "recorded_at": "2026-11-27T05:48:22.613434+00:00",
+      "recorded_at": "2026-11-27T05:55:28.211771+00:00",
       "hub_code": "MSY",
       "hub_name": "Louis Armstrong New Orleans Intl",
       "hub_type": "airport",
@@ -180,15 +180,15 @@
       }
     },
     {
-      "recorded_at": "2026-11-27T05:48:22.613434+00:00",
+      "recorded_at": "2026-11-27T05:55:28.211771+00:00",
       "hub_code": "SDF",
       "hub_name": "Louisville Muhammad Ali Intl (UPS Worldport)",
       "hub_type": "airport",
       "region": "Ohio Valley",
       "status": "Normal Operations",
-      "primary_metric": 2,
+      "primary_metric": 1,
       "secondary_metric": 0,
-      "weather_summary": "43\u00b0F, Rain Showers, Wind 9 mph",
+      "weather_summary": "41\u00b0F, Rain Showers, Wind 9 mph",
       "diesel_price_usd": 5.695,
       "freight_index": 134.4,
       "raw_payload": {
@@ -196,30 +196,20 @@
         "icao": "KSDF",
         "tracked_flights": [
           {
-            "callsign": "UPS77",
-            "type": "B748",
-            "alt_ft": 2975,
-            "speed_kt": 174.4,
-            "vert_rate_fpm": -1088,
-            "phase": "Approach",
-            "lat": 38.2834,
-            "lon": -85.7807
-          },
-          {
-            "callsign": "UPS9764",
+            "callsign": "CJT499",
             "type": "B763",
-            "alt_ft": 1025,
-            "speed_kt": 140.2,
-            "vert_rate_fpm": -640,
+            "alt_ft": 5850,
+            "speed_kt": 260.3,
+            "vert_rate_fpm": -1024,
             "phase": "Approach",
-            "lat": 38.189,
-            "lon": -85.7494
+            "lat": 38.2462,
+            "lon": -85.9864
           }
         ]
       }
     },
     {
-      "recorded_at": "2026-11-27T05:48:22.613434+00:00",
+      "recorded_at": "2026-11-27T05:55:28.211771+00:00",
       "hub_code": "LA_CORRIDOR_ECON",
       "hub_name": "Lower Mississippi River & Louisiana Commodity Intelligence",
       "hub_type": "corridor_index",
