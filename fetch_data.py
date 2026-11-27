@@ -354,9 +354,9 @@ async def main():
     freight_idx = commodities["freight_tsi_index"]["value"]
 
     # 2. Fetch NOAA Baton Rouge (BTRL1) & Carrollton/NOLA (NORL1) Mississippi River Stage Gauges
-        river_gauges = {
-        "NORL1": get_noaa_river_gauge("NORL1"),
-        "BTRL1": get_noaa_river_gauge("BTRL1")
+    river_gauges = {
+    "NORL1": get_noaa_river_gauge("NORL1"),
+    "BTRL1": get_noaa_river_gauge("BTRL1")
     }
     marine_alerts = get_nws_marine_river_alerts()
 
