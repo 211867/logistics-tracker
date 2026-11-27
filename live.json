@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-11-26T23:46:19.429046+00:00",
+  "updated_at": "2026-11-27T00:57:52.539397+00:00",
   "macro": {
     "diesel_price_usd": 5.695,
     "freight_tsi": 134.4
   },
   "hubs": [
     {
-      "recorded_at": "2026-11-26T23:46:19.429046+00:00",
+      "recorded_at": "2026-11-27T00:57:52.539397+00:00",
       "hub_code": "PORT_NOLA",
       "hub_name": "Port of New Orleans",
       "hub_type": "seaport",
@@ -24,7 +24,7 @@
       }
     },
     {
-      "recorded_at": "2026-11-26T23:46:19.429046+00:00",
+      "recorded_at": "2026-11-27T00:57:52.539397+00:00",
       "hub_code": "PORT_MIA",
       "hub_name": "Port of Miami",
       "hub_type": "seaport",
@@ -42,7 +42,7 @@
       }
     },
     {
-      "recorded_at": "2026-11-26T23:46:19.429046+00:00",
+      "recorded_at": "2026-11-27T00:57:52.539397+00:00",
       "hub_code": "MSY",
       "hub_name": "Louis Armstrong New Orleans Intl",
       "hub_type": "airport",
@@ -58,30 +58,30 @@
         "icao": "KMSY",
         "tracked_flights": [
           {
-            "callsign": "BAW225Y",
-            "type": "B788",
-            "alt_ft": 1100,
-            "speed_kt": 118.4,
-            "vert_rate_fpm": -662,
+            "callsign": "DAL678",
+            "type": "B739",
+            "alt_ft": 25,
+            "speed_kt": 127.4,
+            "vert_rate_fpm": -832,
             "phase": "Approach",
-            "lat": 29.9728,
-            "lon": -90.1831
+            "lat": 29.9876,
+            "lon": -90.244
           },
           {
-            "callsign": "FFT4994",
-            "type": "A21N",
-            "alt_ft": 1875,
-            "speed_kt": 155.1,
+            "callsign": "N145CH",
+            "type": "EC45",
+            "alt_ft": 1125,
+            "speed_kt": 127.1,
             "vert_rate_fpm": 0,
             "phase": "Terminal Level",
-            "lat": 29.9418,
-            "lon": -90.0668
+            "lat": 30.0251,
+            "lon": -90.1071
           }
         ]
       }
     },
     {
-      "recorded_at": "2026-11-26T23:46:19.429046+00:00",
+      "recorded_at": "2026-11-27T00:57:52.539397+00:00",
       "hub_code": "SDF",
       "hub_name": "Louisville Muhammad Ali Intl (UPS Worldport)",
       "hub_type": "airport",
