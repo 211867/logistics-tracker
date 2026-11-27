@@ -1,16 +1,143 @@
 {
-  "updated_at": "2026-11-27T03:29:52.824090+00:00",
+  "updated_at": "2026-11-27T03:54:06.466728+00:00",
   "macro": {
     "diesel_price_usd": 5.695,
-    "freight_tsi": 134.4
+    "freight_tsi": 134.4,
+    "arcturus_congestion_index": 35.0
+  },
+  "river_gauges": {
+    "NORL1": {
+      "gauge_id": "NORL1",
+      "name": "Mississippi River at New Orleans",
+      "stage_ft": 2.31,
+      "flow_kcfs": -999.0,
+      "flood_category": "no_flooding",
+      "draft_status": "Low-Water Draft Restriction Risk",
+      "max_safe_draft_ft": 45.8,
+      "observed_at": "2026-11-27T02:00:00Z"
+    },
+    "BTRL1": {
+      "gauge_id": "BTRL1",
+      "name": "Mississippi River at Baton Rouge",
+      "stage_ft": 6.62,
+      "flow_kcfs": 153.0,
+      "flood_category": "no_flooding",
+      "draft_status": "Optimal Deep-Draft Channel",
+      "max_safe_draft_ft": 47.0,
+      "observed_at": "2026-11-27T02:00:00Z"
+    }
+  },
+  "commodities": {
+    "us_retail_diesel_usd_gal": {
+      "series_id": "GASDESW",
+      "label": "U.S. No. 2 Retail Diesel ($/gal)",
+      "value": 5.695
+    },
+    "gulf_coast_ulsd_usd_gal": {
+      "series_id": "DDFUELUSGULF",
+      "label": "Gulf Coast Ultra-Low-Sulfur Diesel ($/gal)",
+      "value": 3.636
+    },
+    "henry_hub_natgas_usd_mmbtu": {
+      "series_id": "DHHNGSP",
+      "label": "Henry Hub Natural Gas ($/MMBtu)",
+      "value": 3.3
+    },
+    "wti_crude_oil_usd_bbl": {
+      "series_id": "DCOILWTICO",
+      "label": "WTI Crude Oil ($/bbl)",
+      "value": 82.24
+    },
+    "freight_tsi_index": {
+      "series_id": "TSIFRGHT",
+      "label": "BTS Freight Transportation Services Index",
+      "value": 134.4
+    },
+    "global_corn_usd_mt": {
+      "series_id": "PMAIZMTUSDM",
+      "label": "Global Corn Benchmark ($/MT)",
+      "value": 236.9161241071429
+    },
+    "global_soybeans_usd_mt": {
+      "series_id": "PSOYBUSDM",
+      "label": "Global Soybeans Benchmark ($/MT)",
+      "value": 481.7223363582059
+    },
+    "global_rice_usd_mt": {
+      "series_id": "PRICENPQUSDM",
+      "label": "Global Rice Benchmark ($/MT)",
+      "value": 466.4545454545454
+    },
+    "global_sugar_cents_lb": {
+      "series_id": "PSUGAISAUSDM",
+      "label": "Global Sugar Benchmark (cents/lb)",
+      "value": 17.93714285714286
+    }
   },
   "hubs": [
     {
-      "recorded_at": "2026-11-27T03:29:52.824090+00:00",
+      "recorded_at": "2026-11-27T03:54:06.466728+00:00",
       "hub_code": "PORT_NOLA",
       "hub_name": "Port of New Orleans",
       "hub_type": "seaport",
       "region": "Gulf Coast",
+      "status": "Active / Low Density",
+      "primary_metric": 0,
+      "secondary_metric": 0,
+      "weather_summary": "47\u00b0F, Partly Cloudy, Wind 10 mph",
+      "diesel_price_usd": 5.695,
+      "freight_index": 134.4,
+      "raw_payload": {
+        "active_vessels": 0,
+        "stationary_or_berthed": 0,
+        "category_breakdown": {},
+        "tracked_ships": []
+      }
+    },
+    {
+      "recorded_at": "2026-11-27T03:54:06.466728+00:00",
+      "hub_code": "PORT_BTR",
+      "hub_name": "Port of Greater Baton Rouge",
+      "hub_type": "seaport",
+      "region": "Lower Mississippi",
+      "status": "Active / Low Density",
+      "primary_metric": 0,
+      "secondary_metric": 0,
+      "weather_summary": "42\u00b0F, Mostly Clear, Wind 5 mph",
+      "diesel_price_usd": 5.695,
+      "freight_index": 134.4,
+      "raw_payload": {
+        "active_vessels": 0,
+        "stationary_or_berthed": 0,
+        "category_breakdown": {},
+        "tracked_ships": []
+      }
+    },
+    {
+      "recorded_at": "2026-11-27T03:54:06.466728+00:00",
+      "hub_code": "PORT_SOUTH_LA",
+      "hub_name": "Port of South Louisiana (Grain & Petrochemical Corridor)",
+      "hub_type": "seaport",
+      "region": "Lower Mississippi",
+      "status": "Active / Low Density",
+      "primary_metric": 0,
+      "secondary_metric": 0,
+      "weather_summary": "40\u00b0F, Mostly Clear, Wind 5 mph",
+      "diesel_price_usd": 5.695,
+      "freight_index": 134.4,
+      "raw_payload": {
+        "active_vessels": 0,
+        "stationary_or_berthed": 0,
+        "category_breakdown": {},
+        "tracked_ships": []
+      }
+    },
+    {
+      "recorded_at": "2026-11-27T03:54:06.466728+00:00",
+      "hub_code": "PORT_MIA",
+      "hub_name": "Port of Miami",
+      "hub_type": "seaport",
+      "region": "Southeast",
       "status": "Active / Low Density",
       "primary_metric": 0,
       "secondary_metric": 0,
@@ -20,90 +147,12 @@
       "raw_payload": {
         "active_vessels": 0,
         "stationary_or_berthed": 0,
+        "category_breakdown": {},
         "tracked_ships": []
       }
     },
     {
-      "recorded_at": "2026-11-27T03:29:52.824090+00:00",
-      "hub_code": "PORT_MIA",
-      "hub_name": "Port of Miami",
-      "hub_type": "seaport",
-      "region": "Southeast",
-      "status": "Moderate Traffic",
-      "primary_metric": 6,
-      "secondary_metric": 6,
-      "weather_summary": "Telemetry Nominal",
-      "diesel_price_usd": 5.695,
-      "freight_index": 134.4,
-      "raw_payload": {
-        "active_vessels": 6,
-        "stationary_or_berthed": 6,
-        "tracked_ships": [
-          {
-            "mmsi": "367168190",
-            "name": "GRAND LUXE",
-            "ship_type_code": null,
-            "speed_kt": 0.0,
-            "status": "Berthed/Idle",
-            "heading_deg": 259.5,
-            "lat": 25.7727,
-            "lon": -80.1848
-          },
-          {
-            "mmsi": "367458840",
-            "name": "OSPREY",
-            "ship_type_code": null,
-            "speed_kt": 0.0,
-            "status": "Berthed/Idle",
-            "heading_deg": 360.0,
-            "lat": 25.7718,
-            "lon": -80.1514
-          },
-          {
-            "mmsi": "319844000",
-            "name": "PATIENCE",
-            "ship_type_code": null,
-            "speed_kt": 0.0,
-            "status": "Berthed/Idle",
-            "heading_deg": 288.6,
-            "lat": 25.7851,
-            "lon": -80.1788
-          },
-          {
-            "mmsi": "636025203",
-            "name": "SEABOARD VALOR",
-            "ship_type_code": null,
-            "speed_kt": 0.0,
-            "status": "Berthed/Idle",
-            "heading_deg": 169.2,
-            "lat": 25.7673,
-            "lon": -80.1634
-          },
-          {
-            "mmsi": "339247000",
-            "name": "PERSISTENCE",
-            "ship_type_code": null,
-            "speed_kt": 0.0,
-            "status": "Berthed/Idle",
-            "heading_deg": 317.6,
-            "lat": 25.7942,
-            "lon": -80.1464
-          },
-          {
-            "mmsi": "304972000",
-            "name": "ALDEBARAN J",
-            "ship_type_code": null,
-            "speed_kt": 0.0,
-            "status": "Berthed/Idle",
-            "heading_deg": 220.7,
-            "lat": 25.7707,
-            "lon": -80.1699
-          }
-        ]
-      }
-    },
-    {
-      "recorded_at": "2026-11-27T03:29:52.824090+00:00",
+      "recorded_at": "2026-11-27T03:54:06.466728+00:00",
       "hub_code": "MSY",
       "hub_name": "Louis Armstrong New Orleans Intl",
       "hub_type": "airport",
@@ -111,7 +160,7 @@
       "status": "Normal Operations",
       "primary_metric": 0,
       "secondary_metric": 0,
-      "weather_summary": "Telemetry Nominal",
+      "weather_summary": "45\u00b0F, Partly Cloudy, Wind 10 mph",
       "diesel_price_usd": 5.695,
       "freight_index": 134.4,
       "raw_payload": {
@@ -121,21 +170,122 @@
       }
     },
     {
-      "recorded_at": "2026-11-27T03:29:52.824090+00:00",
+      "recorded_at": "2026-11-27T03:54:06.466728+00:00",
       "hub_code": "SDF",
       "hub_name": "Louisville Muhammad Ali Intl (UPS Worldport)",
       "hub_type": "airport",
       "region": "Ohio Valley",
       "status": "Normal Operations",
-      "primary_metric": 0,
+      "primary_metric": 1,
       "secondary_metric": 0,
-      "weather_summary": "Telemetry Nominal",
+      "weather_summary": "43\u00b0F, Rain Showers, Wind 9 mph",
       "diesel_price_usd": 5.695,
       "freight_index": 134.4,
       "raw_payload": {
         "faa_status": "Normal Operations",
         "icao": "KSDF",
-        "tracked_flights": []
+        "tracked_flights": [
+          {
+            "callsign": "UPS493",
+            "type": "B763",
+            "alt_ft": 3625,
+            "speed_kt": 188.0,
+            "vert_rate_fpm": -576,
+            "phase": "Approach",
+            "lat": 37.9928,
+            "lon": -85.6822
+          }
+        ]
+      }
+    },
+    {
+      "recorded_at": "2026-11-27T03:54:06.466728+00:00",
+      "hub_code": "LA_CORRIDOR_ECON",
+      "hub_name": "Lower Mississippi River & Louisiana Commodity Intelligence",
+      "hub_type": "corridor_index",
+      "region": "Lower Mississippi",
+      "status": "Low-Water Draft Restriction Risk",
+      "primary_metric": 35,
+      "secondary_metric": 23,
+      "weather_summary": "Carrollton Stage: 2.31 ft | Baton Rouge Stage: 6.62 ft",
+      "diesel_price_usd": 5.695,
+      "freight_index": 134.4,
+      "raw_payload": {
+        "arcturus_congestion_index": 35.0,
+        "river_gauges": {
+          "NORL1": {
+            "gauge_id": "NORL1",
+            "name": "Mississippi River at New Orleans",
+            "stage_ft": 2.31,
+            "flow_kcfs": -999.0,
+            "flood_category": "no_flooding",
+            "draft_status": "Low-Water Draft Restriction Risk",
+            "max_safe_draft_ft": 45.8,
+            "observed_at": "2026-11-27T02:00:00Z"
+          },
+          "BTRL1": {
+            "gauge_id": "BTRL1",
+            "name": "Mississippi River at Baton Rouge",
+            "stage_ft": 6.62,
+            "flow_kcfs": 153.0,
+            "flood_category": "no_flooding",
+            "draft_status": "Optimal Deep-Draft Channel",
+            "max_safe_draft_ft": 47.0,
+            "observed_at": "2026-11-27T02:00:00Z"
+          }
+        },
+        "commodities": {
+          "us_retail_diesel_usd_gal": {
+            "series_id": "GASDESW",
+            "label": "U.S. No. 2 Retail Diesel ($/gal)",
+            "value": 5.695
+          },
+          "gulf_coast_ulsd_usd_gal": {
+            "series_id": "DDFUELUSGULF",
+            "label": "Gulf Coast Ultra-Low-Sulfur Diesel ($/gal)",
+            "value": 3.636
+          },
+          "henry_hub_natgas_usd_mmbtu": {
+            "series_id": "DHHNGSP",
+            "label": "Henry Hub Natural Gas ($/MMBtu)",
+            "value": 3.3
+          },
+          "wti_crude_oil_usd_bbl": {
+            "series_id": "DCOILWTICO",
+            "label": "WTI Crude Oil ($/bbl)",
+            "value": 82.24
+          },
+          "freight_tsi_index": {
+            "series_id": "TSIFRGHT",
+            "label": "BTS Freight Transportation Services Index",
+            "value": 134.4
+          },
+          "global_corn_usd_mt": {
+            "series_id": "PMAIZMTUSDM",
+            "label": "Global Corn Benchmark ($/MT)",
+            "value": 236.9161241071429
+          },
+          "global_soybeans_usd_mt": {
+            "series_id": "PSOYBUSDM",
+            "label": "Global Soybeans Benchmark ($/MT)",
+            "value": 481.7223363582059
+          },
+          "global_rice_usd_mt": {
+            "series_id": "PRICENPQUSDM",
+            "label": "Global Rice Benchmark ($/MT)",
+            "value": 466.4545454545454
+          },
+          "global_sugar_cents_lb": {
+            "series_id": "PSUGAISAUSDM",
+            "label": "Global Sugar Benchmark (cents/lb)",
+            "value": 17.93714285714286
+          }
+        },
+        "corridor_vessel_totals": {
+          "PORT_NOLA": 0,
+          "PORT_BTR": 0,
+          "PORT_SOUTH_LA": 0
+        }
       }
     }
   ]
