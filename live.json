@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-27T05:55:28.211771+00:00",
+  "updated_at": "2026-11-27T07:03:04.904504+00:00",
   "macro": {
     "diesel_price_usd": 5.695,
     "freight_tsi": 134.4,
@@ -9,22 +9,22 @@
     "NORL1": {
       "gauge_id": "NORL1",
       "name": "Mississippi River at New Orleans",
-      "stage_ft": 2.8,
+      "stage_ft": 3.07,
       "flow_kcfs": -999.0,
       "flood_category": "no_flooding",
       "draft_status": "Low-Water Draft Restriction Risk",
-      "max_safe_draft_ft": 46.3,
-      "observed_at": "2026-11-27T04:00:00Z"
+      "max_safe_draft_ft": 46.6,
+      "observed_at": "2026-11-27T05:00:00Z"
     },
     "BTRL1": {
       "gauge_id": "BTRL1",
       "name": "Mississippi River at Baton Rouge",
-      "stage_ft": 6.46,
-      "flow_kcfs": 149.0,
+      "stage_ft": 6.42,
+      "flow_kcfs": 148.0,
       "flood_category": "no_flooding",
       "draft_status": "Optimal Deep-Draft Channel",
       "max_safe_draft_ft": 47.0,
-      "observed_at": "2026-11-27T04:00:00Z"
+      "observed_at": "2026-11-27T05:00:00Z"
     }
   },
   "commodities": {
@@ -86,7 +86,7 @@
   },
   "hubs": [
     {
-      "recorded_at": "2026-11-27T05:55:28.211771+00:00",
+      "recorded_at": "2026-11-27T07:03:04.904504+00:00",
       "hub_code": "PORT_NOLA",
       "hub_name": "Port of New Orleans",
       "hub_type": "seaport",
@@ -94,7 +94,7 @@
       "status": "Active / Low Density",
       "primary_metric": 0,
       "secondary_metric": 0,
-      "weather_summary": "45\u00b0F, Partly Cloudy, Wind 10 mph",
+      "weather_summary": "45\u00b0F, Partly Cloudy, Wind 5 mph",
       "diesel_price_usd": 5.695,
       "freight_index": 134.4,
       "raw_payload": {
@@ -105,7 +105,7 @@
       }
     },
     {
-      "recorded_at": "2026-11-27T05:55:28.211771+00:00",
+      "recorded_at": "2026-11-27T07:03:04.904504+00:00",
       "hub_code": "PORT_BTR",
       "hub_name": "Port of Greater Baton Rouge",
       "hub_type": "seaport",
@@ -113,7 +113,7 @@
       "status": "Active / Low Density",
       "primary_metric": 0,
       "secondary_metric": 0,
-      "weather_summary": "40\u00b0F, Partly Cloudy, Wind 5 mph",
+      "weather_summary": "40\u00b0F, Mostly Clear, Wind 0 mph",
       "diesel_price_usd": 5.695,
       "freight_index": 134.4,
       "raw_payload": {
@@ -124,7 +124,7 @@
       }
     },
     {
-      "recorded_at": "2026-11-27T05:55:28.211771+00:00",
+      "recorded_at": "2026-11-27T07:03:04.904504+00:00",
       "hub_code": "PORT_SOUTH_LA",
       "hub_name": "Port of South Louisiana (Grain & Petrochemical Corridor)",
       "hub_type": "seaport",
@@ -132,7 +132,7 @@
       "status": "Active / Low Density",
       "primary_metric": 0,
       "secondary_metric": 0,
-      "weather_summary": "39\u00b0F, Partly Cloudy, Wind 5 mph",
+      "weather_summary": "39\u00b0F, Partly Cloudy, Wind 0 mph",
       "diesel_price_usd": 5.695,
       "freight_index": 134.4,
       "raw_payload": {
@@ -143,217 +143,26 @@
       }
     },
     {
-      "recorded_at": "2026-11-27T05:55:28.211771+00:00",
+      "recorded_at": "2026-11-27T07:03:04.904504+00:00",
       "hub_code": "PORT_MIA",
       "hub_name": "Port of Miami",
       "hub_type": "seaport",
       "region": "Southeast",
-      "status": "High Activity",
-      "primary_metric": 17,
-      "secondary_metric": 12,
+      "status": "Active / Low Density",
+      "primary_metric": 0,
+      "secondary_metric": 0,
       "weather_summary": "Telemetry Nominal",
       "diesel_price_usd": 5.695,
       "freight_index": 134.4,
       "raw_payload": {
-        "active_vessels": 17,
-        "stationary_or_berthed": 12,
-        "category_breakdown": {
-          "Commercial Vessel": 16,
-          "Cargo / Bulk Grain & Ag": 1
-        },
-        "tracked_ships": [
-          {
-            "mmsi": "339339000",
-            "name": "M/Y BACCHUS",
-            "ship_type_code": null,
-            "vessel_category": "Commercial Vessel",
-            "speed_kt": 0.0,
-            "status": "Berthed/Idle",
-            "heading_deg": 338.5,
-            "lat": 25.794,
-            "lon": -80.1459
-          },
-          {
-            "mmsi": "319064900",
-            "name": "OKTO",
-            "ship_type_code": null,
-            "vessel_category": "Commercial Vessel",
-            "speed_kt": 0.0,
-            "status": "Berthed/Idle",
-            "heading_deg": 92.5,
-            "lat": 25.7572,
-            "lon": -80.1419
-          },
-          {
-            "mmsi": "368179250",
-            "name": "SEAHAWK",
-            "ship_type_code": null,
-            "vessel_category": "Commercial Vessel",
-            "speed_kt": 0.0,
-            "status": "Berthed/Idle",
-            "heading_deg": 360.0,
-            "lat": 25.7641,
-            "lon": -80.1443
-          },
-          {
-            "mmsi": "369564000",
-            "name": "APOLLO",
-            "ship_type_code": null,
-            "vessel_category": "Commercial Vessel",
-            "speed_kt": 0.0,
-            "status": "Berthed/Idle",
-            "heading_deg": 96.1,
-            "lat": 25.7737,
-            "lon": -80.1769
-          },
-          {
-            "mmsi": "636025203",
-            "name": "SEABOARD VALOR",
-            "ship_type_code": 79,
-            "vessel_category": "Cargo / Bulk Grain & Ag",
-            "speed_kt": 2.4,
-            "status": "Underway",
-            "heading_deg": 94.4,
-            "lat": 25.7663,
-            "lon": -80.1663
-          },
-          {
-            "mmsi": "368091590",
-            "name": "EAGLE II",
-            "ship_type_code": null,
-            "vessel_category": "Commercial Vessel",
-            "speed_kt": 0.0,
-            "status": "Berthed/Idle",
-            "heading_deg": 360.0,
-            "lat": 25.7644,
-            "lon": -80.1453
-          },
-          {
-            "mmsi": "366872810",
-            "name": "BISCAYNE LADY",
-            "ship_type_code": null,
-            "vessel_category": "Commercial Vessel",
-            "speed_kt": 0.0,
-            "status": "Berthed/Idle",
-            "heading_deg": 360.0,
-            "lat": 25.7794,
-            "lon": -80.1838
-          },
-          {
-            "mmsi": "538071479",
-            "name": "PERSISTENCE",
-            "ship_type_code": null,
-            "vessel_category": "Commercial Vessel",
-            "speed_kt": 0.1,
-            "status": "Berthed/Idle",
-            "heading_deg": 151.8,
-            "lat": 25.7685,
-            "lon": -80.1394
-          },
-          {
-            "mmsi": "319152000",
-            "name": "DIRT POOR",
-            "ship_type_code": null,
-            "vessel_category": "Commercial Vessel",
-            "speed_kt": 0.0,
-            "status": "Berthed/Idle",
-            "heading_deg": 183.6,
-            "lat": 25.7564,
-            "lon": -80.142
-          },
-          {
-            "mmsi": "367458840",
-            "name": "OSPREY",
-            "ship_type_code": null,
-            "vessel_category": "Commercial Vessel",
-            "speed_kt": 3.9,
-            "status": "Underway",
-            "heading_deg": 72.6,
-            "lat": 25.7717,
-            "lon": -80.1518
-          },
-          {
-            "mmsi": "368058040",
-            "name": "CALDWELL",
-            "ship_type_code": null,
-            "vessel_category": "Commercial Vessel",
-            "speed_kt": 0.0,
-            "status": "Berthed/Idle",
-            "heading_deg": 218.0,
-            "lat": 25.7747,
-            "lon": -80.1646
-          },
-          {
-            "mmsi": "367627450",
-            "name": "GEORGE T MORAN",
-            "ship_type_code": null,
-            "vessel_category": "Commercial Vessel",
-            "speed_kt": 1.6,
-            "status": "Underway",
-            "heading_deg": 215.8,
-            "lat": 25.7679,
-            "lon": -80.1685
-          },
-          {
-            "mmsi": "366872110",
-            "name": "HERON",
-            "ship_type_code": null,
-            "vessel_category": "Commercial Vessel",
-            "speed_kt": 0.0,
-            "status": "Berthed/Idle",
-            "heading_deg": 360.0,
-            "lat": 25.7644,
-            "lon": -80.1463
-          },
-          {
-            "mmsi": "367653620",
-            "name": "PAYTON GRACE MORAN",
-            "ship_type_code": null,
-            "vessel_category": "Commercial Vessel",
-            "speed_kt": 1.3,
-            "status": "Underway",
-            "heading_deg": 311.4,
-            "lat": 25.767,
-            "lon": -80.1665
-          },
-          {
-            "mmsi": "636024823",
-            "name": "SEABOARD VERDE",
-            "ship_type_code": null,
-            "vessel_category": "Commercial Vessel",
-            "speed_kt": 0.0,
-            "status": "Berthed/Idle",
-            "heading_deg": 245.7,
-            "lat": 25.7691,
-            "lon": -80.1667
-          },
-          {
-            "mmsi": "248062000",
-            "name": "HERAKLES",
-            "ship_type_code": null,
-            "vessel_category": "Commercial Vessel",
-            "speed_kt": 0.0,
-            "status": "Berthed/Idle",
-            "heading_deg": 73.4,
-            "lat": 25.7862,
-            "lon": -80.1793
-          },
-          {
-            "mmsi": "367168190",
-            "name": "GRAND LUXE",
-            "ship_type_code": null,
-            "vessel_category": "Commercial Vessel",
-            "speed_kt": 102.3,
-            "status": "Underway",
-            "heading_deg": 360.0,
-            "lat": 25.7727,
-            "lon": -80.1848
-          }
-        ]
+        "active_vessels": 0,
+        "stationary_or_berthed": 0,
+        "category_breakdown": {},
+        "tracked_ships": []
       }
     },
     {
-      "recorded_at": "2026-11-27T05:55:28.211771+00:00",
+      "recorded_at": "2026-11-27T07:03:04.904504+00:00",
       "hub_code": "MSY",
       "hub_name": "Louis Armstrong New Orleans Intl",
       "hub_type": "airport",
@@ -361,7 +170,7 @@
       "status": "Normal Operations",
       "primary_metric": 0,
       "secondary_metric": 0,
-      "weather_summary": "44\u00b0F, Partly Cloudy, Wind 5 mph",
+      "weather_summary": "43\u00b0F, Mostly Clear, Wind 5 mph",
       "diesel_price_usd": 5.695,
       "freight_index": 134.4,
       "raw_payload": {
@@ -371,44 +180,33 @@
       }
     },
     {
-      "recorded_at": "2026-11-27T05:55:28.211771+00:00",
+      "recorded_at": "2026-11-27T07:03:04.904504+00:00",
       "hub_code": "SDF",
       "hub_name": "Louisville Muhammad Ali Intl (UPS Worldport)",
       "hub_type": "airport",
       "region": "Ohio Valley",
       "status": "Normal Operations",
-      "primary_metric": 1,
+      "primary_metric": 0,
       "secondary_metric": 0,
-      "weather_summary": "41\u00b0F, Rain Showers, Wind 9 mph",
+      "weather_summary": "40\u00b0F, Rain Showers, Wind 10 mph",
       "diesel_price_usd": 5.695,
       "freight_index": 134.4,
       "raw_payload": {
         "faa_status": "Normal Operations",
         "icao": "KSDF",
-        "tracked_flights": [
-          {
-            "callsign": "CJT499",
-            "type": "B763",
-            "alt_ft": 5850,
-            "speed_kt": 260.3,
-            "vert_rate_fpm": -1024,
-            "phase": "Approach",
-            "lat": 38.2462,
-            "lon": -85.9864
-          }
-        ]
+        "tracked_flights": []
       }
     },
     {
-      "recorded_at": "2026-11-27T05:55:28.211771+00:00",
+      "recorded_at": "2026-11-27T07:03:04.904504+00:00",
       "hub_code": "LA_CORRIDOR_ECON",
       "hub_name": "Lower Mississippi River & Louisiana Commodity Intelligence",
       "hub_type": "corridor_index",
       "region": "Lower Mississippi",
       "status": "Low-Water Draft Restriction Risk",
       "primary_metric": 35,
-      "secondary_metric": 28,
-      "weather_summary": "Carrollton Stage: 2.8 ft | Baton Rouge Stage: 6.46 ft",
+      "secondary_metric": 31,
+      "weather_summary": "Carrollton Stage: 3.07 ft | Baton Rouge Stage: 6.42 ft",
       "diesel_price_usd": 5.695,
       "freight_index": 134.4,
       "raw_payload": {
@@ -417,22 +215,22 @@
           "NORL1": {
             "gauge_id": "NORL1",
             "name": "Mississippi River at New Orleans",
-            "stage_ft": 2.8,
+            "stage_ft": 3.07,
             "flow_kcfs": -999.0,
             "flood_category": "no_flooding",
             "draft_status": "Low-Water Draft Restriction Risk",
-            "max_safe_draft_ft": 46.3,
-            "observed_at": "2026-11-27T04:00:00Z"
+            "max_safe_draft_ft": 46.6,
+            "observed_at": "2026-11-27T05:00:00Z"
           },
           "BTRL1": {
             "gauge_id": "BTRL1",
             "name": "Mississippi River at Baton Rouge",
-            "stage_ft": 6.46,
-            "flow_kcfs": 149.0,
+            "stage_ft": 6.42,
+            "flow_kcfs": 148.0,
             "flood_category": "no_flooding",
             "draft_status": "Optimal Deep-Draft Channel",
             "max_safe_draft_ft": 47.0,
-            "observed_at": "2026-11-27T04:00:00Z"
+            "observed_at": "2026-11-27T05:00:00Z"
           }
         },
         "commodities": {
