@@ -78,7 +78,11 @@ COMMODITY_SERIES = {
     "global_corn_usd_mt": ("PMAIZMTUSDM", "Global Corn Benchmark ($/MT)"),
     "global_soybeans_usd_mt": ("PSOYBUSDM", "Global Soybeans Benchmark ($/MT)"),
     "global_rice_usd_mt": ("PRICENPQUSDM", "Global Rice Benchmark ($/MT)"),
-    "global_sugar_cents_lb": ("PSUGAISAUSDM", "Global Sugar Benchmark (cents/lb)")
+    "global_sugar_cents_lb": ("PSUGAISAUSDM", "Global Sugar Benchmark (cents/lb)"),
+    "us_refinery_utilization_pct": ("WPULEUS3", "U.S. / Gulf Coast Refinery Utilization (%)"),
+    "us_commercial_crude_stocks_kbbl": ("WCESTUS1", "Commercial Crude Oil Inventories (Thousand Bbl)")
+}
+
 }
 
 def classify_vessel(ship_type_code):
@@ -161,6 +165,28 @@ def get_noaa_weather(lat, lon):
     except Exception:
         pass
     return "Telemetry Nominal"
+
+def get_nws_marine_river_alerts():
+    """Fetch active NWS marine, river flood, dense fog, or gale advisories in Louisiana."""
+    url = f"https:{DBL}api.weather.gov{SLASH}alerts{SLASH}active?area=LA"
+    headers = {"User-Agent": "ArcturusTerminalTelemetry/1.0 (contact@arcturusterminal.com)", "Accept": "application/geo+json"}
+    relevant_keywords = ("Flood", "Marine", "Fog", "Gale", "Small Craft", "River", "Storm", "Hurricane", "Wind")
+    alerts = []
+    try:
+        r = requests.get(url, headers=headers, timeout=10).json()
+        for feat in r.get("features", []):
+            props = feat.get("properties", {})
+            event = props.get("event", "")
+            if any(k.lower() in event.lower() for k in relevant_keywords):
+                alerts.append({
+                    "event": event,
+                    "severity": props.get("severity", "Unknown"),
+                    "area": (props.get("areaDesc") or "")[:120],
+                    "headline": (props.get("headline") or event)[:160]
+                })
+    except Exception as e:
+        print(f"NWS alerts error: {e}")
+    return alerts[:8]
 
 def get_faa_delays():
     delays = {}
