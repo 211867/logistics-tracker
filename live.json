@@ -158,7 +158,7 @@
       "hub_type": "airport",
       "region": "Gulf Coast",
       "status": "Normal Operations",
-      "primary_metric": 0,
+      "primary_metric": 1,
       "secondary_metric": 0,
       "weather_summary": "45\u00b0F, Partly Cloudy, Wind 10 mph",
       "diesel_price_usd": 5.695,
@@ -166,7 +166,18 @@
       "raw_payload": {
         "faa_status": "Normal Operations",
         "icao": "KMSY",
-        "tracked_flights": []
+        "tracked_flights": [
+          {
+            "callsign": "N992DC",
+            "type": "CL30",
+            "alt_ft": 0,
+            "speed_kt": 6.8,
+            "vert_rate_fpm": 0,
+            "phase": "Ground/Taxi",
+            "lat": 30.0349,
+            "lon": -90.0282
+          }
+        ]
       }
     },
     {
