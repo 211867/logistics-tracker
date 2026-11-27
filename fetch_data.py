@@ -354,10 +354,12 @@ async def main():
     freight_idx = commodities["freight_tsi_index"]["value"]
 
     # 2. Fetch NOAA Baton Rouge (BTRL1) & Carrollton/NOLA (NORL1) Mississippi River Stage Gauges
-    river_gauges = {
+        river_gauges = {
         "NORL1": get_noaa_river_gauge("NORL1"),
         "BTRL1": get_noaa_river_gauge("BTRL1")
     }
+    marine_alerts = get_nws_marine_river_alerts()
+
 
     # 3. Fetch FAA Status & 185s Maritime AIS Sweep across Baton Rouge -> South LA -> NOLA + Miami
     faa_status = get_faa_delays()
@@ -447,6 +449,7 @@ async def main():
         "raw_payload": {
             "arcturus_congestion_index": congestion_index,
             "river_gauges": river_gauges,
+            "marine_river_alerts": marine_alerts,
             "commodities": commodities,
             "corridor_vessel_totals": {
                 "PORT_NOLA": len(ais_data["PORT_NOLA"]["vessels"]),
@@ -461,7 +464,7 @@ async def main():
         sb.table("hub_snapshots").insert(rows).execute()
         print("Inserted upgraded corridor, river gauge & commodity rows into Supabase.")
 
-    live_output = {
+        live_output = {
         "updated_at": now_iso,
         "macro": {
             "diesel_price_usd": diesel,
@@ -469,9 +472,11 @@ async def main():
             "arcturus_congestion_index": congestion_index
         },
         "river_gauges": river_gauges,
+        "marine_river_alerts": marine_alerts,
         "commodities": commodities,
         "hubs": rows
     }
+
     with open("live.json", "w") as f:
         json.dump(live_output, f, indent=2)
     print("Updated live.json successfully.")
