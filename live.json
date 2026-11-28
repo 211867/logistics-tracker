@@ -1,30 +1,30 @@
 {
-  "updated_at": "2026-11-28T09:44:11.424037+00:00",
+  "updated_at": "2026-11-28T10:44:09.782893+00:00",
   "macro": {
     "diesel_price_usd": 5.695,
     "freight_tsi": 134.4,
-    "arcturus_congestion_index": 35.0
+    "arcturus_congestion_index": 37.7
   },
   "river_gauges": {
     "NORL1": {
       "gauge_id": "NORL1",
       "name": "Mississippi River at New Orleans",
-      "stage_ft": 2.98,
+      "stage_ft": 3.09,
       "flow_kcfs": -999.0,
       "flood_category": "no_flooding",
       "draft_status": "Low-Water Draft Restriction Risk",
-      "max_safe_draft_ft": 46.5,
-      "observed_at": "2026-11-28T08:00:00Z"
+      "max_safe_draft_ft": 46.6,
+      "observed_at": "2026-11-28T09:00:00Z"
     },
     "BTRL1": {
       "gauge_id": "BTRL1",
       "name": "Mississippi River at Baton Rouge",
-      "stage_ft": 6.25,
-      "flow_kcfs": 144.0,
+      "stage_ft": 6.3,
+      "flow_kcfs": 145.0,
       "flood_category": "no_flooding",
       "draft_status": "Optimal Deep-Draft Channel",
       "max_safe_draft_ft": 47.0,
-      "observed_at": "2026-11-28T08:00:00Z"
+      "observed_at": "2026-11-28T09:00:00Z"
     }
   },
   "marine_river_alerts": [],
@@ -87,7 +87,7 @@
   },
   "hubs": [
     {
-      "recorded_at": "2026-11-28T09:44:11.424037+00:00",
+      "recorded_at": "2026-11-28T10:44:09.782893+00:00",
       "hub_code": "PORT_NOLA",
       "hub_name": "Port of New Orleans",
       "hub_type": "seaport",
@@ -106,7 +106,7 @@
       }
     },
     {
-      "recorded_at": "2026-11-28T09:44:11.424037+00:00",
+      "recorded_at": "2026-11-28T10:44:09.782893+00:00",
       "hub_code": "PORT_BTR",
       "hub_name": "Port of Greater Baton Rouge",
       "hub_type": "seaport",
@@ -125,7 +125,7 @@
       }
     },
     {
-      "recorded_at": "2026-11-28T09:44:11.424037+00:00",
+      "recorded_at": "2026-11-28T10:44:09.782893+00:00",
       "hub_code": "PORT_SOUTH_LA",
       "hub_name": "Port of South Louisiana (Grain & Petrochemical Corridor)",
       "hub_type": "seaport",
@@ -144,7 +144,7 @@
       }
     },
     {
-      "recorded_at": "2026-11-28T09:44:11.424037+00:00",
+      "recorded_at": "2026-11-28T10:44:09.782893+00:00",
       "hub_code": "PORT_MIA",
       "hub_name": "Port of Miami",
       "hub_type": "seaport",
@@ -163,13 +163,13 @@
       }
     },
     {
-      "recorded_at": "2026-11-28T09:44:11.424037+00:00",
+      "recorded_at": "2026-11-28T10:44:09.782893+00:00",
       "hub_code": "MSY",
       "hub_name": "Louis Armstrong New Orleans Intl",
       "hub_type": "airport",
       "region": "Gulf Coast",
       "status": "Normal Operations",
-      "primary_metric": 0,
+      "primary_metric": 2,
       "secondary_metric": 0,
       "weather_summary": "47\u00b0F, Mostly Cloudy, Wind 0 mph",
       "diesel_price_usd": 5.695,
@@ -177,19 +177,40 @@
       "raw_payload": {
         "faa_status": "Normal Operations",
         "icao": "KMSY",
-        "tracked_flights": []
+        "tracked_flights": [
+          {
+            "callsign": "SCX3022",
+            "type": "B738",
+            "alt_ft": 0,
+            "speed_kt": 0.0,
+            "vert_rate_fpm": 0,
+            "phase": "Ground/Taxi",
+            "lat": 29.9914,
+            "lon": -90.2705
+          },
+          {
+            "callsign": "FDX1453",
+            "type": "A30B",
+            "alt_ft": 0,
+            "speed_kt": 8.2,
+            "vert_rate_fpm": 0,
+            "phase": "Ground/Taxi",
+            "lat": 29.9906,
+            "lon": -90.2626
+          }
+        ]
       }
     },
     {
-      "recorded_at": "2026-11-28T09:44:11.424037+00:00",
+      "recorded_at": "2026-11-28T10:44:09.782893+00:00",
       "hub_code": "SDF",
       "hub_name": "Louisville Muhammad Ali Intl (UPS Worldport)",
       "hub_type": "airport",
       "region": "Ohio Valley",
       "status": "Normal Operations",
-      "primary_metric": 4,
+      "primary_metric": 3,
       "secondary_metric": 0,
-      "weather_summary": "39\u00b0F, Mostly Clear, Wind 9 mph",
+      "weather_summary": "37\u00b0F, Mostly Cloudy, Wind 8 mph",
       "diesel_price_usd": 5.695,
       "freight_index": 134.4,
       "raw_payload": {
@@ -197,82 +218,72 @@
         "icao": "KSDF",
         "tracked_flights": [
           {
-            "callsign": "UPS802",
-            "type": "B763",
-            "alt_ft": 8425,
-            "speed_kt": 252.6,
-            "vert_rate_fpm": 2944,
+            "callsign": "FRG1954",
+            "type": "E120",
+            "alt_ft": 5000,
+            "speed_kt": 154.6,
+            "vert_rate_fpm": 2048,
             "phase": "Departure",
-            "lat": 38.0597,
-            "lon": -85.8377
+            "lat": 38.1458,
+            "lon": -85.8282
           },
           {
-            "callsign": "UPS636",
+            "callsign": "FDX1467",
+            "type": "B763",
+            "alt_ft": 1075,
+            "speed_kt": 130.3,
+            "vert_rate_fpm": -704,
+            "phase": "Approach",
+            "lat": 38.2094,
+            "lon": -85.7562
+          },
+          {
+            "callsign": "UPS1132",
             "type": "B752",
-            "alt_ft": 2600,
-            "speed_kt": 153.7,
+            "alt_ft": 3350,
+            "speed_kt": 225.6,
             "vert_rate_fpm": 2816,
             "phase": "Departure",
-            "lat": 38.158,
-            "lon": -85.7385
-          },
-          {
-            "callsign": "UPS1302",
-            "type": "A306",
-            "alt_ft": 4450,
-            "speed_kt": 216.0,
-            "vert_rate_fpm": 3200,
-            "phase": "Departure",
-            "lat": 38.0923,
-            "lon": -85.7348
-          },
-          {
-            "callsign": "UPS1058",
-            "type": "B763",
-            "alt_ft": 6675,
-            "speed_kt": 289.2,
-            "vert_rate_fpm": 2624,
-            "phase": "Departure",
-            "lat": 38.0383,
-            "lon": -85.6368
+            "lat": 38.1159,
+            "lon": -85.7067
           }
         ]
       }
     },
     {
-      "recorded_at": "2026-11-28T09:44:11.424037+00:00",
+      "recorded_at": "2026-11-28T10:44:09.782893+00:00",
       "hub_code": "LA_CORRIDOR_ECON",
       "hub_name": "Lower Mississippi River & Louisiana Commodity Intelligence",
       "hub_type": "corridor_index",
       "region": "Lower Mississippi",
       "status": "Low-Water Draft Restriction Risk",
-      "primary_metric": 35,
-      "secondary_metric": 30,
-      "weather_summary": "Carrollton Stage: 2.98 ft | Baton Rouge Stage: 6.25 ft",
+      "primary_metric": 38,
+      "secondary_metric": 31,
+      "weather_summary": "Carrollton Stage: 3.09 ft | Baton Rouge Stage: 6.3 ft",
       "diesel_price_usd": 5.695,
       "freight_index": 134.4,
       "raw_payload": {
-        "arcturus_congestion_index": 35.0,
+        "arcturus_congestion_index": 37.7,
         "river_gauges": {
           "NORL1": {
             "gauge_id": "NORL1",
             "name": "Mississippi River at New Orleans",
-            "stage_ft": 2.98,
+            "stage_ft": 3.09,
             "flow_kcfs": -999.0,
             "flood_category": "no_flooding",
             "draft_status": "Low-Water Draft Restriction Risk",
-            "max_safe_draft_ft": 46.5,
-            "observed_at": "2026-11-28T08:00:00Z"
+            "max_safe_draft_ft": 46.6,
+            "observed_at": "2026-11-28T09:00:00Z"
           },
           "BTRL1": {
             "gauge_id": "BTRL1",
             "name": "Mississippi River at Baton Rouge",
-            "stage_ft": 6.25,
-            "flow_kcfs": 144.0,
+            "stage_ft": 6.3,
+            "flow_kcfs": 145.0,
             "flood_category": "no_flooding",
             "draft_status": "Optimal Deep-Draft Channel",
             "max_safe_draft_ft": 47.0,
-            "observed_at": "2026-11-28T08:00:00Z"
+            "observed_at": "2026-11-28T09:00:00Z"
           }
         },
         "marine_river_alerts": [],
